@@ -1,0 +1,13 @@
+BveTs Scenario 2.00
+
+RouteTitle = Random map
+Title = Random (snp)
+Image =
+Comment = snp.dll 用ランダム路線
+
+Route = magicant\randommap\map\snp_1.txt
+
+VehicleTitle = クリアカー
+Vehicle = magicant\clearcar\Vehicle.txt
+
+Author = magicant
