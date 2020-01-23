@@ -8,6 +8,6 @@ Comment = snp.dll 用ランダム路線
 Route = magicant\randommap\map\snp_1.txt
 
 VehicleTitle = クリアカー
-Vehicle = magicant\clearcar\Vehicle.txt
+Vehicle = magicant\clearcar2\Vehicle.txt
 
 Author = magicant
