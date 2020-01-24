@@ -1,0 +1,22 @@
+BveTs Map 2.02
+
+// 草原、単線、直線
+
+$_start = $distance;
+$_count = floor(4.5 + rand(6));
+$_end = $_start + 50 * $_count;
+
+$_start;
+	Repeater['ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 3, 10, 10, 'ground_grass_10m');
+	Repeater['rails'].Begin0(0, 3, 5, 5, 'ballast_5m_' + floor(rand($ballast_5m_count)));
+	Repeater['wirepoles'].Begin0(0, 0, 0, 50, 'wirepole_outer', 'wirepole_inner');
+	Repeater['trolleywire'].Begin0(0, 1, 50, 50, 'trolleywire_50m_a', 'trolleywire_50m_b');
+	// TODO 木や草を植える
+
+$_end - 0.01;
+	Repeater['ground'].End();
+	Repeater['rails'].End();
+	Repeater['wirepoles'].End();
+	Repeater['trolleywire'].End();
+
+$distance = $_end;

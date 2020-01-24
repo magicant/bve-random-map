@@ -1,0 +1,17 @@
+BveTs Structure List 1.00
+
+# 地面
+ground_grass_10m, ../../../Nagoya_Common/Nature/Ground/Grass_10.x
+
+
+# 軌道
+ballast_5m_0, ../../../Nagoya_Common/Railway_Obj/Rail/JR_Line/Ballast.x
+ballast_5m_1, ../../../Nagoya_Common/Railway_Obj/Rail/JR_Line/BallastD.x
+
+# 架線柱
+wirepole_outer, ../../../Nagoya_Common/Railway_Obj/Pole/Pole0_6.x
+wirepole_inner, ../../../Nagoya_Common/Railway_Obj/Pole/Pole0_7.x
+
+# 架線
+trolleywire_50m_a, ../../../Nagoya_Common/Railway_Obj/Torory/Sigle/Torory(50A).x
+trolleywire_50m_b, ../../../Nagoya_Common/Railway_Obj/Torory/Sigle/Torory(50B).x
