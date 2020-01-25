@@ -9,6 +9,12 @@ $next_station_number = 0;
 Structure.Load('../structures/structures_' + floor(rand()) + '.csv');
 $ballast_5m_count = 2;
 
-Station.Load('../stations/stations_' + floor(rand()) + '.csv');
-// TODO 時刻と背景を合わせる
+$__start_hour = 9 + 12 * floor(rand(2));
+Station.Load('../stations/stations_' + $__start_hour + 'h_' + floor(rand()) + '.csv');
+
+$__night = floor($__start_hour / 18);
+Background.Change('background_' + $__night);
+
+// TODO 夜は環境光を暗くする
+
 // TODO 先行列車の時刻を合わせる

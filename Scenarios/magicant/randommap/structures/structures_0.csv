@@ -1,5 +1,10 @@
 BveTs Structure List 1.00
 
+# 背景 (昼用)
+background_0, ../../../Nagoya_Common/Nature/Sky/Back_0.x
+# 背景 (夜用)
+background_1, ../../../Nagoya_Common/Nature/Sky/Starry.x
+
 # 地面
 ground_grass_10m, ../../../Nagoya_Common/Nature/Ground/Grass_10.x
 
