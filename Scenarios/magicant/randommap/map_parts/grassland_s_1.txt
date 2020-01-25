@@ -6,6 +6,7 @@ $distance;
 	Repeater['ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 3, 10, 10, 'ground_grass_10m');
 	Repeater['rails'].Begin0(0, 3, 5, 5, 'ballast_5m_' + floor(rand($ballast_5m_count)));
 	Repeater['wirepoles'].Begin0(0, 0, 0, 50, 'wirepole_outer', 'wirepole_inner');
+	// TODO 架線柱が下線を引く向きを曲線の向きに揃える
 	Repeater['trolleywire'].Begin0(0, 1, 50, 50, 'trolleywire_50m_a', 'trolleywire_50m_b');
 	// TODO 木や草を植える
 
@@ -18,7 +19,7 @@ distance + 100;
 
 $_count = floor(0.5 + rand(4));
 
-distance + 50 * $_count;
+distance + 100 * $_count;
 	Curve.BeginTransition();
 distance + 100;
 	Curve.End();
