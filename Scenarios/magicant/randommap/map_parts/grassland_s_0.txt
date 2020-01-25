@@ -20,3 +20,5 @@ $_end - 0.01;
 	Repeater['trolleywire'].End();
 
 $distance = $_end;
+
+//NEXT: ../map_parts/grassland_s_any.txt

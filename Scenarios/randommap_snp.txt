@@ -5,7 +5,7 @@ Title = Random (snp)
 Image =
 Comment = snp.dll 用ランダム路線
 
-Route = magicant\randommap\map\snp_1.txt
+Route = magicant\randommap\map\snp_0.txt | magicant\randommap\map\snp_1.txt | magicant\randommap\map\snp_2.txt
 
 VehicleTitle = クリアカー
 Vehicle = magicant\clearcar2\Vehicle.txt

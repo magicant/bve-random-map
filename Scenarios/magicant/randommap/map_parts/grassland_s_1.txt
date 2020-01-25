@@ -31,3 +31,5 @@ distance - 0.01;
 	Repeater['rails'].End();
 	Repeater['wirepoles'].End();
 	Repeater['trolleywire'].End();
+
+//NEXT: ../map_parts/grassland_s_any.txt
