@@ -4,6 +4,11 @@ BveTs Map 2.02
 // 全てのマップに共通の初期化を行う。
 
 $distance = 0;
+$next_station_number = 0;
 
 Structure.Load('../structures/structures_' + floor(rand()) + '.csv');
 $ballast_5m_count = 2;
+
+Station.Load('../stations/stations_' + floor(rand()) + '.csv');
+// TODO 時刻と背景を合わせる
+// TODO 先行列車の時刻を合わせる

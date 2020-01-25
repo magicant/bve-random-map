@@ -1,0 +1,33 @@
+BveTs Map 2.02
+
+// 草原、単線、一面一線右側ホーム
+
+$_end = $distance + 210;
+
+$distance;
+	Repeater['ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 3, 10, 10, 'ground_grass_10m');
+	Repeater['rails'].Begin0(0, 3, 5, 5, 'ballast_5m_' + floor(rand($ballast_5m_count)));
+	Repeater['wirepoles'].Begin0(0, 0, 0, 50, 'wirepole_outer', 'wirepole_inner');
+	Repeater['trolleywire'].Begin0(0, 1, 50, 50, 'trolleywire_50m_a', 'trolleywire_50m_b');
+	Repeater['platform_side'].Begin0(0, 1, 5, 5, 'platform_side_r_5m_1');
+	Repeater['platform_floor'].Begin0(0, 1, 5, 5, 'platform_floor_r_5m_1');
+	// TODO 木や草を植える
+
+$distance = $distance + 205;
+$_door_direction = 1;
+$_underrun_limit = 2;
+$_overrun_limit = 5;
+include '../map_misc/station.txt';
+
+$distance;
+	Structure['stopsign'].Put(0, -1.8, 0, 0, 0, 0, 0, 0, 0);
+
+$_end - 0.01;
+	Repeater['ground'].End();
+	Repeater['rails'].End();
+	Repeater['wirepoles'].End();
+	Repeater['trolleywire'].End();
+	Repeater['platform_side'].End();
+	Repeater['platform_floor'].End();
+
+$distance = $_end;
