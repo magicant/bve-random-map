@@ -22,6 +22,8 @@ trolleywire_50m_a, ../../../Nagoya_Common/Railway_Obj/Torory/Sigle/Torory(50A).x
 trolleywire_50m_b, ../../../Nagoya_Common/Railway_Obj/Torory/Sigle/Torory(50B).x
 
 # プラットフォーム
+platform_side_l_5m_1, ../../../Nagoya_Common/Build/Form/simple_Form/5L_E.x
+platform_floor_l_5m_1, ../../../Nagoya_Common/Build/Form/simple_Form/5CL_E.x
 platform_side_r_5m_1, ../../../Nagoya_Common/Build/Form/simple_Form/5R_E.x
 platform_floor_r_5m_1, ../../../Nagoya_Common/Build/Form/simple_Form/5CR_E.x
 

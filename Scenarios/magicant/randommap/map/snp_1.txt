@@ -9,4 +9,4 @@ include '../map_parts/grassland_s_1.txt';
 include '../map_parts/grassland_s_0.txt';
 include '../map_parts/grassland_s_1.txt';
 include '../map_parts/grassland_s_1.txt';
-include '../map_parts/grassland_s_station_0.txt';
+include '../map_parts/grassland_s_station_1.txt';
