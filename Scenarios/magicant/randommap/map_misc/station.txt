@@ -1,16 +1,32 @@
 BveTs Map 2.02
 
-// 駅の停止位置を設置する。
+// 駅の停止位置を設置する。また、TASC 地上子を設置する。
 // このファイルを include する前に以下の変数を設定しておく必要がある。
 //  $distance = 停止位置
 //  $next_station_number = 次の駅の番号 (始発駅は 0)
+//  $previous_station_location = 一つ前の駅の停止位置
+//  $tasc_long_beacon_type = 前の駅の直後に置く TASC 地上子の番号
+//  $tasc_11m_beacon_type = 11 メートル手前に置く TASC 地上子の番号
 //  $_door_direction = ドアが開く方向
 //  $_underrun_limit = 許容されるアンダーラン距離
 //  $_overrun_limit = 許容されるオーバーラン距離
 // このファイルの中で以下の変数が変更される。
 //  $next_station_number = 今回設置した駅の番号
+//  $previous_station_location = 今回設置した駅の停止位置
 
 $distance;
 	Station['station_' + $next_station_number].Put($_door_direction, -$_underrun_limit, $_overrun_limit);
 
 $next_station_number = $next_station_number + 1;
+
+// 前の駅を出た直後に TASC 地上子を置く
+$__l = $previous_station_location + 11;
+$__d = floor($distance - $__l); // 距離を確実に整数にする
+$distance - $__d;
+	Beacon.Put($tasc_long_beacon_type, -1, $__d * 1000);
+
+// 11 メートル手前に TASC 地上子を置く
+$distance - 11;
+	Beacon.Put($tasc_11m_beacon_type, -1, 11000);
+
+$previous_station_location = $distance;
