@@ -6,8 +6,19 @@ BveTs Map 2.02
 include '../map_misc/init.txt';
 
 Signal.Load('../signals/signals_snp_' + floor(rand()) + '.csv');
-// TODO 信号の速度を定義し地上子で設定する
-// TODO 出発駅の閉塞
+
+// 信号の制限速度を設定する
+$max_speed = floor((rand(11) + rand(11)) / 2) * 5 + 70;
+$__a3_speed = ceil(($max_speed * 0.75 - 5) / 10) * 10 + 5;
+$__a2_speed = ceil($max_speed * 0.45 / 5) * 5;
+0;
+	Section.SetSpeedLimit(0, 25, $__a2_speed, $__a3_speed, $max_speed);
+	Beacon.Put(1011, -1, 0);
+	Beacon.Put(1011, -1, 1025);
+	Beacon.Put(1011, -1, 2000 + $__a2_speed);
+	Beacon.Put(1011, -1, 3000 + $__a3_speed);
+	Beacon.Put(1011, -1, 4000 + $max_speed);
+	Section.Begin(0, 2, 3, 4);
 
 $tasc_long_beacon_type = 1030;
 $tasc_11m_beacon_type = 1030;
