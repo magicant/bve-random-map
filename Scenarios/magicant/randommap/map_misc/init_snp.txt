@@ -18,7 +18,12 @@ $__a2_speed = ceil($max_speed * 0.45 / 5) * 5;
 	Beacon.Put(1011, -1, 2000 + $__a2_speed);
 	Beacon.Put(1011, -1, 3000 + $__a3_speed);
 	Beacon.Put(1011, -1, 4000 + $max_speed);
-	Section.Begin(0, 2, 3, 4);
+$signal_index_0 = 0;
+$signal_index_1 = 1;
+$signal_index_2 = 2;
+$signal_index_3 = 3;
+$signal_index_4 = 4;
+	Section.Begin($signal_index_0, $signal_index_2, $signal_index_3, $signal_index_4);
 
 $tasc_long_beacon_type = 1030;
 $tasc_11m_beacon_type = 1030;

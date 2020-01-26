@@ -31,7 +31,7 @@ $_platform_end - 0.01;
 	Repeater['platform_floor'].End();
 
 $_signal;
-	Section.Begin(0, 2, 3, 4);
+	Section.Begin($signal_index_0, $signal_index_2, $signal_index_3, $signal_index_4);
 	Signal['signal_4a'].Put(0, 0, -2, 3.8);
 	Structure['signal_pole_5m_r_0'].Put(0, -2, 3.3, 0, 0, 0, 0, 0, 0);
 	Structure['signal_clamp_4a_r_0'].Put(0, -2, 3.8, 0, 0, 0, 0, 0, 0);
