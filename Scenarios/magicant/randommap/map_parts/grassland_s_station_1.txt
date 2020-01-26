@@ -3,9 +3,9 @@ BveTs Map 2.02
 //STATION
 // 草原、単線、一面一線左側ホーム
 
-$_start = $distance;
-$_stop = $_start + 205;
-$_platform_end = $_start + 210;
+$_begin = $distance;
+$_stop = $_begin + 205;
+$_platform_end = $_begin + 210;
 $_signal = $_platform_end + 25;
 $_end = $distance + 250;
 
@@ -37,10 +37,10 @@ $_signal;
 	Structure['signal_clamp_4a_l_0'].Put(0, 2, 3.8, 0, 0, 0, 0, 0, 0);
 	// TODO ATS 地上子
 
-$_start + 199.99;
+$_begin + 199.99;
 	Repeater['wirepoles'].End();
 	Repeater['trolleywire'].End();
-$_start + 200;
+$_begin + 200;
 	Repeater['wirepoles'].Begin0(0, 0, 0, 25, 'wirepole_inner', 'wirepole_outer');
 	Repeater['trolleywire'].Begin0(0, 1, 25, 25, 'trolleywire_25m_a', 'trolleywire_25m_b');
 

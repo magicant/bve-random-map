@@ -2,16 +2,16 @@ BveTs Map 2.02
 
 // 草原、単線、曲線
 
-$_start = $distance;
-$_curve_start = $_start;
-$_curve_enter = $_curve_start + 100; // TODO 緩和曲線長のランダム化
+$_begin = $distance;
+$_curve_begin = $_begin;
+$_curve_enter = $_curve_begin + 100; // TODO 緩和曲線長のランダム化
 $_count = floor(0.5 + rand(4));
 $_curve_exit = $_curve_enter + 100 * $_count;
 $_curve_end = $_curve_exit + 100; // TODO 緩和曲線長のランダム化
 $_end = $_curve_end;
 $_signal = $_curve_end - 50.25;
 
-$_start;
+$_begin;
 	Repeater['ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 3, 10, 10, 'ground_grass_10m');
 	Repeater['rails'].Begin0(0, 3, 5, 5, 'ballast_5m_' + floor(rand($ballast_5m_count)));
 	Repeater['wirepoles'].Begin0(0, 0, 0, 50, 'wirepole_outer', 'wirepole_inner');
@@ -19,7 +19,7 @@ $_start;
 	Repeater['trolleywire'].Begin0(0, 1, 50, 50, 'trolleywire_50m_a', 'trolleywire_50m_b');
 	// TODO 木や草を植える
 
-$_curve_start;
+$_curve_begin;
 	Curve.BeginTransition();
 $_curve_enter;
 	Curve.Begin(10000);
