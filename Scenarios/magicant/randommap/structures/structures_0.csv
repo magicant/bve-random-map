@@ -18,6 +18,8 @@ wirepole_outer, ../../../Nagoya_Common/Railway_Obj/Pole/Pole0_6.x
 wirepole_inner, ../../../Nagoya_Common/Railway_Obj/Pole/Pole0_7.x
 
 # 架線
+trolleywire_25m_a, ../../../Nagoya_Common/Railway_Obj/Torory/Sigle/Torory(25A).x
+trolleywire_25m_b, ../../../Nagoya_Common/Railway_Obj/Torory/Sigle/Torory(25B).x
 trolleywire_50m_a, ../../../Nagoya_Common/Railway_Obj/Torory/Sigle/Torory(50A).x
 trolleywire_50m_b, ../../../Nagoya_Common/Railway_Obj/Torory/Sigle/Torory(50B).x
 
@@ -29,3 +31,23 @@ platform_floor_r_5m_1, ../../../Nagoya_Common/Build/Form/simple_Form/5CR_E.x
 
 # 停止位置目標
 stopsign, ../../../Nagoya_Common/Railway_Obj/Sign/Stop/Stop.x
+
+# 信号柱
+signal_pole_5m_l_0, ../../../Nagoya_Common/Railway_Obj/SigPole/5Lw.x
+signal_pole_5m_c_0, ../../../Nagoya_Common/Railway_Obj/SigPole/5Cw.x
+signal_pole_5m_r_0, ../../../Nagoya_Common/Railway_Obj/SigPole/5Rw.x
+
+# 信号機支え
+signal_clamp_4a_l_0, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/4Lw.x
+signal_clamp_4a_c_0, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/4Cw.x
+signal_clamp_4a_r_0, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/4Rw.x
+
+# 信号機 (閉塞・出発・場内), 4 灯 (停止・注意・減速・進行)
+signal_4a0_0, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal1L0.x
+signal_4a2_0, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal1L2.x
+signal_4a3_0, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal1L3.x
+signal_4a4_0, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal1L4.x
+signal_glare_a0_0, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/R.x
+signal_glare_a2_0, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/Y.x
+signal_glare_a3_0, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/YG.x
+signal_glare_a4_0, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/G.x
