@@ -69,6 +69,7 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$distance` = パートファイルが切り替わる地点の位置。
  - `$next_station_number` = 次に駅のパートファイルが `include` された時に生成される駅の番号。駅の番号は初めから順に 0, 1, 2... と数える。
  - `$previous_station_location` = 一つ前の駅の停止位置。
+ - `$previous_section_location` = 一つ前の閉塞の開始位置。
 
 以下は全てのパートファイルで使われる変数ではあるが、最初のパートファイルが `include` される前に初期化され、各パートファイルの中では変更されない。
 
@@ -76,6 +77,11 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$signal_index_0`, ..., `$signal_index_4` = 先行列車が 0, ..., 4 区間先の閉塞にある時の信号インデックス。
  - `$tasc_long_beacon_type` = 前の駅の停止位置の 11 メートル先に設置する TASC 地上子の種別番号。
  - `$tasc_11m_beacon_type` = 停車駅の停止位置の 11 メートル手前に設置する TASC 地上子の種別番号。
+ - `$ats_stop_beacon_type` = ATS-P 即時停止地上子の種別番号。
+ - `$ats_update_1_beacon_type` = 一つ先の閉塞の信号現示を送るための地上子の種別番号。閉塞の 25, 50, 85, 130, 180, 280, 600 メートル手前に設置される。
+ - `$ats_update_2_beacon_type` = 二つ先の閉塞の信号現示を送るための地上子の種別番号。閉塞の 25, 50, 85, 130, 180, 280, 600 メートル手前に設置される。
+ - `$ats_update_m1_beacon_type` = この先の停止信号の位置を送るための地上子の種別番号。閉塞の 25, 50, 85, 130, 180, 280, 600 メートル手前に設置される。
+ - `$ats_update_1_beacon_value`, `$ats_update_2_beacon_value`, `$ats_update_m1_beacon_value` = 上記それぞれの地上子に送る値。
  - `$ballast_5m_count` = `ballast_5m_<ID>` ストラクチャーのバリエーション。
 
 なお、距離の単位は全てメートルである。

@@ -34,7 +34,9 @@ $_curve_end;
 $_signal;
 	Section.Begin($signal_index_0, $signal_index_2, $signal_index_3, $signal_index_4);
 	Signal['signal_4a'].Put(0, 0, -2.25, 3.8);
-	// TODO ATS 地上子
+$distance = distance;
+$_indexes = 4320;
+include '../map_misc/section.txt';
 
 $_end - 0.01;
 	Repeater['ground'].End();

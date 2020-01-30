@@ -35,7 +35,9 @@ $_signal;
 	Signal['signal_4a'].Put(0, 0, -2, 3.8);
 	Structure['signal_pole_5m_r_0'].Put(0, -2, 3.3, 0, 0, 0, 0, 0, 0);
 	Structure['signal_clamp_4a_r_0'].Put(0, -2, 3.8, 0, 0, 0, 0, 0, 0);
-	// TODO ATS 地上子
+$distance = distance;
+$_indexes = 4320;
+include '../map_misc/section.txt';
 
 $_begin + 199.99;
 	Repeater['wirepoles'].End();

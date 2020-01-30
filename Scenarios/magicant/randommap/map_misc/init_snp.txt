@@ -27,3 +27,11 @@ $signal_index_4 = 4;
 
 $tasc_long_beacon_type = 1030;
 $tasc_11m_beacon_type = 1030;
+
+$ats_stop_beacon_type = 4;
+$ats_update_1_beacon_type = 1012;
+$ats_update_1_beacon_value = 0;
+$ats_update_2_beacon_type = 1012;
+$ats_update_2_beacon_value = 0;
+$ats_update_m1_beacon_type = 3;
+$ats_update_m1_beacon_value = 9;
