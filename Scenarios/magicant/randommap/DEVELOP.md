@@ -82,6 +82,7 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$ats_update_2_beacon_type` = 二つ先の閉塞の信号現示を送るための地上子の種別番号。閉塞の 25, 50, 85, 130, 180, 280, 600 メートル手前に設置される。
  - `$ats_update_m1_beacon_type` = この先の停止信号の位置を送るための地上子の種別番号。閉塞の 25, 50, 85, 130, 180, 280, 600 メートル手前に設置される。
  - `$ats_update_1_beacon_value`, `$ats_update_2_beacon_value`, `$ats_update_m1_beacon_value` = 上記それぞれの地上子に送る値。
+ - `$ats_update_transponder` = 上記地上子のストラクチャーキー。
  - `$ballast_5m_count` = `ballast_5m_<ID>` ストラクチャーのバリエーション。
 
 なお、距離の単位は全てメートルである。

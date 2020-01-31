@@ -11,6 +11,7 @@ BveTs Map 2.02
 //  $ats_update_2_beacon_value = ATS-P パターン更新地上子に送る値
 //  $ats_update_m1_beacon_type = ATS-P パターン更新地上子の種別番号
 //  $ats_update_m1_beacon_value = ATS-P パターン更新地上子に送る値
+//  $ats_update_transponder = ATS-P パターン更新地上子ストラクチャーキー
 //  $previous_section_location = 直前の閉塞の開始位置
 //  $_indexes = 新しい閉塞の信号インデックス設定 (信号現示受信地上子 (1012 番) に送る値)
 // このファイルの中で以下の変数が変更される。
@@ -18,8 +19,6 @@ BveTs Map 2.02
 
 $previous_section_location;
 	Beacon.Put(1012, 1, $_indexes);
-
-// FIXME 地上子ストラクチャー
 
 // 即時停止地上子
 $distance - 25;
@@ -32,35 +31,49 @@ $distance - 25;
 	Beacon.Put($ats_update_1_beacon_type, 1, $ats_update_1_beacon_value);
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
+distance - 3;
+	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $distance - 50;
 (distance + $previous_section_location + abs(distance - $previous_section_location)) / 2;
 	Beacon.Put($ats_update_1_beacon_type, 1, $ats_update_1_beacon_value);
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
+distance - 3;
+	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $distance - 85;
 (distance + $previous_section_location + abs(distance - $previous_section_location)) / 2;
 	Beacon.Put($ats_update_1_beacon_type, 1, $ats_update_1_beacon_value);
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
+distance - 3;
+	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $distance - 130;
 (distance + $previous_section_location + abs(distance - $previous_section_location)) / 2;
 	Beacon.Put($ats_update_1_beacon_type, 1, $ats_update_1_beacon_value);
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
+distance - 3;
+	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $distance - 180;
 (distance + $previous_section_location + abs(distance - $previous_section_location)) / 2;
 	Beacon.Put($ats_update_1_beacon_type, 1, $ats_update_1_beacon_value);
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
+distance - 3;
+	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $distance - 280;
 (distance + $previous_section_location + abs(distance - $previous_section_location)) / 2;
 	Beacon.Put($ats_update_1_beacon_type, 1, $ats_update_1_beacon_value);
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
+distance - 3;
+	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $distance - 600;
 (distance + $previous_section_location + abs(distance - $previous_section_location)) / 2;
 	Beacon.Put($ats_update_1_beacon_type, 1, $ats_update_1_beacon_value);
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
+distance - 3;
+	Structure[$ats_update_transponder].Put0(0, 3, 0);
 
 $previous_section_location = $distance;

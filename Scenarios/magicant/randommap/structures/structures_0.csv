@@ -51,3 +51,6 @@ signal_glare_a0_0, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/R.x
 signal_glare_a2_0, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/Y.x
 signal_glare_a3_0, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/YG.x
 signal_glare_a4_0, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/G.x
+
+# ATS-P 地上子
+atsp_transponder, ../../../Nagoya_Common/Railway_Obj/Signal/Beacon/P.x

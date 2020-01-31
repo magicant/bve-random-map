@@ -35,3 +35,4 @@ $ats_update_2_beacon_type = 1012;
 $ats_update_2_beacon_value = 0;
 $ats_update_m1_beacon_type = 3;
 $ats_update_m1_beacon_value = 9;
+$ats_update_transponder = 'atsp_transponder';
