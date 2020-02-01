@@ -19,4 +19,4 @@ Background.Change('background_' + $__night);
 
 // TODO 夜は環境光を暗くする
 
-// TODO 先行列車の時刻を合わせる
+$pretrain_time = $__start_hour * 3600 + ($__start_hour * 53 + 83) * 59 % 720 * 5 - 90 - rand(90);
