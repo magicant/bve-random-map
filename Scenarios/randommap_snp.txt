@@ -7,7 +7,7 @@ Comment = snp.dll 用ランダム路線
 
 Route = magicant\randommap\map\snp_0.txt | magicant\randommap\map\snp_1.txt | magicant\randommap\map\snp_2.txt | magicant\randommap\map\snp_3.txt | magicant\randommap\map\snp_4.txt
 
-VehicleTitle = クリアカー
-Vehicle = magicant\clearcar2\Vehicle.txt
+VehicleTitle = クリアカー (snp)
+Vehicle = magicant\clearcar2\Vehicle_snp.txt
 
 Author = magicant

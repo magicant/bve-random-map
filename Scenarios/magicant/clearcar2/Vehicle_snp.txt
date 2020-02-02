@@ -5,4 +5,4 @@ PerformanceCurve = performance\performance.ini
 Panel = panel\panel.ini
 Sound = sound\sound.ini
 MotorNoise = sound\motornoise.ini
-Ats = ats\bve-autopilot.dll
+Ats = ats\snp\DetailManager.dll
