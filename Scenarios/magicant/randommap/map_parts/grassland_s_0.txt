@@ -15,12 +15,12 @@ $_begin;
 	// TODO 木や草を植える
 
 $_signal;
-	Section.Begin($signal_index_0, $signal_index_2, $signal_index_3, $signal_index_4);
+	Section.Begin($signal_index_0, $signal_index_2, $signal_index_3, $signal_index_4, $signal_index_5);
 	Signal['signal_4a'].Put(0, 0, -2.25, 3.8);
 $pretrain_time = $pretrain_time + ($_signal - $_begin) / ($max_speed / 3.6 * 0.75);
 	PreTrain.Pass($pretrain_time);
 $distance = distance;
-$_indexes = 4320;
+$_indexes = 54320;
 include '../map_misc/section.txt';
 
 $_end - 0.01;
