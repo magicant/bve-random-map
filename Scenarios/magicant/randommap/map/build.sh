@@ -1,6 +1,6 @@
 #!/bin/bash
 
-security_types=(snp)
+security_types=(snp swp2)
 files_per_security=5
 stations_per_file=6 # including the first and last stations
 station_rate=29490 # < 32767

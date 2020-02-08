@@ -5,6 +5,7 @@ BveTs Map 2.02
 // このファイルを include する前に以下の変数を設定しておく必要がある。
 //  $distance = 現在位置 (Section.Begin 文のある位置)
 //  $ats_stop_beacon_type = ATS-P 即時停止地上子の種別番号
+//  $ats_stop_beacon_section = ATS-P 即時停止地上子に対応させる閉塞
 //  $ats_update_1_beacon_type = ATS-P パターン更新地上子の種別番号
 //  $ats_update_1_beacon_value = ATS-P パターン更新地上子に送る値
 //  $ats_update_2_beacon_type = ATS-P パターン更新地上子の種別番号
@@ -23,7 +24,7 @@ $previous_section_location;
 // 即時停止地上子
 $distance - 25;
 (distance + $previous_section_location + abs(distance - $previous_section_location)) / 2; // max(distance, $previous_section_location)
-	Beacon.Put($ats_stop_beacon_type, -1, 0);
+	Beacon.Put($ats_stop_beacon_type, $ats_stop_beacon_section, 0);
 
 // 現示更新地上子
 $distance - 25;
