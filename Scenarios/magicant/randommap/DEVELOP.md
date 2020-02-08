@@ -110,3 +110,16 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$ballast_5m_count` = `ballast_5m_<ID>` ストラクチャーのバリエーション。
 
 なお、距離の単位は全てメートルである。
+
+## 計算式
+
+ - max(x, 0) = (x + abs(x)) / 2
+ - min(x, 0) = (x - abs(x)) / 2
+ - max(x, y) = (x + y + abs(x - y)) / 2
+ - min(x, y) = (x + y - abs(x - y)) / 2
+ - (x が 0 または 1 であるとき) if x = 0 then 1 else 0 = 1 - x
+ - (x が 0 または 1 であるとき) if x = 0 then 0 else y = x * y
+ - if x is integer then 0 else 1 = ceil(x) - floor(x)
+ - (x が 0 でないとき) if x > 0 then 1 else -1 = x / abs(x)
+ - if x = 0 then 0 else 1 = ceil(min(abs(x), 1))
+ - (0 <= x <= N のとき) if x = 0 then 0 else 1 = ceil(x / N)
