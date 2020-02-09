@@ -3,6 +3,6 @@ BveTs Vehicle 1.00
 Parameters = parameters\1car.ini
 PerformanceCurve = performance\performance.ini
 Panel = panel\panel.ini
-Sound = sound\sound_snp.ini
+Sound = sound\sound_swp2.ini
 MotorNoise = sound\motornoise.ini
-Ats = ats\snp\DetailManager.dll
+Ats = ats\swp2\DetailManager.dll
