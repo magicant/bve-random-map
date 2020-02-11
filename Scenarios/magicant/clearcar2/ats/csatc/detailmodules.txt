@@ -1,0 +1,6 @@
+Ats.dll
+..\..\..\..\GeneralAtsPlugin\Rock_On\MC.dll
+..\..\..\..\GeneralAtsPlugin\Rock_On\BV.dll
+..\..\..\..\GeneralAtsPlugin\Rock_On\EB.dll
+..\bve-autopilot.dll
+..\..\..\..\GeneralAtsPlugin\Rock_On\DIR.dll
