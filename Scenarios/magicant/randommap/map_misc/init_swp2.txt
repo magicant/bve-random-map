@@ -59,3 +59,5 @@ $ats_update_2_beacon_value = 2;
 $ats_update_m1_beacon_type = 3;
 $ats_update_m1_beacon_value = 9;
 $ats_update_transponder = 'atsp_transponder';
+
+$conductor_timing_beacon_type = 9999999;

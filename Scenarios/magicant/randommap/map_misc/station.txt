@@ -8,6 +8,7 @@ BveTs Map 2.02
 //  $tasc_long_beacon_type = 前の駅の直後に置く TASC 地上子の番号
 //  $tasc_500m_beacon_type = 500 メートル手前に置く TASC 地上子の番号
 //  $tasc_11m_beacon_type = 11 メートル手前に置く TASC 地上子の番号
+//  $conductor_timing_beacon_type = 発車合図タイミングを設定する地上子の番号
 //  $_door_direction = ドアが開く方向
 //  $_underrun_limit = 許容されるアンダーラン距離
 //  $_overrun_limit = 許容されるオーバーラン距離
@@ -37,5 +38,9 @@ $distance - 500;
 // 11 メートル手前に TASC 地上子を置く
 $distance - 11;
 	Beacon.Put($tasc_11m_beacon_type, -1, 11000);
+
+// 発車合図タイミング設定地上子も置く
+$distance - 11;
+	Beacon.Put($conductor_timing_beacon_type, -1, floor(abs(rand(8) - 3) + 0.5));
 
 $previous_station_location = $distance;

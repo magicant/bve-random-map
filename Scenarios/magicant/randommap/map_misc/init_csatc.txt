@@ -57,4 +57,4 @@ $ats_update_m1_beacon_type = 9999999;
 $ats_update_m1_beacon_value = 0;
 $ats_update_transponder = null;
 
-// TODO 一駅ごとに、発車合図ブザーのタイミングを変更する
+$conductor_timing_beacon_type = 33;
