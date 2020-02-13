@@ -1,0 +1,45 @@
+BveTs Map 2.02
+
+// このファイルは、メトロ総合プラグイン CS-ATC 用の全てのマップで最初に include される。
+// map_parts/*.txt ファイルを読み込む前に必要な初期化を行う。
+
+include '../map_misc/init.txt';
+
+// TODO csatc 用の信号
+Signal.Load('../signals/signals_snp_' + floor(rand()) + '.csv');
+
+// 信号の制限速度を設定する
+$max_speed = floor((rand(11) + rand(11)) / 2) * 5 + 70;
+$__a3_speed = ceil(($max_speed * 0.75 - 5) / 10) * 10 + 5;
+$__a2_speed = ceil($max_speed * 0.45 / 5) * 5;
+Section.SetSpeedLimit(0);
+// TODO 02 信号の前に必ず 01 信号が出るようにする
+// TODO 閉塞をもっと細かく刻む
+$signal_index_0 = 0;
+$signal_index_1 = 10;
+$signal_index_2 = 15;
+$signal_index_3 = $__a2_speed / 5 + 10;
+$signal_index_4 = $__a3_speed / 5 + 10;
+$signal_index_5 = $max_speed / 5 + 10;
+// 115 km/h に対応する信号インデックスはないので 120 km/h とする
+$signal_index_5 = ($signal_index_5 + 33 - abs($signal_index_5 - 33)) / 2; // min($signal_index_5, 33)
+0;
+	Section.Begin($signal_index_0, $signal_index_2, $signal_index_3, $signal_index_4, $signal_index_5);
+
+	Beacon.Put(1001, -1, 2); // メトロ総合プラグイン互換モードに切り替える
+
+$tasc_long_beacon_type = 1030;
+// TODO 停止位置 500 メートル手前に駅停車予告地上子を置く
+$tasc_11m_beacon_type = 17;
+
+$ats_stop_beacon_type = 31;
+$ats_stop_beacon_section = 1;
+$ats_update_1_beacon_type = 31;
+$ats_update_1_beacon_value = 0;
+$ats_update_2_beacon_type = 1012;
+$ats_update_2_beacon_value = 0;
+$ats_update_m1_beacon_type = 9999999;
+$ats_update_m1_beacon_value = 0;
+$ats_update_transponder = null;
+
+// TODO 一駅ごとに、発車合図ブザーのタイミングを変更する

@@ -1,0 +1,13 @@
+BveTs Scenario 2.00
+
+RouteTitle = Random map
+Title = Random (CS-ATC)
+Image =
+Comment = メトロ総合プラグイン CS-ATC 用ランダム路線
+
+Route = magicant\randommap\map\csatc_0.txt | magicant\randommap\map\csatc_1.txt | magicant\randommap\map\csatc_2.txt | magicant\randommap\map\csatc_3.txt | magicant\randommap\map\csatc_4.txt
+
+VehicleTitle = クリアカー (CS-ATC)
+Vehicle = magicant\clearcar2\Vehicle_csatc.txt
+
+Author = magicant
