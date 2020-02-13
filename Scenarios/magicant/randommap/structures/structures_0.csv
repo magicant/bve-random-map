@@ -52,5 +52,18 @@ signal_glare_a2_0, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/Y.x
 signal_glare_a3_0, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/YG.x
 signal_glare_a4_0, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/G.x
 
+# 閉塞標識
+section_sign_0, ../../../Nagoya_Common/Railway_Obj/Sign/ATC/0.x
+section_sign_1, ../../../Nagoya_Common/Railway_Obj/Sign/ATC/1.x
+section_sign_2, ../../../Nagoya_Common/Railway_Obj/Sign/ATC/2.x
+section_sign_3, ../../../Nagoya_Common/Railway_Obj/Sign/ATC/3.x
+section_sign_4, ../../../Nagoya_Common/Railway_Obj/Sign/ATC/4.x
+section_sign_5, ../../../Nagoya_Common/Railway_Obj/Sign/ATC/5.x
+section_sign_6, ../../../Nagoya_Common/Railway_Obj/Sign/ATC/6.x
+section_sign_7, ../../../Nagoya_Common/Railway_Obj/Sign/ATC/7.x
+section_sign_8, ../../../Nagoya_Common/Railway_Obj/Sign/ATC/8.x
+section_sign_9, ../../../Nagoya_Common/Railway_Obj/Sign/ATC/9.x
+section_sign_10, ../../../Nagoya_Common/Railway_Obj/Sign/ATC/10.x
+
 # ATS-P 地上子
 atsp_transponder, ../../../Nagoya_Common/Railway_Obj/Signal/Beacon/P.x

@@ -34,6 +34,7 @@ $_curve_end;
 $_signal;
 	Section.Begin($signal_index_0, $signal_index_2, $signal_index_3, $signal_index_4, $signal_index_5);
 	Signal[$signal_4a].Put(0, 0, -2.25, 3.8);
+	Structure[$section_sign_10].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
 $pretrain_time = $pretrain_time + ($_signal - $_begin) / ($max_speed / 3.6 * 0.75);
 	PreTrain.Pass($pretrain_time);
 $distance = distance;
