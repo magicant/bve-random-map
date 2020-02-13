@@ -106,6 +106,7 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$section_sign_0`, ..., `$section_sign_9` = ATC 用第 0, ..., 9 閉塞標識ストラクチャーキー。
  - `$section_sign_10` = ATC 用閉塞標識ストラクチャーキー。
  - `$tasc_long_beacon_type` = 前の駅の停止位置の 11 メートル先に設置する TASC 地上子の種別番号。
+ - `$tasc_500m_beacon_type` = 停車駅の停止位置の 500 メートル手前に設置する TASC 地上子の種別番号。
  - `$tasc_11m_beacon_type` = 停車駅の停止位置の 11 メートル手前に設置する TASC 地上子の種別番号。
  - `$ats_stop_beacon_type` = ATS-P 即時停止地上子の種別番号。
  - `$ats_stop_beacon_section` = ATS-P 即時停止地上子に対応させる閉塞。

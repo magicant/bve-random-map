@@ -44,7 +44,7 @@ $signal_index_5 = ($signal_index_5 + 33 - abs($signal_index_5 - 33)) / 2; // min
 	Beacon.Put(1001, -1, 2); // メトロ総合プラグイン互換モードに切り替える
 
 $tasc_long_beacon_type = 1030;
-// TODO 停止位置 500 メートル手前に駅停車予告地上子を置く
+$tasc_500m_beacon_type = 32;
 $tasc_11m_beacon_type = 17;
 
 $ats_stop_beacon_type = 31;

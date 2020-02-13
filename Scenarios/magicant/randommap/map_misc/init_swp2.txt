@@ -47,6 +47,7 @@ $signal_index_5 = 5;
 	Beacon.Put(1001, -1, 3); // swp2 互換モードに切り替える
 
 $tasc_long_beacon_type = 1030;
+$tasc_500m_beacon_type = 9999999;
 $tasc_11m_beacon_type = 1030;
 
 $ats_stop_beacon_type = 4;
