@@ -5,8 +5,12 @@ BveTs Map 2.02
 
 include '../map_misc/init.txt';
 
-// TODO csatc 用の信号
-Signal.Load('../signals/signals_snp_' + floor(rand()) + '.csv');
+Signal.Load('../signals/signals_csatc.csv');
+$signal_4a = 'null';
+$signal_pole_5m_l = null;
+$signal_pole_5m_r = null;
+$signal_clamp_4a_l = null;
+$signal_clamp_4a_r = null;
 
 // 信号の制限速度を設定する
 $max_speed = floor((rand(11) + rand(11)) / 2) * 5 + 70;

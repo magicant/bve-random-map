@@ -98,6 +98,11 @@ map フォルダーにある build.sh というシェルスクリプトファイ
 
  - `$max_speed` = 路線の最高速度 (km/h)。5 の倍数。
  - `$signal_index_0`, ..., `$signal_index_5` = 先行列車が 0, ..., 5 区間先の閉塞にある時の信号インデックス。
+ - `$signal_4a` = 4 灯式 (停止・注意・減速・進行) 信号機 現示セットキー。
+ - `$signal_pole_5m_l` = 左側用 5 メートル高 信号柱ストラクチャーキー。
+ - `$signal_pole_5m_r` = 右側用 5 メートル高 信号柱ストラクチャーキー。
+ - `$signal_clamp_4a_l` = 左側用 4 灯式信号機支えストラクチャーキー。
+ - `$signal_clamp_4a_r` = 右側用 4 灯式信号機支えストラクチャーキー。
  - `$tasc_long_beacon_type` = 前の駅の停止位置の 11 メートル先に設置する TASC 地上子の種別番号。
  - `$tasc_11m_beacon_type` = 停車駅の停止位置の 11 メートル手前に設置する TASC 地上子の種別番号。
  - `$ats_stop_beacon_type` = ATS-P 即時停止地上子の種別番号。
