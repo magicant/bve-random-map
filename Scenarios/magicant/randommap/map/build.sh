@@ -9,7 +9,7 @@ set -eu
 cd -P -- "$(dirname -- "$0")"
 IFS=$' \t\n\r'
 
-# TODO Terminal stations should be chosen as the last station only.
+# TODO The last non-terminal station should be followed by some sections.
 
 # $candidate_part_file = name of the candidate part file
 candidate_is_dummy() {
@@ -24,11 +24,11 @@ candidate_is_station() {
 # $candidate_part_file [in-out] = name of the candidate part file
 next_candidate_part() {
     candidates=($(
-        sed -n 's|^//NEXT:[[:space:]]*||p' "$candidate_part_file"
+        sed -n 's|^//FOLLOWS:[[:space:]]*||p' "$candidate_part_file"
     ))
     if [ "${#candidates[@]}" -le 0 ]
     then
-        printf 'Error: Part file "%s" has no next part\n' "$candidate_part_file" >&2
+        printf 'Error: Part file "%s" has no preceding part\n' "$candidate_part_file" >&2
         return 1
     fi
     candidate_part_file=${candidates[$((RANDOM % ${#candidates[@]}))]}

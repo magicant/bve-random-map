@@ -5,4 +5,4 @@ BveTs Map 2.02
 
 ;
 
-//NEXT: ../map_parts/grassland_s_any.txt
+//FOLLOWS: ../map_parts/grassland_s_any.txt
