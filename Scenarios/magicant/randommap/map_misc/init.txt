@@ -3,10 +3,10 @@ BveTs Map 2.02
 // このファイルは、他の init_*.txt ファイルから一度だけ include される。
 // 全てのマップに共通の初期化を行う。
 
-$distance = 0;
-$next_station_number = 0;
-$previous_station_location = 0;
-$previous_section_location = 0;
+$distance = 65536;
+$preceding_station_number = 5;
+$following_station_location = $distance;
+$following_section_location = $distance;
 
 Structure.Load('../structures/structures_' + floor(rand()) + '.csv');
 $ballast_5m_count = 2;

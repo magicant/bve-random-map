@@ -2,9 +2,9 @@ BveTs Map 2.02
 
 // 草原、単線、直線
 
-$_begin = $distance;
+$_end = $distance;
 $_count = floor(2.5 + rand(3));
-$_end = $_begin + 100 * $_count;
+$_begin = $_end - 100 * $_count;
 $_signal = $_end - 50.25;
 
 $_begin;
@@ -18,7 +18,7 @@ $_signal;
 	Section.Begin($signal_index_0, $signal_index_2, $signal_index_3, $signal_index_4, $signal_index_5);
 	Signal[$signal_4a].Put(0, 0, -2.25, 3.8);
 	Structure[$section_sign_10].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
-$pretrain_time = $pretrain_time + ($_signal - $_begin) / ($max_speed / 3.6 * 0.75);
+$pretrain_time = $pretrain_time - ($_end - $_signal) / ($max_speed / 3.6 * 0.75);
 	PreTrain.Pass($pretrain_time);
 $distance = distance;
 $_indexes = 54320;
@@ -30,7 +30,7 @@ $_end - 0.01;
 	Repeater['wirepoles'].End();
 	Repeater['trolleywire'].End();
 
-$distance = $_end;
-$pretrain_time = $pretrain_time + ($_end - $_signal) / ($max_speed / 3.6 * 0.75);
+$distance = $_begin;
+$pretrain_time = $pretrain_time - ($_signal - $_begin) / ($max_speed / 3.6 * 0.75);
 
-//NEXT: ../map_parts/grassland_s_any.txt
+//FOLLOWS: ../map_parts/grassland_s_any.txt

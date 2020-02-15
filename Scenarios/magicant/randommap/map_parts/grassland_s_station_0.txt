@@ -3,13 +3,13 @@ BveTs Map 2.02
 //STATION
 // 草原、単線、一面一線右側ホーム
 
-$_begin = $distance;
+$_end = $distance;
+$_begin = $_end - 250;
 $_stop = $_begin + 205;
 $_platform_end = $_begin + 210;
 $_signal = $_platform_end + 25;
-$_end = $distance + 250;
 
-$distance;
+$_begin;
 	Repeater['ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 3, 10, 10, 'ground_grass_10m');
 	Repeater['rails'].Begin0(0, 3, 5, 5, 'ballast_5m_' + floor(rand($ballast_5m_count)));
 	Repeater['wirepoles'].Begin0(0, 0, 0, 50, 'wirepole_outer', 'wirepole_inner');
@@ -36,7 +36,7 @@ $_signal;
 	Structure[$signal_pole_5m_r].Put(0, -2, 3.3, 0, 0, 0, 0, 0, 0);
 	Structure[$signal_clamp_4a_r].Put(0, -2, 3.8, 0, 0, 0, 0, 0, 0);
 	Structure[$section_sign_10].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
-$pretrain_time = $pretrain_time + ($_signal - $_begin) / ($max_speed / 3.6 * 0.75) + 30 + rand(15);
+$pretrain_time = $pretrain_time - ($_end - $_signal) / ($max_speed / 3.6 * 0.75);
 	PreTrain.Pass($pretrain_time);
 $distance = distance;
 $_indexes = 54320;
@@ -55,7 +55,7 @@ $_end - 0.01;
 	Repeater['wirepoles'].End();
 	Repeater['trolleywire'].End();
 
-$distance = $_end;
-$pretrain_time = $pretrain_time + ($_end - $_signal) / ($max_speed / 3.6 * 0.75);
+$distance = $_begin;
+$pretrain_time = $pretrain_time - ($_signal - $_begin) / ($max_speed / 3.6 * 0.75) - 30 - rand(15);
 
-//NEXT: ../map_parts/grassland_s_any.txt
+//FOLLOWS: ../map_parts/grassland_s_any.txt
