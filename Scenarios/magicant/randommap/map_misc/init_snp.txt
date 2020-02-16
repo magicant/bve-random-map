@@ -25,23 +25,19 @@ $section_sign_10 = null;
 
 // 信号の制限速度を設定する
 $max_speed = floor((rand(11) + rand(11)) / 2) * 5 + 70;
-$__a3_speed = ceil(($max_speed * 0.75 - 5) / 10) * 10 + 5;
-$__a2_speed = ceil($max_speed * 0.45 / 5) * 5;
+$signal_speed_4 = $max_speed;
+$signal_speed_3 = ceil(($max_speed * 0.75 - 5) / 10) * 10 + 5;
+$signal_speed_2 = ceil($max_speed * 0.45 / 5) * 5;
+$signal_speed_1 = 25;
 0;
-	Section.SetSpeedLimit(0, 25, $__a2_speed, $__a3_speed, $max_speed, $max_speed);
+	Section.SetSpeedLimit(0, $signal_speed_1, $signal_speed_2, $signal_speed_3, $signal_speed_4, $signal_speed_4);
 	Beacon.Put(1011, -1, 0);
-	Beacon.Put(1011, -1, 1025);
-	Beacon.Put(1011, -1, 2000 + $__a2_speed);
-	Beacon.Put(1011, -1, 3000 + $__a3_speed);
-	Beacon.Put(1011, -1, 4000 + $max_speed);
-	Beacon.Put(1011, -1, 5000 + $max_speed);
-$signal_index_0 = 0;
-$signal_index_1 = 1;
-$signal_index_2 = 2;
-$signal_index_3 = 3;
-$signal_index_4 = 4;
-$signal_index_5 = 5;
-	Section.Begin($signal_index_0, $signal_index_2, $signal_index_3, $signal_index_4, $signal_index_5);
+	Beacon.Put(1011, -1, 1000 + $signal_speed_1);
+	Beacon.Put(1011, -1, 2000 + $signal_speed_2);
+	Beacon.Put(1011, -1, 3000 + $signal_speed_3);
+	Beacon.Put(1011, -1, 4000 + $signal_speed_4);
+	Beacon.Put(1011, -1, 5000 + $signal_speed_4);
+	Section.Begin(0, 2, 4);
 
 $tasc_long_beacon_type = 1030;
 $tasc_500m_beacon_type = 9999999;

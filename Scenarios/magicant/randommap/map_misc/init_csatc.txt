@@ -25,21 +25,15 @@ $section_sign_10 = 'section_sign_10';
 
 // 信号の制限速度を設定する
 $max_speed = floor((rand(11) + rand(11)) / 2) * 5 + 70;
-$__a3_speed = ceil(($max_speed * 0.75 - 5) / 10) * 10 + 5;
-$__a2_speed = ceil($max_speed * 0.45 / 5) * 5;
+$signal_speed_4 = 0;
+$signal_speed_3 = 0;
+$signal_speed_2 = 0;
+$signal_speed_1 = 0;
 Section.SetSpeedLimit(0);
 // TODO 02 信号の前に必ず 01 信号が出るようにする
 // TODO 閉塞をもっと細かく刻む
-$signal_index_0 = 0;
-$signal_index_1 = 10;
-$signal_index_2 = 15;
-$signal_index_3 = $__a2_speed / 5 + 10;
-$signal_index_4 = $__a3_speed / 5 + 10;
-$signal_index_5 = $max_speed / 5 + 10;
-// 115 km/h に対応する信号インデックスはないので 120 km/h とする
-$signal_index_5 = ($signal_index_5 + 33 - abs($signal_index_5 - 33)) / 2; // min($signal_index_5, 33)
 0;
-	Section.Begin($signal_index_0, $signal_index_2, $signal_index_3, $signal_index_4, $signal_index_5);
+	Section.Begin(0, 10, 18); // TODO 最初の閉塞の信号インデックスをもっと現実的にする
 
 	Beacon.Put(1001, -1, 2); // メトロ総合プラグイン互換モードに切り替える
 

@@ -6,7 +6,13 @@ BveTs Map 2.02
 $distance = 65536;
 $preceding_station_number = 5;
 $following_station_location = $distance;
-$following_section_location = $distance;
+$following_section_location_1 = $distance + 31;
+$following_section_location_2 = $distance + 32;
+$following_section_location_3 = $distance + 33;
+$following_section_location_4 = $distance + 34;
+$following_section_location_5 = $distance + 35;
+$following_section_location_6 = $distance + 36;
+$following_section_location_7 = $distance + 37;
 
 Structure.Load('../structures/structures_' + floor(rand()) + '.csv');
 $ballast_5m_count = 2;
