@@ -91,13 +91,15 @@ $__h4 = $__c4 + floor($following_section_signal_3 / 4);
 $__h5 = $__c5 + floor($following_section_signal_4 / 4);
 $__h6 = $__c6 + floor($following_section_signal_5 / 4);
 $__h7 = $__c7 + floor($following_section_signal_6 / 4);
-$__j1 = $__h1; // TODO
-$__j2 = $__h2;
-$__j3 = $__h3;
-$__j4 = $__h4;
-$__j5 = $__h5;
-$__j6 = $__h6;
-$__j7 = $__h7;
+// $__j1 = min($__h1, 2)
+$__j1 = ($__h1 + 2 - abs($__h1 - 2)) / 2;
+// $__j[n] = min($__h[n], $following_section_signal_[n-1] + 2)
+$__j2 = ($__h2 + $following_section_signal_1 + 2 - abs($__h2 - $following_section_signal_1 - 2)) / 2;
+$__j3 = ($__h3 + $following_section_signal_2 + 2 - abs($__h3 - $following_section_signal_2 - 2)) / 2;
+$__j4 = ($__h4 + $following_section_signal_3 + 2 - abs($__h4 - $following_section_signal_3 - 2)) / 2;
+$__j5 = ($__h5 + $following_section_signal_4 + 2 - abs($__h5 - $following_section_signal_4 - 2)) / 2;
+$__j6 = ($__h6 + $following_section_signal_5 + 2 - abs($__h6 - $following_section_signal_5 - 2)) / 2;
+$__j7 = ($__h7 + $following_section_signal_6 + 2 - abs($__h7 - $following_section_signal_6 - 2)) / 2;
 $__indexes = $__j1 * 10
            + $__j2 * 100
            + $__j3 * 1000
