@@ -13,6 +13,13 @@ $following_section_location_4 = $distance + 34;
 $following_section_location_5 = $distance + 35;
 $following_section_location_6 = $distance + 36;
 $following_section_location_7 = $distance + 37;
+$following_section_signal_1 = 0;
+$following_section_signal_2 = 0;
+$following_section_signal_3 = 0;
+$following_section_signal_4 = 0;
+$following_section_signal_5 = 0;
+$following_section_signal_6 = 0;
+$following_section_signal_7 = 0;
 
 Structure.Load('../structures/structures_' + floor(rand()) + '.csv');
 $ballast_5m_count = 2;
