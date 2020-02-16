@@ -10,6 +10,9 @@ BveTs Map 2.02
 //
 // このファイルを include する前に以下の変数を設定しておく必要がある。
 //  $distance = 現在位置 (Section.Begin 文を置く位置)
+//  $has_cab_signal = 車内信号式なら 1、線路脇信号式なら 0。
+//  $is_std_signal = 通常の信号インデックス 0, ..., 5 を使用する路線なら 1、それ以外なら 0。
+//  $is_csatc = CS-ATC 路線なら 1、それ以外なら 0。
 //  $following_section_location_1 = 一つ後の閉塞の開始位置
 //  $following_section_location_2 = 二つ後の閉塞の開始位置
 //  $following_section_location_3, ..., $following_section_location_7 =
@@ -47,6 +50,7 @@ BveTs Map 2.02
 //  $following_section_signal_3, ..., $following_section_signal_7 =
 //    同様に、先の閉塞に先行列車がいる時の、この閉塞の信号インデックス
 
+// まずは $is_std_signal な路線用の計算を行う
 // ここら辺の計算手法の詳細は↓を参照のこと
 // https://github.com/magicant/bve-random-map/issues/5
 $__v1 = sqrt(18 * ($following_section_location_1 - 30 - $distance));
@@ -110,14 +114,54 @@ $__indexes = $__j1 * 10
            // + $__j7 * 10000000;
 
 $distance;
-	Section.Begin(0, $__j1, $__j2, $__j3, $__j4, $__j5, $__j6, $__j7);
+	Section.Begin(0,
+		$is_std_signal * $__j1 + $is_csatc * 10,
+		$is_std_signal * $__j2 + $is_csatc * $following_section_signal_1,
+		$is_std_signal * $__j3 + $is_csatc * $following_section_signal_2,
+		$is_std_signal * $__j4 + $is_csatc * $following_section_signal_3,
+		$is_std_signal * $__j5 + $is_csatc * $following_section_signal_4,
+		$is_std_signal * $__j6 + $is_csatc * $following_section_signal_5,
+		$is_std_signal * $__j7 + $is_csatc * $following_section_signal_6);
 	// TODO 信号ストラクチャーを設置する
 	// TODO 信号支えストラクチャーを設置する
 	// TODO 閉塞標識ストラクチャーを設置する
 
+// $__v[n] = min($__v[n], $max_speed)
+$__v1 = ($__v1 + $max_speed - abs($__v1 - $max_speed)) / 2;
+$__v2 = ($__v2 + $max_speed - abs($__v2 - $max_speed)) / 2;
+$__v3 = ($__v3 + $max_speed - abs($__v3 - $max_speed)) / 2;
+$__v4 = ($__v4 + $max_speed - abs($__v4 - $max_speed)) / 2;
+$__v5 = ($__v5 + $max_speed - abs($__v5 - $max_speed)) / 2;
+$__v6 = ($__v6 + $max_speed - abs($__v6 - $max_speed)) / 2;
+$__v7 = ($__v7 + $max_speed - abs($__v7 - $max_speed)) / 2;
+
+// CS-ATC 用に $__j[n] を計算する
+$__c1 = floor($__v1 / 5) + 10;
+$__c2 = floor($__v2 / 5) + 10;
+$__c3 = floor($__v3 / 5) + 10;
+$__c4 = floor($__v4 / 5) + 10;
+$__c5 = floor($__v5 / 5) + 10;
+$__c6 = floor($__v6 / 5) + 10;
+$__c7 = floor($__v7 / 5) + 10;
+// $__h[n] = min($__c[n], 33)
+$__h1 = ($__c1 + 33 - abs($__c1 - 33)) / 2;
+$__h2 = ($__c2 + 33 - abs($__c2 - 33)) / 2;
+$__h3 = ($__c3 + 33 - abs($__c3 - 33)) / 2;
+$__h4 = ($__c4 + 33 - abs($__c4 - 33)) / 2;
+$__h5 = ($__c5 + 33 - abs($__c5 - 33)) / 2;
+$__h6 = ($__c6 + 33 - abs($__c6 - 33)) / 2;
+$__h7 = ($__c7 + 33 - abs($__c7 - 33)) / 2;
+$__j1 = $is_std_signal * $__j1 + $is_csatc * $__h1;
+$__j2 = $is_std_signal * $__j2 + $is_csatc * $__h2;
+$__j3 = $is_std_signal * $__j3 + $is_csatc * $__h3;
+$__j4 = $is_std_signal * $__j4 + $is_csatc * $__h4;
+$__j5 = $is_std_signal * $__j5 + $is_csatc * $__h5;
+$__j6 = $is_std_signal * $__j6 + $is_csatc * $__h6;
+$__j7 = $is_std_signal * $__j7 + $is_csatc * $__h7;
+
 // 現示更新地上子
 $distance + 0.01;
-	Beacon.Put(1012, 1, $__indexes);
+	Beacon.Put(1012, 1, $__indexes * $is_std_signal);
 
 // 即時停止地上子
 $following_section_location_1 - 25;

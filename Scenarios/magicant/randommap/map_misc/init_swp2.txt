@@ -5,6 +5,10 @@ BveTs Map 2.02
 
 include '../map_misc/init.txt';
 
+$has_cab_signal = 0;
+$is_std_signal = 1;
+$is_csatc = 0;
+
 Signal.Load('../signals/signals_snp_' + floor(rand()) + '.csv');
 $signal_4a = 'signal_4a';
 $signal_pole_5m_l = 'signal_pole_5m_l_' + floor(rand());
