@@ -30,9 +30,10 @@ $_platform_end - 0.01;
 	Repeater['platform_side'].End();
 	Repeater['platform_floor'].End();
 
-$_signal;
-$location = distance;
+$_fake = 0;
+$location = $_signal;
 include '../map_misc/section.txt';
+$_signal;
 	Signal[$signal_4a].Put(0, 0, -2, 3.8);
 	Structure[$signal_pole_5m_r].Put(0, -2, 3.3, 0, 0, 0, 0, 0, 0);
 	Structure[$signal_clamp_4a_r].Put(0, -2, 3.8, 0, 0, 0, 0, 0, 0);

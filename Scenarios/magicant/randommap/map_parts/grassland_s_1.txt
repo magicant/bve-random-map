@@ -31,9 +31,10 @@ $_curve_exit;
 $_curve_end;
 	Curve.End();
 
-$_signal;
-$location = distance;
+$_fake = 0;
+$location = $_signal;
 include '../map_misc/section.txt';
+$_signal;
 	Signal[$signal_4a].Put(0, 0, -2.25, 3.8);
 	Structure[$section_sign_10].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
 $pretrain_time = $pretrain_time - ($_end - $_signal) / ($max_speed / 3.6 * 0.75);
