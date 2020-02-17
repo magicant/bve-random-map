@@ -98,6 +98,8 @@ build_file() {
     do
         next_part
     done
+
+    printf "\r\ninclude '%s';\r\n" "../map_misc/fin_${security}.txt"
 } >"$file_name"
 
 for security in "${security_types[@]}"
