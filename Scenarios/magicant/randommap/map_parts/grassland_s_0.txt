@@ -2,7 +2,7 @@ BveTs Map 2.02
 
 // 草原、単線、直線
 
-$_end = $distance;
+$_end = $location;
 $_count = floor(2.5 + rand(3));
 $_begin = $_end - 100 * $_count;
 $_signal = $_end - 50.25;
@@ -15,7 +15,7 @@ $_begin;
 	// TODO 木や草を植える
 
 $_signal;
-$distance = distance;
+$location = distance;
 include '../map_misc/section.txt';
 	Signal[$signal_4a].Put(0, 0, -2.25, 3.8);
 	Structure[$section_sign_10].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
@@ -28,7 +28,7 @@ $_end - 0.01;
 	Repeater['wirepoles'].End();
 	Repeater['trolleywire'].End();
 
-$distance = $_begin;
+$location = $_begin;
 $pretrain_time = $pretrain_time - ($_signal - $_begin) / ($max_speed / 3.6 * 0.75);
 
 //FOLLOWS: ../map_parts/grassland_s_any.txt

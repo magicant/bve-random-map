@@ -2,7 +2,7 @@ BveTs Map 2.02
 
 // 草原、単線、曲線
 
-$_end = $distance;
+$_end = $location;
 $_curve_end = $_end;
 $_curve_exit = $_curve_end - 100; // TODO 緩和曲線長のランダム化
 $_count = floor(0.5 + rand(4));
@@ -32,7 +32,7 @@ $_curve_end;
 	Curve.End();
 
 $_signal;
-$distance = distance;
+$location = distance;
 include '../map_misc/section.txt';
 	Signal[$signal_4a].Put(0, 0, -2.25, 3.8);
 	Structure[$section_sign_10].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
@@ -45,7 +45,7 @@ $_end - 0.01;
 	Repeater['wirepoles'].End();
 	Repeater['trolleywire'].End();
 
-$distance = $_begin;
+$location = $_begin;
 $pretrain_time = $pretrain_time - ($_signal - $_begin) / ($max_speed / 3.6 * 0.75);
 
 //FOLLOWS: ../map_parts/grassland_s_any.txt

@@ -6,7 +6,7 @@ BveTs Map 2.02
 //  - 一つ後の駅の停止位置 500 メートル手前の TASC 地上子
 //  - 発車合図タイミング設定地上子
 // このファイルを include する前に以下の変数を設定しておく必要がある。
-//  $distance = 停止位置
+//  $location = 停止位置
 //  $preceding_station_number = 設置する駅の番号 (始発駅は 0)
 //  $following_station_location = 一つ後の駅の停止位置
 //  $tasc_long_beacon_type = 前の駅の直後に置く TASC 地上子の番号
@@ -18,15 +18,15 @@ BveTs Map 2.02
 //  $_overrun_limit = 許容されるオーバーラン距離
 // このファイルの中で以下の変数が変更される。
 //  $preceding_station_number = 次に設置する (一つ手前の) 駅の番号
-//  $following_station_location = 今回設置した駅の停止位置 (= $distance)
+//  $following_station_location = 今回設置した駅の停止位置 (= $location)
 
-$distance;
+$location;
 	Station['station_' + $preceding_station_number].Put($_door_direction, -$_underrun_limit, $_overrun_limit);
 
 $preceding_station_number = $preceding_station_number - 1;
 
 // この駅を出た直後に TASC 地上子を置く
-$__l = $distance + 11;
+$__l = $location + 11;
 $__d = floor($following_station_location - $__l); // 距離を確実に整数にする
 $following_station_location - $__d;
 	Beacon.Put($tasc_long_beacon_type, -1, $__d * 1000);
@@ -34,17 +34,17 @@ $following_station_location - $__d;
 // 一つ後の駅の 500 メートル手前に TASC 地上子を置く。
 // 駅が近いときは 500 メートルよりも近い位置に設置することになるが、その場合は
 // $tasc_long_beacon_type の方の地上子が直後に来るので停止位置がずれることはない。
-$__l = $distance + 10.99;
+$__l = $location + 10.99;
 $following_station_location - 500;
 (distance + $__l + abs(distance - $__l)) / 2; // max(distance, $__l)
 	Beacon.Put($tasc_500m_beacon_type, -1, 0);
 
 // 11 メートル手前に TASC 地上子を置く
-$distance - 11;
+$location - 11;
 	Beacon.Put($tasc_11m_beacon_type, -1, 11000);
 
 // 発車合図タイミング設定地上子も置く
-$distance - 11;
+$location - 11;
 	Beacon.Put($conductor_timing_beacon_type, -1, floor(abs(rand(8) - 3) + 0.5));
 
-$following_station_location = $distance;
+$following_station_location = $location;

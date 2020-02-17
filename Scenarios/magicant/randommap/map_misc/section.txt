@@ -2,14 +2,14 @@ BveTs Map 2.02
 
 // 閉塞を設置する。また、一つ後の閉塞に対する ATS 地上子を設置する。
 //
-// このファイルで設置する地上子は現地点 ($distance) にある閉塞に対する地上子ではなく
+// このファイルで設置する地上子は現地点 ($location) にある閉塞に対する地上子ではなく
 // 一つ後の閉塞 ($following_section_location_1) に対する地上子である。
 // これらの地上子を二つ以上手前の閉塞に設置すると地上子が情報を送信する閉塞の
-// インデックスがずれるので、一つ手前の閉塞の位置 ($distance) が確定してから
+// インデックスがずれるので、一つ手前の閉塞の位置 ($location) が確定してから
 // その位置に応じて地上子を設置する。
 //
 // このファイルを include する前に以下の変数を設定しておく必要がある。
-//  $distance = 現在位置 (Section.Begin 文を置く位置)
+//  $location = 現在位置 (Section.Begin 文を置く位置)
 //  $has_cab_signal = 車内信号式なら 1、線路脇信号式なら 0。
 //  $is_std_signal = 通常の信号インデックス 0, ..., 5 を使用する路線なら 1、それ以外なら 0。
 //  $is_csatc = CS-ATC 路線なら 1、それ以外なら 0。
@@ -35,10 +35,10 @@ BveTs Map 2.02
 //  $ats_update_m1_beacon_value = ATS-P パターン更新地上子に送る値
 //  $ats_update_transponder = ATS-P パターン更新地上子ストラクチャーキー
 //
-// なお $distance と $following_section_location_1 は 30 メートル以上離れていなければならない
+// なお $location と $following_section_location_1 は 30 メートル以上離れていなければならない
 //
 // このファイルの中で以下の変数が変更される。
-//  $following_section_location_1 = この閉塞の開始位置 (= $distance)
+//  $following_section_location_1 = この閉塞の開始位置 (= $location)
 //  $following_section_location_2 = 一つ後の閉塞の開始位置
 //  $following_section_location_3 = 二つ後の閉塞の開始位置
 //  $following_section_location_4, ..., $following_section_location_7 =
@@ -53,13 +53,13 @@ BveTs Map 2.02
 // まずは $is_std_signal な路線用の計算を行う
 // ここら辺の計算手法の詳細は↓を参照のこと
 // https://github.com/magicant/bve-random-map/issues/5
-$__v1 = sqrt(18 * ($following_section_location_1 - 30 - $distance));
-$__v2 = sqrt(18 * ($following_section_location_2 - 30 - $distance));
-$__v3 = sqrt(18 * ($following_section_location_3 - 30 - $distance));
-$__v4 = sqrt(18 * ($following_section_location_4 - 30 - $distance));
-$__v5 = sqrt(18 * ($following_section_location_5 - 30 - $distance));
-$__v6 = sqrt(18 * ($following_section_location_6 - 30 - $distance));
-$__v7 = sqrt(18 * ($following_section_location_7 - 30 - $distance));
+$__v1 = sqrt(18 * ($following_section_location_1 - 30 - $location));
+$__v2 = sqrt(18 * ($following_section_location_2 - 30 - $location));
+$__v3 = sqrt(18 * ($following_section_location_3 - 30 - $location));
+$__v4 = sqrt(18 * ($following_section_location_4 - 30 - $location));
+$__v5 = sqrt(18 * ($following_section_location_5 - 30 - $location));
+$__v6 = sqrt(18 * ($following_section_location_6 - 30 - $location));
+$__v7 = sqrt(18 * ($following_section_location_7 - 30 - $location));
 $__c1 = ceil(floor($__v1 / $signal_speed_1) / 65536)
       + ceil(floor($__v1 / $signal_speed_2) / 65536)
       + ceil(floor($__v1 / $signal_speed_3) / 65536)
@@ -113,7 +113,7 @@ $__indexes = $__j1 * 10
            // + $__j6 * 1000000
            // + $__j7 * 10000000;
 
-$distance;
+$location;
 	Section.Begin(0,
 		$is_std_signal * $__j1 + $is_csatc * 10,
 		$is_std_signal * $__j2 + $is_csatc * $following_section_signal_1,
@@ -160,59 +160,59 @@ $__j6 = $is_std_signal * $__j6 + $is_csatc * $__h6;
 $__j7 = $is_std_signal * $__j7 + $is_csatc * $__h7;
 
 // 現示更新地上子
-$distance + 0.01;
+$location + 0.01;
 	Beacon.Put(1012, 1, $__indexes * $is_std_signal);
 
 // 即時停止地上子
 $following_section_location_1 - 25;
-(distance + $distance + abs(distance - $distance)) / 2; // max(distance, $distance)
+(distance + $location + abs(distance - $location)) / 2; // max(distance, $location)
 	Beacon.Put($ats_stop_beacon_type, $ats_stop_beacon_section, 0);
 
 // 現示更新地上子
 $following_section_location_1 - 25;
-(distance + $distance + abs(distance - $distance)) / 2; // max(distance, $distance)
+(distance + $location + abs(distance - $location)) / 2; // max(distance, $location)
 	Beacon.Put($ats_update_1_beacon_type, 1, $ats_update_1_beacon_value);
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
 distance - 3;
 	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $following_section_location_1 - 50;
-(distance + $distance + abs(distance - $distance)) / 2; // max(distance, $distance)
+(distance + $location + abs(distance - $location)) / 2; // max(distance, $location)
 	Beacon.Put($ats_update_1_beacon_type, 1, $ats_update_1_beacon_value);
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
 distance - 3;
 	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $following_section_location_1 - 85;
-(distance + $distance + abs(distance - $distance)) / 2; // max(distance, $distance)
+(distance + $location + abs(distance - $location)) / 2; // max(distance, $location)
 	Beacon.Put($ats_update_1_beacon_type, 1, $ats_update_1_beacon_value);
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
 distance - 3;
 	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $following_section_location_1 - 130;
-(distance + $distance + abs(distance - $distance)) / 2; // max(distance, $distance)
+(distance + $location + abs(distance - $location)) / 2; // max(distance, $location)
 	Beacon.Put($ats_update_1_beacon_type, 1, $ats_update_1_beacon_value);
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
 distance - 3;
 	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $following_section_location_1 - 180;
-(distance + $distance + abs(distance - $distance)) / 2; // max(distance, $distance)
+(distance + $location + abs(distance - $location)) / 2; // max(distance, $location)
 	Beacon.Put($ats_update_1_beacon_type, 1, $ats_update_1_beacon_value);
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
 distance - 3;
 	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $following_section_location_1 - 280;
-(distance + $distance + abs(distance - $distance)) / 2; // max(distance, $distance)
+(distance + $location + abs(distance - $location)) / 2; // max(distance, $location)
 	Beacon.Put($ats_update_1_beacon_type, 1, $ats_update_1_beacon_value);
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
 distance - 3;
 	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $following_section_location_1 - 600;
-(distance + $distance + abs(distance - $distance)) / 2; // max(distance, $distance)
+(distance + $location + abs(distance - $location)) / 2; // max(distance, $location)
 	Beacon.Put($ats_update_1_beacon_type, 1, $ats_update_1_beacon_value);
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
@@ -225,7 +225,7 @@ $following_section_location_5 = $following_section_location_4;
 $following_section_location_4 = $following_section_location_3;
 $following_section_location_3 = $following_section_location_2;
 $following_section_location_2 = $following_section_location_1;
-$following_section_location_1 = $distance;
+$following_section_location_1 = $location;
 $following_section_signal_1 = $__j1;
 $following_section_signal_2 = $__j2;
 $following_section_signal_3 = $__j3;
