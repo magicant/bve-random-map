@@ -9,7 +9,9 @@ $_count = floor(0.5 + rand(4));
 $_curve_enter = $_curve_exit - 100 * $_count;
 $_curve_begin = $_curve_enter - 100; // TODO 緩和曲線長のランダム化
 $_begin = $_curve_begin;
-$_signal = $_curve_end - 50.25;
+$_signal_main = $_curve_end - 50.25;
+$_signal_sub1 = $_signal_main - ($_end - $_begin) * 0.33333333;
+$_signal_sub2 = $_signal_main - ($_end - $_begin) * 0.66666666;
 
 $_begin;
 	Repeater['ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 3, 10, 10, 'ground_grass_10m');
@@ -32,12 +34,30 @@ $_curve_end;
 	Curve.End();
 
 $_fake = 0;
-$location = $_signal;
+$location = $_signal_main;
 include '../map_misc/section.txt';
-$_signal;
+$_signal_main;
 	Signal[$signal_4a].Put(0, 0, -2.25, 3.8);
 	Structure[$section_sign_10].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
-$pretrain_time = $pretrain_time - ($_end - $_signal) / ($max_speed / 3.6 * 0.75);
+$pretrain_time = $pretrain_time - ($_end - $_signal_main) / ($max_speed / 3.6 * 0.75);
+	PreTrain.Pass($pretrain_time);
+
+$_fake = 1 - $has_cab_signal;
+$location = $_signal_sub1;
+include '../map_misc/section.txt';
+$_signal_sub1;
+	// Signal[$signal_4a].Put(0, 0, -2.25, 3.8);
+	Structure[$section_sign_10].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
+$pretrain_time = $pretrain_time - ($_signal_main - $_signal_sub1) / ($max_speed / 3.6 * 0.75);
+	PreTrain.Pass($pretrain_time);
+
+$_fake = 1 - $has_cab_signal;
+$location = $_signal_sub2;
+include '../map_misc/section.txt';
+$_signal_sub2;
+	// Signal[$signal_4a].Put(0, 0, -2.25, 3.8);
+	Structure[$section_sign_10].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
+$pretrain_time = $pretrain_time - ($_signal_sub1 - $_signal_sub2) / ($max_speed / 3.6 * 0.75);
 	PreTrain.Pass($pretrain_time);
 
 $_end - 0.01;
@@ -47,6 +67,6 @@ $_end - 0.01;
 	Repeater['trolleywire'].End();
 
 $location = $_begin;
-$pretrain_time = $pretrain_time - ($_signal - $_begin) / ($max_speed / 3.6 * 0.75);
+$pretrain_time = $pretrain_time - ($_signal_sub2 - $_begin) / ($max_speed / 3.6 * 0.75);
 
 //FOLLOWS: ../map_parts/grassland_s_any.txt

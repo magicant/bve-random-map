@@ -5,7 +5,9 @@ BveTs Map 2.02
 $_end = $location;
 $_count = floor(2.5 + rand(3));
 $_begin = $_end - 100 * $_count;
-$_signal = $_end - 50.25;
+$_signal_main = $_end - 50.25;
+$_signal_sub1 = $_signal_main - ($_end - $_begin) * 0.33333333;
+$_signal_sub2 = $_signal_main - ($_end - $_begin) * 0.66666666;
 
 $_begin;
 	Repeater['ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 3, 10, 10, 'ground_grass_10m');
@@ -15,12 +17,30 @@ $_begin;
 	// TODO 木や草を植える
 
 $_fake = 0;
-$location = $_signal;
+$location = $_signal_main;
 include '../map_misc/section.txt';
-$_signal;
+$_signal_main;
 	Signal[$signal_4a].Put(0, 0, -2.25, 3.8);
 	Structure[$section_sign_10].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
-$pretrain_time = $pretrain_time - ($_end - $_signal) / ($max_speed / 3.6 * 0.75);
+$pretrain_time = $pretrain_time - ($_end - $_signal_main) / ($max_speed / 3.6 * 0.75);
+	PreTrain.Pass($pretrain_time);
+
+$_fake = 1 - $has_cab_signal;
+$location = $_signal_sub1;
+include '../map_misc/section.txt';
+$_signal_sub1;
+	// Signal[$signal_4a].Put(0, 0, -2.25, 3.8);
+	Structure[$section_sign_10].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
+$pretrain_time = $pretrain_time - ($_signal_main - $_signal_sub1) / ($max_speed / 3.6 * 0.75);
+	PreTrain.Pass($pretrain_time);
+
+$_fake = 1 - $has_cab_signal;
+$location = $_signal_sub2;
+include '../map_misc/section.txt';
+$_signal_sub2;
+	// Signal[$signal_4a].Put(0, 0, -2.25, 3.8);
+	Structure[$section_sign_10].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
+$pretrain_time = $pretrain_time - ($_signal_sub1 - $_signal_sub2) / ($max_speed / 3.6 * 0.75);
 	PreTrain.Pass($pretrain_time);
 
 $_end - 0.01;
@@ -30,6 +50,6 @@ $_end - 0.01;
 	Repeater['trolleywire'].End();
 
 $location = $_begin;
-$pretrain_time = $pretrain_time - ($_signal - $_begin) / ($max_speed / 3.6 * 0.75);
+$pretrain_time = $pretrain_time - ($_signal_sub2 - $_begin) / ($max_speed / 3.6 * 0.75);
 
 //FOLLOWS: ../map_parts/grassland_s_any.txt
