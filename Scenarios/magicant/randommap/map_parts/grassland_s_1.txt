@@ -13,6 +13,7 @@ $_signal_main = $_curve_end - 50.25;
 $_signal_sub1 = $_signal_main - ($_end - $_begin) * 0.33333333;
 $_signal_sub2 = $_signal_main - ($_end - $_begin) * 0.66666666;
 
+// ストラクチャー
 $_begin;
 	Repeater['ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 3, 10, 10, 'ground_grass_10m');
 	Repeater['rails'].Begin0(0, 3, 5, 5, 'ballast_5m_' + floor(rand($ballast_5m_count)));
@@ -20,19 +21,25 @@ $_begin;
 	// TODO 架線柱が下線を引く向きを曲線の向きに揃える
 	Repeater['trolleywire'].Begin0(0, 1, 50, 50, 'trolleywire_50m_a', 'trolleywire_50m_b');
 	// TODO 木や草を植える
+$_end - 0.01;
+	Repeater['ground'].End();
+	Repeater['rails'].End();
+	Repeater['wirepoles'].End();
+	Repeater['trolleywire'].End();
 
+// 線形
 $_curve_begin;
 	Curve.BeginTransition();
 $_curve_enter;
 	Curve.Begin(10000);
 	// TODO カント
 	// TODO 制限速度 (と制限速度地上子)
-
 $_curve_exit;
 	Curve.BeginTransition();
 $_curve_end;
 	Curve.End();
 
+// 最後の閉塞
 $_fake = 0;
 $location = $_signal_main;
 include '../map_misc/section.txt';
@@ -42,6 +49,7 @@ $_signal_main;
 $pretrain_time = $pretrain_time - ($_end - $_signal_main) / ($max_speed / 3.6 * 0.75);
 	PreTrain.Pass($pretrain_time);
 
+// 中間の閉塞 (ATC のみ)
 $_fake = 1 - $has_cab_signal;
 $location = $_signal_sub1;
 include '../map_misc/section.txt';
@@ -51,6 +59,7 @@ $_signal_sub1;
 $pretrain_time = $pretrain_time - ($_signal_main - $_signal_sub1) / ($max_speed / 3.6 * 0.75);
 	PreTrain.Pass($pretrain_time);
 
+// 最初の閉塞 (ATC のみ)
 $_fake = 1 - $has_cab_signal;
 $location = $_signal_sub2;
 include '../map_misc/section.txt';
@@ -59,12 +68,6 @@ $_signal_sub2;
 	Structure[$section_sign_10].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
 $pretrain_time = $pretrain_time - ($_signal_sub1 - $_signal_sub2) / ($max_speed / 3.6 * 0.75);
 	PreTrain.Pass($pretrain_time);
-
-$_end - 0.01;
-	Repeater['ground'].End();
-	Repeater['rails'].End();
-	Repeater['wirepoles'].End();
-	Repeater['trolleywire'].End();
 
 $location = $_begin;
 $pretrain_time = $pretrain_time - ($_signal_sub2 - $_begin) / ($max_speed / 3.6 * 0.75);

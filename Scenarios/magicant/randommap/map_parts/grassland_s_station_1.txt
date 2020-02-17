@@ -10,15 +10,7 @@ $_platform_end = $_begin + 210;
 $_signal_depart = $_platform_end + 25;
 $_signal_mid = $_begin + 100;
 
-$_begin;
-	Repeater['ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 3, 10, 10, 'ground_grass_10m');
-	Repeater['rails'].Begin0(0, 3, 5, 5, 'ballast_5m_' + floor(rand($ballast_5m_count)));
-	Repeater['wirepoles'].Begin(0, 0, 0, 0, 0, 180, 0, 0, 0, 50, 'wirepole_inner', 'wirepole_outer');
-	Repeater['trolleywire'].Begin0(0, 1, 50, 50, 'trolleywire_50m_a', 'trolleywire_50m_b');
-	Repeater['platform_side'].Begin0(0, 1, 5, 5, 'platform_side_l_5m_1');
-	Repeater['platform_floor'].Begin0(0, 1, 5, 5, 'platform_floor_l_5m_1');
-	// TODO 木や草を植える
-
+// 停止位置
 $_stop;
 	Structure['stopsign'].Put(0, 1.8, 0, 0, 0, 0, 0, 0, 0);
 $location = distance;
@@ -27,10 +19,31 @@ $_underrun_limit = 2;
 $_overrun_limit = 5;
 include '../map_misc/station.txt';
 
+// ストラクチャー
+$_begin;
+	Repeater['ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 3, 10, 10, 'ground_grass_10m');
+	Repeater['rails'].Begin0(0, 3, 5, 5, 'ballast_5m_' + floor(rand($ballast_5m_count)));
+	Repeater['wirepoles'].Begin(0, 0, 0, 0, 0, 180, 0, 0, 0, 50, 'wirepole_inner', 'wirepole_outer');
+	Repeater['trolleywire'].Begin0(0, 1, 50, 50, 'trolleywire_50m_a', 'trolleywire_50m_b');
+	Repeater['platform_side'].Begin0(0, 1, 5, 5, 'platform_side_l_5m_1');
+	Repeater['platform_floor'].Begin0(0, 1, 5, 5, 'platform_floor_l_5m_1');
+	// TODO 木や草を植える
 $_platform_end - 0.01;
 	Repeater['platform_side'].End();
 	Repeater['platform_floor'].End();
+$_begin + 199.99;
+	Repeater['wirepoles'].End();
+	Repeater['trolleywire'].End();
+$_begin + 200;
+	Repeater['wirepoles'].Begin(0, 0, 0, 0, 0, 180, 0, 0, 0, 25, 'wirepole_inner', 'wirepole_outer');
+	Repeater['trolleywire'].Begin0(0, 1, 25, 25, 'trolleywire_25m_a', 'trolleywire_25m_b');
+$_end - 0.01;
+	Repeater['ground'].End();
+	Repeater['rails'].End();
+	Repeater['wirepoles'].End();
+	Repeater['trolleywire'].End();
 
+// 出発信号機
 $_fake = 0;
 $location = $_signal_depart;
 include '../map_misc/section.txt';
@@ -42,6 +55,7 @@ $_signal_depart;
 $pretrain_time = $pretrain_time - ($_end - $_signal_depart) / ($max_speed / 3.6 * 0.75);
 	PreTrain.Pass($pretrain_time);
 
+// 中間の閉塞 (ATC のみ)
 $_fake = 1 - $has_cab_signal;
 $location = $_signal_mid;
 include '../map_misc/section.txt';
@@ -52,19 +66,6 @@ $_signal_mid;
 	Structure[$section_sign_10].Put(0, 2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
 $pretrain_time = $pretrain_time - ($_signal_depart - $_signal_mid) / ($max_speed / 3.6 * 0.45);
 	PreTrain.Pass($pretrain_time);
-
-$_begin + 199.99;
-	Repeater['wirepoles'].End();
-	Repeater['trolleywire'].End();
-$_begin + 200;
-	Repeater['wirepoles'].Begin(0, 0, 0, 0, 0, 180, 0, 0, 0, 25, 'wirepole_inner', 'wirepole_outer');
-	Repeater['trolleywire'].Begin0(0, 1, 25, 25, 'trolleywire_25m_a', 'trolleywire_25m_b');
-
-$_end - 0.01;
-	Repeater['ground'].End();
-	Repeater['rails'].End();
-	Repeater['wirepoles'].End();
-	Repeater['trolleywire'].End();
 
 $location = $_begin;
 $pretrain_time = $pretrain_time - ($_signal_mid - $_begin) / ($max_speed / 3.6 * 0.75) - 30 - rand(15);
