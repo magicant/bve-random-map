@@ -41,7 +41,6 @@ $signal_speed_1 = 25;
 	Beacon.Put(1011, -1, 3000 + $signal_speed_3);
 	Beacon.Put(1011, -1, 4000 + $signal_speed_4);
 	Beacon.Put(1011, -1, 5000 + $signal_speed_4);
-	Section.Begin(0, 2, 4);
 
 	Beacon.Put(25, -1, 222); // ATS-P に切り替える
 	Beacon.Put(1001, -1, 3); // swp2 互換モードに切り替える

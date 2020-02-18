@@ -34,9 +34,8 @@ $signal_speed_3 = 65536;
 $signal_speed_2 = 65536;
 $signal_speed_1 = 65536;
 Section.SetSpeedLimit(0);
-0;
-	Section.Begin(0, 10, 18); // TODO 最初の閉塞の信号インデックスをもっと現実的にする
 
+0;
 	Beacon.Put(1001, -1, 2); // メトロ総合プラグイン互換モードに切り替える
 
 $tasc_long_beacon_type = 1030;

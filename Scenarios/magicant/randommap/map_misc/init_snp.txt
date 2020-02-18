@@ -41,7 +41,6 @@ $signal_speed_1 = 25;
 	Beacon.Put(1011, -1, 3000 + $signal_speed_3);
 	Beacon.Put(1011, -1, 4000 + $signal_speed_4);
 	Beacon.Put(1011, -1, 5000 + $signal_speed_4);
-	Section.Begin(0, 2, 4);
 
 $tasc_long_beacon_type = 1030;
 $tasc_500m_beacon_type = 9999999;
