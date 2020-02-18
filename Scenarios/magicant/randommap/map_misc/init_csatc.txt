@@ -34,8 +34,6 @@ $signal_speed_3 = 65536;
 $signal_speed_2 = 65536;
 $signal_speed_1 = 65536;
 Section.SetSpeedLimit(0);
-// TODO 02 信号の前に必ず 01 信号が出るようにする
-// TODO 閉塞をもっと細かく刻む
 0;
 	Section.Begin(0, 10, 18); // TODO 最初の閉塞の信号インデックスをもっと現実的にする
 
