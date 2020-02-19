@@ -10,7 +10,6 @@ $is_std_signal = 0;
 $is_csatc = 1;
 
 Signal.Load('../signals/signals_csatc.csv');
-$signal_4a = 'null';
 $signal_pole_5m_l = null;
 $signal_pole_5m_r = null;
 $signal_clamp_4a_l = null;

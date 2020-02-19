@@ -9,8 +9,7 @@ $has_cab_signal = 0;
 $is_std_signal = 1;
 $is_csatc = 0;
 
-Signal.Load('../signals/signals_snp_' + floor(rand()) + '.csv');
-$signal_4a = 'signal_4a';
+Signal.Load('../signals/signals_sp.csv');
 $signal_pole_5m_l = 'signal_pole_5m_l_' + floor(rand());
 $signal_pole_5m_r = 'signal_pole_5m_r_' + floor(rand());
 $signal_clamp_4a_l = 'signal_clamp_4a_l_' + floor(rand());

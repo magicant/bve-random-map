@@ -42,15 +42,44 @@ signal_clamp_4a_l_0, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/4Lw.x
 signal_clamp_4a_c_0, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/4Cw.x
 signal_clamp_4a_r_0, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/4Rw.x
 
-# 信号機 (閉塞・出発・場内), 4 灯 (停止・注意・減速・進行)
-signal_4a0_0, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal1L0.x
-signal_4a2_0, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal1L2.x
-signal_4a3_0, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal1L3.x
-signal_4a4_0, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal1L4.x
-signal_glare_a0_0, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/R.x
-signal_glare_a2_0, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/Y.x
-signal_glare_a3_0, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/YG.x
-signal_glare_a4_0, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/G.x
+# 信号機 (閉塞・出発・場内)
+# k=滅, r=赤, y=黄, g=青, x=空
+signal_kr, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal0L0.x
+signal_yk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal0L2.x
+signal_gk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal2L4.x
+#signal_xkr, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal03L0.x
+#signal_xyk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal03L2.x
+signal_kkr, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal3L0.x
+signal_kyk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal3L2.x
+signal_gkk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal3L4.x
+#signal_kxr, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal23L0.x
+#signal_gxk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal23L4.x
+signal_krkk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal1L0.x
+signal_kkyk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal1L2.x
+signal_ykkg, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal1L3.x
+signal_kkkg, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal1L4.x
+signal_ykky, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal4L1.x
+signal_kkky, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal4L2.x
+signal_kkgk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal4L4.x
+signal_kkrkk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal5L0.x
+signal_ykkyk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal5L1.x
+signal_kkkyk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal5L2.x
+signal_kykkg, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal5L3.x
+signal_kkkkg, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal5L4.x
+#signal_kkkrk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal8L0.x
+#signal_kkykk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal8L2.x
+#signal_kgkkk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal8L4.x
+#signal_gkkkg, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal8L5.x
+#signal_kkrkkk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal9L0.x
+#signal_kkkkyk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal9L2.x
+#signal_ykkgkk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal9L3.x
+#signal_kkkgkk, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal9L4.x
+#signal_kgkkkg, ../../../Nagoya_Common/Railway_Obj/Signal/Normal/Signal9L5.x
+signal_glare_a0, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/R.x
+signal_glare_a1, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/YY.x
+signal_glare_a2, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/Y.x
+signal_glare_a3, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/YG.x
+signal_glare_a4, ../../../Nagoya_Common/Railway_Obj/Signal/Glare/G.x
 
 # 閉塞標識
 section_sign_0, ../../../Nagoya_Common/Railway_Obj/Sign/ATC/0.x
