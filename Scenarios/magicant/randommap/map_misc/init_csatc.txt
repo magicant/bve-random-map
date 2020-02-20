@@ -10,8 +10,6 @@ $is_std_signal = 0;
 $is_csatc = 1;
 
 Signal.Load('../signals/signals_csatc.csv');
-$signal_pole_5m_l = null;
-$signal_pole_5m_r = null;
 $section_sign_0 = 'section_sign_0';
 $section_sign_1 = 'section_sign_1';
 $section_sign_2 = 'section_sign_2';
