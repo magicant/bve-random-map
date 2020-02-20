@@ -110,8 +110,6 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$signal_speed_1`, ..., `$signal_speed_4` = 信号インデックス 1, ..., 4 の制限速度 (km/h)。 `$is_std_signal` が 0 の路線では非常に大きな値。
  - `$signal_pole_5m_l` = 左側用 5 メートル高 信号柱ストラクチャーキー。
  - `$signal_pole_5m_r` = 右側用 5 メートル高 信号柱ストラクチャーキー。
- - `$signal_clamp_4a_l` = 左側用 4 灯式信号機支えストラクチャーキー。
- - `$signal_clamp_4a_r` = 右側用 4 灯式信号機支えストラクチャーキー。
  - `$section_sign_0`, ..., `$section_sign_9` = ATC 用第 0, ..., 9 閉塞標識ストラクチャーキー。
  - `$section_sign_10` = ATC 用閉塞標識ストラクチャーキー。
  - `$tasc_long_beacon_type` = 前の駅の停止位置の 11 メートル先に設置する TASC 地上子の種別番号。

@@ -41,6 +41,7 @@ BveTs Map 2.02
 // このファイルの中で以下の変数が変更される。
 //  $_aspects = この閉塞の信号機が現示しうる信号インデックスのリスト。
 //    例えば現示しうる信号インデックスが 0, 1, 2, 4 なら値は 4021 となる。
+//  $_bulbs = この信号機の灯数
 //  $following_section_location_1 = この閉塞の開始位置 (= $location)
 //  $following_section_location_2 = 一つ後の閉塞の開始位置
 //  $following_section_location_3 = 二つ後の閉塞の開始位置
@@ -134,6 +135,16 @@ $_aspects = (1 - ceil(abs($__1 / 1073741824)))
           + (1 - ceil(abs($__3 / 1073741824))) * 300
           + (1 - ceil(abs($__4 / 1073741824 / 1073741824))) * 4000;
 
+// 信号機の灯数を求める
+$__2 = $_aspects * ($_aspects - 20); // * ($_aspects - 4000);
+$__3 = $_aspects - 4020;
+$__4 = ($_aspects - 4320) * ($_aspects - 4021);
+$__2 = ceil(abs($__2 / 1073741824));
+$__3 = ceil(abs($__3 / 1073741824));
+$__4 = ceil(abs($__4 / 1073741824));
+$__5 = 1 - $__2 * $__3 * $__4;
+$_bulbs = (1 - $__2) * 2 + (1 - $__3) * 3 + (1 - $__4) * 4 + (1 - $__5) * 5;
+
 // BVE には if 文がなく、閉塞を置かないということはできないので、
 // $_fake のときは埒外の場所に閉塞を置く。
 $location;
@@ -146,8 +157,6 @@ distance + $_fake * $max_location;
 		$is_std_signal * $__j5 + $is_csatc * $following_section_signal_4,
 		$is_std_signal * $__j6 + $is_csatc * $following_section_signal_5,
 		$is_std_signal * $__j7 + $is_csatc * $following_section_signal_6);
-	// TODO 信号ストラクチャーを設置する
-	// TODO 信号支えストラクチャーを設置する
 	// TODO 閉塞標識ストラクチャーを設置する
 
 // $__v[n] = min($__v[n], $max_speed)

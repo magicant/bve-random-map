@@ -38,9 +38,18 @@ signal_pole_5m_c_0, ../../../Nagoya_Common/Railway_Obj/SigPole/5Cw.x
 signal_pole_5m_r_0, ../../../Nagoya_Common/Railway_Obj/SigPole/5Rw.x
 
 # 信号機支え
-signal_clamp_4a_l_0, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/4Lw.x
-signal_clamp_4a_c_0, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/4Cw.x
-signal_clamp_4a_r_0, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/4Rw.x
+signal_clamp_c_a2, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/2Cw.x
+signal_clamp_c_a3, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/3Cw.x
+signal_clamp_c_a4, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/4Cw.x
+signal_clamp_c_a5, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/5Cw.x
+signal_clamp_l_a2, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/2Lw.x
+signal_clamp_l_a3, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/3Lw.x
+signal_clamp_l_a4, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/4Lw.x
+signal_clamp_l_a5, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/5Lw.x
+signal_clamp_r_a2, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/2Rw.x
+signal_clamp_r_a3, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/3Rw.x
+signal_clamp_r_a4, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/4Rw.x
+signal_clamp_r_a5, ../../../Nagoya_Common/Railway_Obj/SigPole/Clamp/5Rw.x
 
 # 信号機 (閉塞・出発・場内)
 # k=滅, r=赤, y=黄, g=青, x=空
