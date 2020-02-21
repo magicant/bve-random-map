@@ -9,8 +9,6 @@ set -eu
 cd -P -- "$(dirname -- "$0")"
 IFS=$' \t\n\r'
 
-# TODO The last non-terminal station should be followed by some sections.
-
 # $candidate_part_file = name of the candidate part file
 candidate_is_dummy() {
     grep -q '^//DUMMY' "$candidate_part_file"
@@ -93,7 +91,21 @@ build_file() {
 
     current_part_file="../map_parts/any.txt"
     station_count=0
-    non_station_probability=0 # always start with a station part.
+
+    # start with some non-station parts
+    non_station_probability=32768
+    next_part
+    non_station_probability=32768
+    next_part
+    non_station_probability=32768
+    next_part
+    non_station_probability=32768
+    next_part
+    non_station_probability=32768
+    next_part
+
+    # build remaining parts
+    non_station_probability=0
     until [ "$station_count" -ge "$stations_per_file" ]
     do
         next_part
