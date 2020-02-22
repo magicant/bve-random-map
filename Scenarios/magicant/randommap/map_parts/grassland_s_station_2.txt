@@ -1,13 +1,14 @@
 BveTs Map 2.02
 
 //STATION
+//TERMINAL
 // 草原、単線、一面一線右側ホーム
 
 $_end = $location;
 $_begin = $_end - 250;
 $_stop = $_begin + 205;
 $_platform_end = $_begin + 210;
-$_signal_depart = $_platform_end + 25;
+$_signal_term = $_platform_end + 25;
 $_signal_mid = $_begin + 100;
 
 // 停止位置
@@ -37,25 +38,28 @@ $_begin + 199.99;
 $_begin + 200;
 	Repeater['wirepoles'].Begin0(0, 0, 0, 25, 'wirepole_outer', 'wirepole_inner');
 	Repeater['trolleywire'].Begin0(0, 1, 25, 25, 'trolleywire_25m_a', 'trolleywire_25m_b');
+$_end - 1;
+	Structure['rail_end_ballast_0'].Put0(0, 0, 0);
 $_end - 0.01;
-	Repeater['ground'].End();
 	Repeater['rails'].End();
-	Repeater['wirepoles'].End();
 	Repeater['trolleywire'].End();
+$_end;
+	Structure['trolleywire_end'].Put0(0, 0, 0);
+$_end + 0.01;
+	Repeater['wirepoles'].End();
+$_end + 4000;
+	Repeater['ground'].End();
 
-// 出発信号機
+// 停止位置より先のダミー閉塞
 $_fake = 0;
-$location = $_signal_depart;
+$location = $_signal_term;
 include '../map_misc/section.txt';
-$_signal_depart;
-	Signal['signal_' + $_aspects].Put(0, 0, -2, 3.8 - $has_cab_signal * 100);
-	Structure['signal_pole_5m_r_0'].Put(0, -2, 3.3 - $has_cab_signal * 100, 0, 0, 0, 0, 0, 0);
-	Structure['signal_clamp_r_a' + $_bulbs].Put(0, -2, 3.8 - $has_cab_signal * 100, 0, 0, 0, 0, 0, 0);
-	Structure[$section_sign_10].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
-$pretrain_time = $pretrain_time - ($_end - $_signal_depart) / ($max_speed / 3.6 * 0.75);
+$_signal_term;
+$pretrain_time = $pretrain_time - ($_end - $_signal_term) / ($max_speed / 3.6 * 0.75);
 	PreTrain.Pass($pretrain_time);
 
 // 中間の閉塞 (ATC のみ)
+// TODO ORP
 $_fake = 1 - $has_cab_signal;
 $location = $_signal_mid;
 include '../map_misc/section.txt';
@@ -64,7 +68,7 @@ $_signal_mid;
 	// Structure['signal_pole_5m_r_0'].Put(0, -2, 3.3 - $has_cab_signal * 100, 0, 0, 0, 0, 0, 0);
 	// Structure['signal_clamp_r_a' + $_bulbs].Put(0, -2, 3.8 - $has_cab_signal * 100, 0, 0, 0, 0, 0, 0);
 	Structure[$section_sign_10].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
-$pretrain_time = $pretrain_time - ($_signal_depart - $_signal_mid) / ($max_speed / 3.6 * 0.45);
+$pretrain_time = $pretrain_time - ($_signal_term - $_signal_mid) / ($max_speed / 3.6 * 0.45);
 	PreTrain.Pass($pretrain_time);
 
 $location = $_begin;

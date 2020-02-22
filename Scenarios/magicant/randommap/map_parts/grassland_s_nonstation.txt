@@ -1,0 +1,9 @@
+BveTs Map 2.02
+
+//DUMMY
+// 草原・単線へと続く駅でないパートファイルを読み込むためのダミーファイル
+
+;
+
+//FOLLOWS: ../map_parts/grassland_s_0.txt
+//FOLLOWS: ../map_parts/grassland_s_1.txt

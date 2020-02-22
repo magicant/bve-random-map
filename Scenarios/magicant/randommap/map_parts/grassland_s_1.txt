@@ -72,4 +72,4 @@ $pretrain_time = $pretrain_time - ($_signal_sub1 - $_signal_sub2) / ($max_speed 
 $location = $_begin;
 $pretrain_time = $pretrain_time - ($_signal_sub2 - $_begin) / ($max_speed / 3.6 * 0.75);
 
-//FOLLOWS: ../map_parts/grassland_s_any.txt
+//FOLLOWS: ../map_parts/grassland_s_mid.txt

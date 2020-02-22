@@ -3,7 +3,8 @@
 security_types=(csatc snp swp2)
 files_per_security=5
 stations_per_file=6 # including the first and last stations
-station_rate=29490 # < 32767
+station_rate=29490 # < 32768
+terminal_rate=16384 # <= 32768
 
 set -eu
 cd -P -- "$(dirname -- "$0")"
@@ -17,6 +18,11 @@ candidate_is_dummy() {
 # $candidate_part_file = name of the candidate part file
 candidate_is_station() {
     grep -q '^//STATION' "$candidate_part_file"
+}
+
+# $candidate_part_file = name of the candidate part file
+candidate_is_terminal() {
+    grep -q '^//TERMINAL' "$candidate_part_file"
 }
 
 # $candidate_part_file [in-out] = name of the candidate part file
@@ -50,12 +56,16 @@ candidate_is_applicable() {
         (station)
             candidate_is_station
             ;;
+        (terminal)
+            candidate_is_terminal
+            ;;
         (*)
             ! candidate_is_station
             ;;
     esac
 }
 
+# $non_station_probability [in-out] = [0,32768]
 # $current_part_file [in-out] = name of the previous part file
 # $station_count [in-out] = number of stations generated so far
 next_part() {
@@ -74,13 +84,16 @@ next_part() {
     current_part_file=$candidate_part_file
 
     printf "include '%s';\r\n" "$current_part_file"
-    if candidate_is_station
-    then
-        station_count=$((station_count+1))
-        non_station_probability=32767
-    else
-        non_station_probability=$((non_station_probability * station_rate / 32767))
-    fi
+
+    case "$next_part_type" in
+        (station|terminal)
+            station_count=$((station_count+1))
+            non_station_probability=32768
+            ;;
+        (*)
+            non_station_probability=$((non_station_probability * station_rate / 32767))
+            ;;
+    esac
 }
 
 # $file_name = name of the file to build
@@ -89,23 +102,18 @@ build_file() {
     printf 'BveTs Map 2.02\r\n\r\n'
     printf "include '%s';\r\n\r\n" "../map_misc/init_${security}.txt"
 
-    current_part_file="../map_parts/any.txt"
+    current_part_file="../map_parts/last.txt"
     station_count=0
 
-    # start with some non-station parts
-    non_station_probability=32768
-    next_part
-    non_station_probability=32768
-    next_part
-    non_station_probability=32768
-    next_part
-    non_station_probability=32768
-    next_part
-    non_station_probability=32768
-    next_part
+    if [ "$RANDOM" -ge "$terminal_rate" ]
+    then
+        # start with some non-station parts
+        non_station_probability=55491
+    else
+        # start with a terminal station
+        non_station_probability=0
+    fi
 
-    # build remaining parts
-    non_station_probability=0
     until [ "$station_count" -ge "$stations_per_file" ]
     do
         next_part

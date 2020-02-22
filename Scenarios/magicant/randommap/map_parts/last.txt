@@ -1,0 +1,8 @@
+BveTs Map 2.02
+
+//DUMMY
+// 最後に来れるパートファイルを読み込むためのダミーファイル
+
+;
+
+//FOLLOWS: ../map_parts/grassland_s_last.txt

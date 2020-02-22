@@ -13,6 +13,9 @@ ground_grass_10m, ../../../Nagoya_Common/Nature/Ground/Grass_10.x
 ballast_5m_0, ../../../Nagoya_Common/Railway_Obj/Rail/JR_Line/Ballast.x
 ballast_5m_1, ../../../Nagoya_Common/Railway_Obj/Rail/JR_Line/BallastD.x
 
+# 軌道終端
+rail_end_ballast_0, ../../../Nagoya_Common/Railway_Obj/End/1_End.x
+
 # 架線柱
 wirepole_outer, ../../../Nagoya_Common/Railway_Obj/Pole/Pole0_6.x
 wirepole_inner, ../../../Nagoya_Common/Railway_Obj/Pole/Pole0_7.x
@@ -22,6 +25,7 @@ trolleywire_25m_a, ../../../Nagoya_Common/Railway_Obj/Torory/Sigle/Torory(25A).x
 trolleywire_25m_b, ../../../Nagoya_Common/Railway_Obj/Torory/Sigle/Torory(25B).x
 trolleywire_50m_a, ../../../Nagoya_Common/Railway_Obj/Torory/Sigle/Torory(50A).x
 trolleywire_50m_b, ../../../Nagoya_Common/Railway_Obj/Torory/Sigle/Torory(50B).x
+trolleywire_end, ../../../Nagoya_Common/Railway_Obj/Torory/End/End.x
 
 # プラットフォーム
 platform_side_l_5m_1, ../../../Nagoya_Common/Build/Form/simple_Form/5L_E.x
