@@ -221,6 +221,7 @@ distance + $_fake * $max_location;
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
 distance - 3;
+distance + ceil(($location - distance) / $max_location) * $max_location; // $location より手前には置かない
 	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $following_section_location_1 - 50;
 (distance + $location + abs(distance - $location)) / 2; // max(distance, $location)
@@ -229,6 +230,7 @@ distance + $_fake * $max_location;
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
 distance - 3;
+distance + ceil(($location - distance) / $max_location) * $max_location; // $location より手前には置かない
 	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $following_section_location_1 - 85;
 (distance + $location + abs(distance - $location)) / 2; // max(distance, $location)
@@ -237,6 +239,7 @@ distance + $_fake * $max_location;
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
 distance - 3;
+distance + ceil(($location - distance) / $max_location) * $max_location; // $location より手前には置かない
 	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $following_section_location_1 - 130;
 (distance + $location + abs(distance - $location)) / 2; // max(distance, $location)
@@ -245,6 +248,7 @@ distance + $_fake * $max_location;
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
 distance - 3;
+distance + ceil(($location - distance) / $max_location) * $max_location; // $location より手前には置かない
 	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $following_section_location_1 - 180;
 (distance + $location + abs(distance - $location)) / 2; // max(distance, $location)
@@ -253,6 +257,7 @@ distance + $_fake * $max_location;
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
 distance - 3;
+distance + ceil(($location - distance) / $max_location) * $max_location; // $location より手前には置かない
 	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $following_section_location_1 - 280;
 (distance + $location + abs(distance - $location)) / 2; // max(distance, $location)
@@ -261,6 +266,7 @@ distance + $_fake * $max_location;
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
 distance - 3;
+distance + ceil(($location - distance) / $max_location) * $max_location; // $location より手前には置かない
 	Structure[$ats_update_transponder].Put0(0, 3, 0);
 $following_section_location_1 - 600;
 (distance + $location + abs(distance - $location)) / 2; // max(distance, $location)
@@ -269,6 +275,7 @@ distance + $_fake * $max_location;
 	Beacon.Put($ats_update_2_beacon_type, 2, $ats_update_2_beacon_value);
 	Beacon.Put($ats_update_m1_beacon_type, -1, $ats_update_m1_beacon_value);
 distance - 3;
+distance + ceil(($location - distance) / $max_location) * $max_location; // $location より手前には置かない
 	Structure[$ats_update_transponder].Put0(0, 3, 0);
 
 $following_section_location_7 = $_fake * $following_section_location_7 + (1 - $_fake) * $following_section_location_6;
