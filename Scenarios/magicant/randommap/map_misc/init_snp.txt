@@ -10,17 +10,6 @@ $is_std_signal = 1;
 $is_csatc = 0;
 
 Signal.Load('../signals/signals_sp.csv');
-$section_sign_0 = null;
-$section_sign_1 = null;
-$section_sign_2 = null;
-$section_sign_3 = null;
-$section_sign_4 = null;
-$section_sign_5 = null;
-$section_sign_6 = null;
-$section_sign_7 = null;
-$section_sign_8 = null;
-$section_sign_9 = null;
-$section_sign_10 = null;
 
 // 信号の制限速度を設定する
 $max_speed = floor((rand(11) + rand(11)) / 2) * 5 + 70;

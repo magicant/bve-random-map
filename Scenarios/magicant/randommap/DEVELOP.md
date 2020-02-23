@@ -99,6 +99,7 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$following_station_location` = 一つ後の駅の停止位置。
  - `$following_section_location_1`, ..., `$following_section_location_7` = 一つ後から七つ後までの各閉塞の開始位置。
  - `$following_section_signal_1`, ..., `$following_section_signal_7` = 先行列車が 1, ..., 7 閉塞先にいる時における、一つ後の閉塞の信号インデックス。
+ - `$section_count` = `$location` の位置における閉塞の番号。
 
 以下は全てのパートファイルで使われる変数ではあるが、最初のパートファイルが `include` される前に初期化され、各パートファイルの中では変更されない。
 
@@ -108,8 +109,6 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$is_std_signal` = 通常の信号インデックス 0, ..., 5 を使用する路線なら 1、それ以外なら 0。
  - `$is_csatc` = CS-ATC 路線なら 1、それ以外なら 0。
  - `$signal_speed_1`, ..., `$signal_speed_4` = 信号インデックス 1, ..., 4 の制限速度 (km/h)。 `$is_std_signal` が 0 の路線では非常に大きな値。
- - `$section_sign_0`, ..., `$section_sign_9` = ATC 用第 0, ..., 9 閉塞標識ストラクチャーキー。
- - `$section_sign_10` = ATC 用閉塞標識ストラクチャーキー。
  - `$tasc_long_beacon_type` = 前の駅の停止位置の 11 メートル先に設置する TASC 地上子の種別番号。
  - `$tasc_500m_beacon_type` = 停車駅の停止位置の 500 メートル手前に設置する TASC 地上子の種別番号。
  - `$tasc_11m_beacon_type` = 停車駅の停止位置の 11 メートル手前に設置する TASC 地上子の種別番号。
@@ -121,6 +120,7 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$ats_update_1_beacon_value`, `$ats_update_2_beacon_value`, `$ats_update_m1_beacon_value` = 上記それぞれの地上子に送る値。
  - `$ats_update_transponder` = 上記地上子のストラクチャーキー。
  - `$conductor_timing_beacon_type` = 戸閉後に車掌が合図ブザーを鳴らすまでの時間を設定する地上子の種別番号。
+ - `$max_section_count` = (標識ストラクチャーが存在する) 閉塞の番号の最大値。
  - `$ballast_5m_count` = `ballast_5m_<ID>` ストラクチャーのバリエーション。
 
 なお、距離の単位は全てメートルである。

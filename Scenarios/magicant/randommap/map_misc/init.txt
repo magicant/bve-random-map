@@ -21,6 +21,8 @@ $following_section_signal_4 = 0;
 $following_section_signal_5 = 0;
 $following_section_signal_6 = 0;
 $following_section_signal_7 = 0;
+$section_count = 0;
+$max_section_count = 10;
 
 Structure.Load('../structures/structures_' + floor(rand()) + '.csv');
 $ballast_5m_count = 2;

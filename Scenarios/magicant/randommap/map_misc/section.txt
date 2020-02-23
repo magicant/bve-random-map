@@ -27,6 +27,7 @@ BveTs Map 2.02
 //    同様に、先の閉塞に先行列車がいる時の、一つ後の閉塞の信号インデックス
 //  $signal_speed_1, ..., $signal_speed_4 =
 //    信号インデックス 1, ..., 4 の制限速度 (km/h)
+//  $section_count = この閉塞の番号
 //  $ats_stop_beacon_type = ATS-P 即時停止地上子の種別番号
 //  $ats_stop_beacon_section = ATS-P 即時停止地上子に対応させる閉塞
 //  $ats_update_1_beacon_type = ATS-P パターン更新地上子の種別番号
@@ -54,6 +55,7 @@ BveTs Map 2.02
 //    先行列車がいる時の、この閉塞の信号インデックス
 //  $following_section_signal_3, ..., $following_section_signal_7 =
 //    同様に、先の閉塞に先行列車がいる時の、この閉塞の信号インデックス
+//  $section_count = この一つ手前の閉塞の番号
 // ただし、$_fake が 1 に設定されていた場合は閉塞や地上子は設置されず
 // これらの変数も変更されない。
 //
@@ -292,3 +294,4 @@ $following_section_signal_4 = $_fake * $following_section_signal_4 + (1 - $_fake
 $following_section_signal_5 = $_fake * $following_section_signal_5 + (1 - $_fake) * $__j5;
 $following_section_signal_6 = $_fake * $following_section_signal_6 + (1 - $_fake) * $__j6;
 $following_section_signal_7 = $_fake * $following_section_signal_7 + (1 - $_fake) * $__j7;
+$section_count = $section_count + 1 - $_fake;

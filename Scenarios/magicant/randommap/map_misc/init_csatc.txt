@@ -10,17 +10,6 @@ $is_std_signal = 0;
 $is_csatc = 1;
 
 Signal.Load('../signals/signals_csatc.csv');
-$section_sign_0 = 'section_sign_0';
-$section_sign_1 = 'section_sign_1';
-$section_sign_2 = 'section_sign_2';
-$section_sign_3 = 'section_sign_3';
-$section_sign_4 = 'section_sign_4';
-$section_sign_5 = 'section_sign_5';
-$section_sign_6 = 'section_sign_6';
-$section_sign_7 = 'section_sign_7';
-$section_sign_8 = 'section_sign_8';
-$section_sign_9 = 'section_sign_9';
-$section_sign_10 = 'section_sign_10';
 
 // 信号の制限速度を設定する
 $max_speed = floor((rand(11) + rand(11)) / 2) * 5 + 70;
