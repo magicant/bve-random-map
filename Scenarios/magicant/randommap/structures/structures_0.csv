@@ -107,5 +107,8 @@ section_sign_8, ../../../Nagoya_Common/Railway_Obj/Sign/ATC/8.x
 section_sign_9, ../../../Nagoya_Common/Railway_Obj/Sign/ATC/9.x
 section_sign_10, ../../../Nagoya_Common/Railway_Obj/Sign/ATC/10.x
 
+# ORP 注意標識
+orp_sign, ../../../Nagoya_Common/Railway_Obj/Sign/ATC/sign3.x
+
 # ATS-P 地上子
 atsp_transponder, ../../../Nagoya_Common/Railway_Obj/Signal/Beacon/P.x

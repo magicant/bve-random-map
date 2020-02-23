@@ -1,0 +1,10 @@
+BveTs Map 2.02
+
+// デフォルト設定で閉塞を設置する。
+// このファイルが使用する変数については section.txt を参照。
+// $_fake と $_orp 以外の変数はこのファイルを include する前に
+// 定義しておく必要がある。
+
+$_fake = 0;
+$_orp = 0;
+include '../map_misc/section.txt';

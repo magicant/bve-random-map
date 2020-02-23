@@ -4,12 +4,14 @@ BveTs Map 2.02
 //TERMINAL
 // 草原、単線、一面一線右側ホーム
 
+$_orp_distance = 48 + floor(rand(2)) * 31; // 48 or 79
+
 $_end = $location;
 $_begin = $_end - 250;
 $_stop = $_begin + 205;
 $_platform_end = $_begin + 210;
 $_signal_term = $_platform_end + 25;
-$_signal_mid = $_begin + 100;
+$_signal_mid = $_stop - $_orp_distance + 1;
 
 // 停止位置
 $_stop;
@@ -51,16 +53,15 @@ $_end + 4000;
 	Repeater['ground'].End();
 
 // 停止位置より先のダミー閉塞
-$_fake = 0;
 $location = $_signal_term;
-include '../map_misc/section.txt';
+include '../map_misc/section_default.txt';
 $_signal_term;
 $pretrain_time = $pretrain_time - ($_end - $_signal_term) / ($max_speed / 3.6 * 0.75);
 	PreTrain.Pass($pretrain_time);
 
 // 中間の閉塞 (ATC のみ)
-// TODO ORP
 $_fake = 1 - $has_cab_signal;
+$_orp = 1;
 $location = $_signal_mid;
 include '../map_misc/section.txt';
 $_signal_mid;
@@ -70,6 +71,10 @@ $_signal_mid;
 	Structure[$section_sign_10].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
 $pretrain_time = $pretrain_time - ($_signal_term - $_signal_mid) / ($max_speed / 3.6 * 0.45);
 	PreTrain.Pass($pretrain_time);
+$_signal_mid - 3 + (1 - $is_csatc) * $max_location;
+	Structure['orp_sign'].Put(0, 0, -0.2, 0, 0, 0, 0, 0, 0);
+$_signal_mid + 1 + (1 - $is_csatc) * $max_location;
+	Beacon.Put(12, 0, $_orp_distance);
 
 $location = $_begin;
 $pretrain_time = $pretrain_time - ($_signal_mid - $_begin) / ($max_speed / 3.6 * 0.75) - 30 - rand(15);
