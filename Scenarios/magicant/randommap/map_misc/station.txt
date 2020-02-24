@@ -22,19 +22,18 @@ BveTs Map 2.02
 
 $location;
 	Station['station_' + $preceding_station_number].Put($_door_direction, -$_underrun_limit, $_overrun_limit);
-
-$preceding_station_number = $preceding_station_number - 1;
+	$preceding_station_number = $preceding_station_number - 1;
 
 // この駅を出た直後に TASC 地上子を置く
-$__l = $location + 11;
-$__d = floor($following_station_location - $__l); // 距離を確実に整数にする
+	$__l = $location + 11;
+	$__d = floor($following_station_location - $__l); // 距離を確実に整数にする
 $following_station_location - $__d;
 	Beacon.Put($tasc_long_beacon_type, -1, $__d * 1000);
 
 // 一つ後の駅の 500 メートル手前に TASC 地上子を置く。
 // 駅が近いときは 500 メートルよりも近い位置に設置することになるが、その場合は
 // $tasc_long_beacon_type の方の地上子が直後に来るので停止位置がずれることはない。
-$__l = $location + 10.99;
+	$__l = $location + 10.99;
 $following_station_location - 500;
 (distance + $__l + abs(distance - $__l)) / 2; // max(distance, $__l)
 	Beacon.Put($tasc_500m_beacon_type, -1, 0);

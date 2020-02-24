@@ -12,11 +12,11 @@ $is_csatc = 0;
 Signal.Load('../signals/signals_sp.csv');
 
 // 信号の制限速度を設定する
-$max_speed = floor((rand(11) + rand(11)) / 2) * 5 + 70;
-$signal_speed_4 = $max_speed;
-$signal_speed_3 = ceil(($max_speed * 0.75 - 5) / 10) * 10 + 5;
-$signal_speed_2 = ceil($max_speed * 0.45 / 5) * 5;
-$signal_speed_1 = 25;
+	$max_speed = floor((rand(11) + rand(11)) / 2) * 5 + 70;
+	$signal_speed_4 = $max_speed;
+	$signal_speed_3 = ceil(($max_speed * 0.75 - 5) / 10) * 10 + 5;
+	$signal_speed_2 = ceil($max_speed * 0.45 / 5) * 5;
+	$signal_speed_1 = 25;
 0;
 	Section.SetSpeedLimit(0, $signal_speed_1, $signal_speed_2, $signal_speed_3, $signal_speed_4, $signal_speed_4);
 	Beacon.Put(1011, -1, 0);
