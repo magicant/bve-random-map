@@ -169,7 +169,6 @@ distance + $_fake * $max_location;
 		$is_std_signal * $__j5 + $is_csatc * $following_section_signal_4,
 		$is_std_signal * $__j6 + $is_csatc * $following_section_signal_5,
 		$is_std_signal * $__j7 + $is_csatc * $following_section_signal_6);
-	// TODO 閉塞標識ストラクチャーを設置する
 
 // $__v[n] = min($__v[n], $max_speed)
 $__v1 = ($__v1 + $max_speed - abs($__v1 - $max_speed)) / 2;
