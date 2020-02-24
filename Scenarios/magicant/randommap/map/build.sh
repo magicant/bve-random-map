@@ -2,7 +2,7 @@
 
 security_types=(csatc snp swp2)
 files_per_security=5
-stations_per_file=6 # including the first and last stations
+stations_per_file=13 # including the first and last stations
 station_rate=29490 # < 32768
 terminal_rate=16384 # <= 32768
 

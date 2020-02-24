@@ -5,7 +5,7 @@ BveTs Map 2.02
 
 $max_location = 65536;
 $location = $max_location;
-$preceding_station_number = 5;
+$preceding_station_number = 12;
 $following_station_location = $max_location;
 $following_section_location_1 = $max_location + 31;
 $following_section_location_2 = $max_location + 32;
