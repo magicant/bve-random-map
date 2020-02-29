@@ -29,7 +29,7 @@ $ballast_5m_count = 2;
 
 Sound.Load('../sounds/sounds_' + floor(rand()) + '.csv');
 
-$__start_hour = 9 + 12 * floor(rand(2));
+$__start_hour = 5 + floor(rand(24 - 5));
 Station.Load('../stations/stations_' + $__start_hour + 'h_' + floor(rand()) + '.csv');
 
 $__night = floor($__start_hour / 18);
