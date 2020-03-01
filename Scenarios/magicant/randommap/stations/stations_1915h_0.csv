@@ -1,0 +1,15 @@
+BveTs Station List 2.00,,,,,,,,,,,,
+#,駅名,到着時刻,出発時刻,停車時間,開始時刻,出発信号,降車時間,乗車率,到着音声,発車前音声,再開扉確率,駆け込み乗車遅延時間
+station_0,広園,,19:18:30,15,19:18:00,0,5,1,,departure_bell_0,0.05,0.1
+station_1,神馬,,,15,,0,5,1.02,,departure_bell_0,0.05,0.1
+station_2,美柳,,,15,,0,4,0.97,,departure_bell_0,0.05,0.1
+station_3,子楽,,,15,,0,6,0.93,,departure_bell_0,0.06,0.1
+station_4,羽津,,,15,,0,5,0.88,,departure_bell_0,0.05,0.1
+station_5,湯役,,,15,,0,5,0.84,,departure_bell_0,0.05,0.1
+station_6,畑神,,,15,,0,7,0.79,,departure_bell_0,0.05,0.1
+station_7,七志橋,,,15,,0,5,0.73,,departure_bell_0,0.05,0.1
+station_8,濃見,,,15,,0,5,0.66,,departure_bell_0,0.05,0.1
+station_9,綾谷,,,15,,0,4,0.6,,departure_bell_0,0.05,0.1
+station_10,鉢手,,,15,,0,6,0.53,,departure_bell_0,0.05,0.1
+station_11,深台,,,15,,0,5,0.48,,departure_bell_0,0.05,0.1
+station_12,別見,,t,15,,0,5,0.4,,departure_bell_0,0.05,0.1

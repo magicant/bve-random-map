@@ -49,6 +49,7 @@ $_end - 0.01;
 	include '../map_misc/section_default.txt';
 $_signal_depart;
 	$pretrain_time = $pretrain_time - ($_end - $_signal_depart) / ($max_speed / 3.6 * 0.75);
+	$pretrain_departure_time = $pretrain_time;
 	PreTrain.Pass($pretrain_time);
 	Signal['signal_' + $_aspects].Put(0, 0, -2, 3.8 - $has_cab_signal * 100);
 	Structure['signal_pole_5m_r_0'].Put(0, -2, 3.3 - $has_cab_signal * 100, 0, 0, 0, 0, 0, 0);

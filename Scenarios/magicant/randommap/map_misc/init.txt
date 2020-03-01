@@ -29,12 +29,6 @@ $ballast_5m_count = 2;
 
 Sound.Load('../sounds/sounds_' + floor(rand()) + '.csv');
 
-$__start_hour = 5 + floor(rand(24 - 5));
-Station.Load('../stations/stations_' + $__start_hour + 'h_' + floor(rand()) + '.csv');
-
-$__night = floor($__start_hour / 18);
-Background.Change('background_' + $__night);
-
-// TODO 夜は環境光を暗くする
-
-$pretrain_time = $__start_hour * 3600 + ($__start_hour * 53 + 83) * 59 % 720 * 5 - 90 - rand(90);
+// 先行列車の終着駅到着時刻を決める (6 時から 24 時の間)
+$pretrain_time = (6 + rand(24 - 6)) * 3600;
+$pretrain_departure_time = $pretrain_time;
