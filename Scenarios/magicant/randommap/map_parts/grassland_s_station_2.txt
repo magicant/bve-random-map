@@ -80,6 +80,10 @@ $_signal_mid + 1 + (1 - $is_csatc) * $max_location;
 	Beacon.Put(12, 0, $_orp_distance);
 
 $location = $_begin;
-$pretrain_time = $pretrain_time - ($_signal_mid - $_begin) / ($max_speed / 3.6 * 0.75) - 30 - rand(15);
+$pretrain_time = $pretrain_time - ($_signal_mid - $_begin) / ($max_speed / 3.6 * 0.75);
+
+// 停車時間を差し引く
+$pretrain_time = $pretrain_time - $average_pretrain_stoppage_time * (0.75 + rand(0.25) + rand(0.25)) - $max_speed * 0.75 / 2.5;
+// TODO 先行列車の動きを終着駅としてふさわしいものにする
 
 //FOLLOWS: ../map_parts/grassland_s_mid.txt

@@ -102,6 +102,7 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$ats_update_transponder` = 上記地上子のストラクチャーキー。
  - `$conductor_timing_beacon_type` = 戸閉後に車掌が合図ブザーを鳴らすまでの時間を設定する地上子の種別番号。
  - `$max_section_count` = (標識ストラクチャーが存在する) 閉塞の番号の最大値。
+ - `$average_pretrain_stoppage_time` = 先行列車の平均停車時間 (秒)。
  - `$ballast_5m_count` = `ballast_5m_<ID>` ストラクチャーのバリエーション。
 
 なお、距離の単位は全てメートルである。
@@ -118,3 +119,10 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - (x が 0 でないとき) if x > 0 then 1 else -1 = x / abs(x)
  - if x = 0 then 0 else 1 = ceil(min(abs(x), 1))
  - (0 <= x <= N のとき) if x = 0 then 0 else 1 = ceil(x / N)
+
+### 先行列車の動き
+
+先行列車は基本的に一定速度 (`$max_speed` の 0.75 倍の速さ) で走っているものとして計算するが、停車駅においては以下の分だけロスタイムが発生する。
+
+- 駅に停車している時間: `$average_pretrain_stoppage_time * (0.75 + rand(0.25) + rand(0.25))`
+- 減速と加速を行うために、一定速度で走った場合に比べて余計にかかる時間: `$max_speed * 0.75 / 2.5`
