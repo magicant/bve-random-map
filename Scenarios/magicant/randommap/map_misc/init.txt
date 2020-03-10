@@ -37,3 +37,8 @@ $pretrain_departure_time = $pretrain_time;
 $average_pretrain_stoppage_time = 10 +
 	108000 / (3600 + abs($pretrain_time - 8 * 3600)) +
 	108000 / (3600 + abs($pretrain_time - 18 * 3600));
+
+// 先行列車の停車確率を決める
+// 1 - max(rand() - 0.25, 0)
+$__v = rand() - 0.25;
+$pretrain_stoppage_rate = 1 - ($__v + abs($__v)) / 2;

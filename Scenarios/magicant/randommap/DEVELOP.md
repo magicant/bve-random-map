@@ -103,6 +103,7 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$conductor_timing_beacon_type` = 戸閉後に車掌が合図ブザーを鳴らすまでの時間を設定する地上子の種別番号。
  - `$max_section_count` = (標識ストラクチャーが存在する) 閉塞の番号の最大値。
  - `$average_pretrain_stoppage_time` = 先行列車の平均停車時間 (秒)。
+ - `$pretrain_stoppage_rate` = 先行列車が駅に停車する確率。
  - `$ballast_5m_count` = `ballast_5m_<ID>` ストラクチャーのバリエーション。
 
 なお、距離の単位は全てメートルである。
@@ -119,6 +120,7 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - (x が 0 でないとき) if x > 0 then 1 else -1 = x / abs(x)
  - if x = 0 then 0 else 1 = ceil(min(abs(x), 1))
  - (0 <= x <= N のとき) if x = 0 then 0 else 1 = ceil(x / N)
+ - (0 <= p <= 1 のとき確率 p で 1 に、確率 (1-p) で 0 になる式) = ceil(p - rand())
 
 ### 先行列車の動き
 
