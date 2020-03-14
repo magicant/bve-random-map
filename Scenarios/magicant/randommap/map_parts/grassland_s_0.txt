@@ -28,7 +28,6 @@ $_end - 0.01;
 $_gradient_begin;
 	Gradient.BeginTransition();
 	// TODO 勾配標ストラクチャー
-	// TODO 勾配設定地上子
 $_gradient_end;
 	Gradient.Begin($gradient);
 	include '../map_misc/gradient_random.txt';

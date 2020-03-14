@@ -124,6 +124,8 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - (x が 0 でないとき) if x > 0 then 1 else -1 = x / abs(x)
  - if x = 0 then 0 else 1 = ceil(min(abs(x), 1))
  - (0 <= x <= N のとき) if x = 0 then 0 else 1 = ceil(x / N)
+ - (abs(x) <  N のとき) if x >= 0 then 0 else -1 = floor(x / N)
+ - (abs(x) <  N のとき) if x >  0 then 1 else  0 = ceil(x / N)
  - (0 <= p <= 1 のとき確率 p で 1 に、確率 (1-p) で 0 になる式) = ceil(p - rand())
 
 ### 先行列車の動き

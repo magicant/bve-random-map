@@ -1,0 +1,14 @@
+BveTs Map 2.02
+
+// 勾配地上子を設置する。
+//
+// このファイルを include する前に以下の変数を設定しておく必要がある。
+//  $location = 現在位置。
+//  $gradient = 現在位置より手前の勾配 (‰)。
+//  $_gradient = 現在位置から先の勾配 (‰)。
+//
+// 勾配地上子を設置する
+$location - 300;
+	$__p = ceil($_gradient / 1000); // 前提: abs($_gradient) < 1000
+	$__v = 300000 + floor(abs($_gradient));
+	Beacon.Put(1008, -1, $__p * $__v + ($__p - 1) * $__v);

@@ -11,6 +11,9 @@ $location - 500;
 	Gradient.Begin($gradient);
 $location - 501;
 	Gradient.BeginTransition();
+// 開始位置に対する勾配地上子を設置する
+$location - 500;
+	Beacon.Put(1008, -1, $gradient);
 
 // 先行列車の始発駅出発時刻に応じて停車場リストファイルを選択する
 $__time = ceil($pretrain_departure_time / 300) * 5; // 5 分単位にそろえる
