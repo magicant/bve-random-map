@@ -29,8 +29,9 @@ $_gradient_begin;
 	Gradient.BeginTransition();
 $_gradient_end;
 	Gradient.Begin($gradient);
+	$location = ($_gradient_begin + $_gradient_end) / 2;
 	include '../map_misc/gradient_random.txt';
-($_gradient_begin + $_gradient_end) / 2;
+$location;
 	Structure['gradient_l_' + $_gradient_sign].Put(0, -1.8, 0, 0, 0, 0, 0, 0, 0);
 
 // 最後の閉塞
