@@ -6,6 +6,12 @@ BveTs Map 2.02
 // 開始位置の直後の閉塞に対する地上子を設置する。
 include '../map_misc/section_default.txt';
 
+// 開始位置に対する勾配を設定する
+$location - 500;
+	Gradient.Begin($gradient);
+$location - 501;
+	Gradient.BeginTransition();
+
 // 先行列車の始発駅出発時刻に応じて停車場リストファイルを選択する
 $__time = ceil($pretrain_departure_time / 300) * 5; // 5 分単位にそろえる
 $__hours = floor($__time / 60);

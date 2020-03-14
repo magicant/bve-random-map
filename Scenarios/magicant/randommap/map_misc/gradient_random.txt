@@ -1,0 +1,23 @@
+BveTs Map 2.02
+
+// 勾配をランダムに変化させる。
+//
+// このファイルを include する前に以下の変数を設定しておく必要がある。
+//  $gradient = 現在位置から先の勾配 (‰)。
+//  $gradient_base = 現在地付近の平均的な勾配 (‰)。
+//  $global_gradient_variance = $gradient_base のばらつきの幅 (‰)。
+//  $local_gradient_variance = $gradient_base に加えるばらつきの幅 (‰)。
+//
+// このファイルの中で以下の変数が変更される。
+//  $gradient = 現在位置より手前の勾配 (‰)。
+//  $gradient_base = 現在地付近の新しい平均的な勾配 (‰)。
+
+// 20% の確率で $gradient_base を変化させる
+$__r = ceil(0.2 - rand());
+$gradient_base = $__r * ($global_gradient_variance * (rand() - rand())) +
+	(1 - $__r) * $gradient_base;
+
+// 80% の確率で $gradient を変化させる
+$__r = ceil(0.8 - rand());
+$gradient = $__r * ($gradient_base + $local_gradient_variance * (rand() - rand())) +
+	(1 - $__r) * $gradient;

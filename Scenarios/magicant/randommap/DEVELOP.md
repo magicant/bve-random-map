@@ -74,6 +74,8 @@ map フォルダーにある build.sh というシェルスクリプトファイ
 `$` の直後にアルファベットが来る変数はパートファイル間で様々なデータを引き継ぐために使用する。以下はそのような変数の一覧である。一つのパートファイルの処理が終わり次のパートファイルの処理に移るとき、変数の値は以下に説明する通りになっている必要がある。
 
  - `$location` = パートファイルが切り替わる地点の位置。
+ - `$gradient` = `$location` の位置の勾配 (‰)。
+ - `$gradient_base` = `$location` の位置の付近の勾配の平均 (‰)。
  - `$pretrain_time` = `$location` の位置を先行列車が通過する時刻 (0 時からの秒数)。
  - `$pretrain_departure_time` = 一つ後の駅を先行列車が出発する時刻 (0 時からの秒数)。すなわち自車が一つ後の駅に入れるようになる時刻。
  - `$preceding_station_number` = 次に駅のパートファイルが `include` された時に生成される駅の番号。駅の番号は始発駅が 0 で、終着駅に向かって 1, 2, 3, ... と上がってゆく。
@@ -86,6 +88,8 @@ map フォルダーにある build.sh というシェルスクリプトファイ
 
  - `$max_location` = 路線の最終地点の距離程。
  - `$max_speed` = 路線の最高速度 (km/h)。5 の倍数。
+ - `$global_gradient_variance` = `$gradient_base` の大まかな分散。
+ - `$local_gradient_variance` = `$gradient_base` に加える `$gradient` の大まかな分散。
  - `$has_cab_signal` = 車内信号式なら 1、線路脇信号式なら 0。
  - `$is_std_signal` = 通常の信号インデックス 0, ..., 5 を使用する路線なら 1、それ以外なら 0。
  - `$is_csatc` = CS-ATC 路線なら 1、それ以外なら 0。
