@@ -19,12 +19,15 @@ $_following_gradient = $gradient;
 
 // 20% の確率で $gradient_base を変化させる
 $__r = ceil(0.2 - rand());
-$gradient_base = $__r * ($global_gradient_variance * (rand() - rand())) +
-	(1 - $__r) * $gradient_base;
+$__new_gradient_base = $global_gradient_variance * (rand() - rand());
+$gradient_base = $__r * $__new_gradient_base + (1 - $__r) * $gradient_base;
 
 // 80% の確率で $gradient を変化させる
 $__r = ceil(0.8 - rand());
-$gradient = $__r * ($gradient_base + $local_gradient_variance * (rand() - rand())) +
-	(1 - $__r) * $gradient;
+$__new_gradient = $gradient_base + $local_gradient_variance * (rand() - rand());
+// 平坦の出現率を上げるため 0 に近い勾配は 0 に丸める
+$__nonzero = ceil((abs($__new_gradient) - abs($global_gradient_variance / 20)) / 1000);
+$__new_gradient = $__nonzero * $__new_gradient;
+$gradient = $__r * $__new_gradient + (1 - $__r) * $gradient;
 
 include '../map_misc/gradient.txt';
