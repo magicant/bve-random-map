@@ -36,6 +36,17 @@ platform_floor_r_5m_1, ../../../Nagoya_Common/Build/Form/simple_Form/5CR_E.x
 # 停止位置目標
 stopsign, ../../../Nagoya_Common/Railway_Obj/Sign/Stop/Stop.x
 
+# 勾配標
+gradient_l_0,
+gradient_l_1, ../../../Nagoya_Common/Railway_Obj/Sign/Gradient/LD.x
+gradient_l_2, ../../../Nagoya_Common/Railway_Obj/Sign/Gradient/LU.x
+gradient_l_10, ../../../Nagoya_Common/Railway_Obj/Sign/Gradient/DL.x
+gradient_l_11, ../../../Nagoya_Common/Railway_Obj/Sign/Gradient/D.x
+gradient_l_12, ../../../Nagoya_Common/Railway_Obj/Sign/Gradient/UD.x
+gradient_l_20, ../../../Nagoya_Common/Railway_Obj/Sign/Gradient/UL.x
+gradient_l_21, ../../../Nagoya_Common/Railway_Obj/Sign/Gradient/DU.x
+gradient_l_22, ../../../Nagoya_Common/Railway_Obj/Sign/Gradient/U.x
+
 # 信号柱
 signal_pole_5m_l_0, ../../../Nagoya_Common/Railway_Obj/SigPole/5Lw.x
 signal_pole_5m_c_0, ../../../Nagoya_Common/Railway_Obj/SigPole/5Cw.x

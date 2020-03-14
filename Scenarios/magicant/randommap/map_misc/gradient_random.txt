@@ -13,6 +13,7 @@ BveTs Map 2.02
 // このファイルの中で以下の変数が変更される。
 //  $gradient = 現在位置より手前の勾配 (‰)。
 //  $gradient_base = 現在地付近の新しい平均的な勾配 (‰)。
+//  $_gradient_sign = 勾配標の種類 (ストラクチャー名のインデックス)。
 
 $_gradient = $gradient;
 
