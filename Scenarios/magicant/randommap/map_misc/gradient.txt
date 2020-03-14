@@ -5,20 +5,20 @@ BveTs Map 2.02
 // このファイルを include する前に以下の変数を設定しておく必要がある。
 //  $location = 現在位置。
 //  $gradient = 現在位置より手前の勾配 (‰)。
-//  $_gradient = 現在位置から先の勾配 (‰)。
+//  $_following_gradient = 現在位置から先の勾配 (‰)。
 //
 // このファイルの中で以下の変数が変更される。
 //  $_gradient_sign = 勾配標の種類 (ストラクチャー名のインデックス)。
 
 // 勾配地上子を設置する
 $location - 300;
-	$__p = ceil($_gradient / 1000); // 前提: abs($_gradient) < 1000
-	$__v = 300000 + floor(abs($_gradient));
+	$__p = ceil($_following_gradient / 1000); // 前提: abs($_gradient) < 1000
+	$__v = 300000 + floor(abs($_following_gradient));
 	Beacon.Put(1008, -1, $__p * $__v + ($__p - 1) * $__v);
 
-// $__p = $_gradient が正なら 1、さもなくば 0
-// $__z = $_gradient がほぼ 0 なら 0、さもなくば 1
-$__z = ceil((abs($_gradient) - 0.1) / 1000);
+// $__p = $_following_gradient が正なら 1、さもなくば 0
+// $__z = $_following_gradient がほぼ 0 なら 0、さもなくば 1
+$__z = ceil((abs($_following_gradient) - 0.1) / 1000);
 
 // 同じく、$gradient も計算
 $__p1 = ceil($gradient / 1000);
@@ -35,6 +35,6 @@ $__z1 = ceil((abs($gradient) - 0.1) / 1000);
 // 21 = 上りから下り
 // 22 = 上りから上り
 $_gradient_sign = $__z * ($__p + 1) + 10 * $__z1 * ($__p1 + 1);
-// ただし勾配が変化しない場合は $_gradient を 0 にする
-$__z = ceil((abs($_gradient - $gradient) - 0.1) / 1000);
+// ただし勾配が変化しない場合は $_gradient_sign を 0 にする
+$__z = ceil((abs($_following_gradient - $gradient) - 0.1) / 1000);
 $_gradient_sign = $__z * $_gradient_sign;
