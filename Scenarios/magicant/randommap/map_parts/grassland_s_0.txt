@@ -5,8 +5,7 @@ BveTs Map 2.02
 $_end = $location;
 $_count = floor(2.5 + rand(3));
 $_begin = $_end - 100 * $_count;
-$_gradient_begin = $_begin + rand() * ($_end - $_begin - 50);
-$_gradient_end = $_gradient_begin + 50;
+$_gradient_middle = $_begin + 100 + rand($_end - $_begin - 200);
 $_signal_main = $_end - 50.25;
 $_signal_sub1 = $_signal_main - ($_end - $_begin) * 0.33333333;
 $_signal_sub2 = $_signal_main - ($_end - $_begin) * 0.66666666;
@@ -25,11 +24,7 @@ $_end - 0.01;
 	Repeater['trolleywire'].End();
 
 // 勾配の変化点
-$_gradient_begin;
-	Gradient.BeginTransition();
-$_gradient_end;
-	Gradient.Begin($gradient);
-	$location = ($_gradient_begin + $_gradient_end) / 2;
+	$location = $_gradient_middle;
 	include '../map_misc/gradient_random.txt';
 $location;
 	Structure['gradient_l_' + $_gradient_sign].Put(0, -1.8, 0, 0, 0, 0, 0, 0, 0);

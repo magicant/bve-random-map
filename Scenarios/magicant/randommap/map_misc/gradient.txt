@@ -1,6 +1,7 @@
 BveTs Map 2.02
 
-// 勾配地上子を設置し勾配標の種類を選択する。
+// 現在位置の前後に縦曲線を設置する。
+// また、勾配地上子を設置し勾配標の種類を選択する。
 //
 // このファイルを include する前に以下の変数を設定しておく必要がある。
 //  $location = 現在位置。
@@ -9,6 +10,13 @@ BveTs Map 2.02
 //
 // このファイルの中で以下の変数が変更される。
 //  $_gradient_sign = 勾配標の種類 (ストラクチャー名のインデックス)。
+
+// 縦曲線を作る
+	$__d = abs($gradient - $_following_gradient);
+$location - $__d;
+	Gradient.BeginTransition();
+$location + $__d;
+	Gradient.Begin($_following_gradient);
 
 // 勾配地上子を設置する
 $location - 300;
@@ -36,5 +44,5 @@ $__z1 = ceil((abs($gradient) - 0.1) / 1000);
 // 22 = 上りから上り
 $_gradient_sign = $__z * ($__p + 1) + 10 * $__z1 * ($__p1 + 1);
 // ただし勾配が変化しない場合は $_gradient_sign を 0 にする
-$__z = ceil((abs($_following_gradient - $gradient) - 0.1) / 1000);
+$__z = ceil(($__d - 0.1) / 1000);
 $_gradient_sign = $__z * $_gradient_sign;
