@@ -9,6 +9,7 @@ $_count = floor(0.5 + rand(4));
 $_curve_enter = $_curve_exit - 100 * $_count;
 $_curve_begin = $_curve_enter - 100; // TODO 緩和曲線長のランダム化
 $_begin = $_curve_begin;
+$_gradient_middle = $_begin + 100 + rand($_end - $_begin - 200);
 $_signal_main = $_curve_end - 50.25;
 $_signal_sub1 = $_signal_main - ($_end - $_begin) * 0.33333333;
 $_signal_sub2 = $_signal_main - ($_end - $_begin) * 0.66666666;
@@ -38,6 +39,11 @@ $_curve_exit;
 	Curve.BeginTransition();
 $_curve_end;
 	Curve.End();
+// 勾配の変化点
+	$location = $_gradient_middle;
+	include '../map_misc/gradient_random.txt';
+$location;
+	Structure['gradient_l_' + $_gradient_sign].Put(0, -1.8, -rand(0.4), 0, 0, 0, 0, 0, 0);
 
 // 最後の閉塞
 	$_sc = ($section_count + $max_section_count - abs($section_count - $max_section_count)) / 2; // min($section_count, $max_section_count)

@@ -3,6 +3,8 @@ BveTs Map 2.02
 //STATION
 // 草原、単線、一面一線右側ホーム
 
+// TODO 駅の中はきつい勾配を避ける
+
 $_end = $location;
 $_begin = $_end - 250;
 $_stop = $_begin + 205;
