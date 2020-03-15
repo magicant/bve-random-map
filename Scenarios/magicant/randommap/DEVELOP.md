@@ -94,9 +94,9 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$is_std_signal` = 通常の信号インデックス 0, ..., 5 を使用する路線なら 1、それ以外なら 0。
  - `$is_csatc` = CS-ATC 路線なら 1、それ以外なら 0。
  - `$signal_speed_1`, ..., `$signal_speed_4` = 信号インデックス 1, ..., 4 の制限速度 (km/h)。 `$is_std_signal` が 0 の路線では非常に大きな値。
- - `$tasc_long_beacon_type` = 前の駅の停止位置の 11 メートル先に設置する TASC 地上子の種別番号。
- - `$tasc_500m_beacon_type` = 停車駅の停止位置の 500 メートル手前に設置する TASC 地上子の種別番号。
- - `$tasc_11m_beacon_type` = 停車駅の停止位置の 11 メートル手前に設置する TASC 地上子の種別番号。
+ - `$station_abs_beacon_type` = 0 メートル地点に設置する、停車駅の位置を指示する地上子の種別番号。
+ - `$station_500m_beacon_type` = 停車駅の停止位置の 500 メートル手前に設置する地上子の種別番号。
+ - `$station_11m_beacon_type` = 停車駅の停止位置の 11 メートル手前に設置する地上子の種別番号。
  - `$ats_stop_beacon_type` = ATS-P 即時停止地上子の種別番号。
  - `$ats_stop_beacon_section` = ATS-P 即時停止地上子に対応させる閉塞。
  - `$ats_update_1_beacon_type` = 一つ先の閉塞の信号現示を送るための地上子の種別番号。閉塞の 25, 50, 85, 130, 180, 280, 600 メートル手前に設置される。

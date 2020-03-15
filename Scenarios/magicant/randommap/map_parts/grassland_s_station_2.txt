@@ -10,7 +10,7 @@ $_orp_distance = 48 + floor(rand(2)) * 31; // 48 or 79
 
 $_end = $location;
 $_begin = $_end - 250;
-$_stop = $_begin + 205;
+$_stop = floor($_begin + 205);
 $_platform_end = $_begin + 210;
 $_signal_term = $_platform_end + 25;
 $_signal_mid = $_stop - $_orp_distance + 1;

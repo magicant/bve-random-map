@@ -3,13 +3,9 @@ BveTs Map 2.02
 // このファイルは、snp.dll 用の全てのマップで最初に include される。
 // map_parts/*.txt ファイルを読み込む前に必要な初期化を行う。
 
-include '../map_misc/init.txt';
-
 $has_cab_signal = 0;
 $is_std_signal = 1;
 $is_csatc = 0;
-
-Signal.Load('../signals/signals_sp.csv');
 
 // 信号の制限速度を設定する
 	$max_speed = floor((rand(11) + rand(11)) / 2) * 5 + 70;
@@ -26,9 +22,9 @@ Signal.Load('../signals/signals_sp.csv');
 	Beacon.Put(1011, -1, 4000 + $signal_speed_4);
 	Beacon.Put(1011, -1, 5000 + $signal_speed_4);
 
-$tasc_long_beacon_type = 1030;
-$tasc_500m_beacon_type = 9999999;
-$tasc_11m_beacon_type = 1030;
+$station_abs_beacon_type = 255;
+$station_500m_beacon_type = 9999999;
+$station_11m_beacon_type = 9999999;
 
 $ats_stop_beacon_type = 4;
 $ats_stop_beacon_section = -1;
@@ -41,3 +37,7 @@ $ats_update_m1_beacon_value = 9;
 $ats_update_transponder = 'atsp_transponder';
 
 $conductor_timing_beacon_type = 9999999;
+
+include '../map_misc/init.txt';
+
+Signal.Load('../signals/signals_sp.csv');
