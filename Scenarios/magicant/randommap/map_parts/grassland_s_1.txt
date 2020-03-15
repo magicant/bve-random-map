@@ -11,8 +11,9 @@ $_curve_begin = $_curve_enter - 100; // TODO 緩和曲線長のランダム化
 $_begin = $_curve_begin;
 $_gradient_middle = $_begin + 100 + rand($_end - $_begin - 200);
 $_signal_main = $_curve_end - 50.25;
-$_signal_sub1 = $_signal_main - ($_end - $_begin) * 0.33333333;
-$_signal_sub2 = $_signal_main - ($_end - $_begin) * 0.66666666;
+$_signal_sub1 = $_signal_main - 150;
+$_signal_sub2 = $_signal_main - 300;
+$_signal_sub3 = $_signal_main - 450;
 
 // ストラクチャー
 $_begin;
@@ -58,7 +59,7 @@ $_signal_main - 3 + (1 - $has_cab_signal) * $max_location;
 
 // 中間の閉塞 (ATC のみ)
 	$_sc = ($section_count + $max_section_count - abs($section_count - $max_section_count)) / 2; // min($section_count, $max_section_count)
-	$_fake = 1 - $has_cab_signal;
+	$_fake = 1 - $has_cab_signal * ceil(($_signal_sub1 - $_begin - 50) / $max_location);
 	$_orp = 0;
 	$location = $_signal_sub1;
 	include '../map_misc/section.txt';
@@ -66,12 +67,12 @@ $_signal_sub1;
 	$pretrain_time = $pretrain_time - ($_signal_main - $_signal_sub1) / ($max_speed / 3.6 * 0.75);
 	PreTrain.Pass($pretrain_time);
 	// Signal['signal_' + $_aspects].Put(0, 0, -2.25, 3.8 - $has_cab_signal * 100);
-$_signal_sub1 - 3 + (1 - $has_cab_signal) * $max_location;
+$_signal_sub1 - 3 + $_fake * $max_location;
 	Structure['section_sign_' + $_sc].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
 
-// 最初の閉塞 (ATC のみ)
+// 中間の閉塞 (ATC のみ)
 	$_sc = ($section_count + $max_section_count - abs($section_count - $max_section_count)) / 2; // min($section_count, $max_section_count)
-	$_fake = 1 - $has_cab_signal;
+	$_fake = 1 - $has_cab_signal * ceil(($_signal_sub2 - $_begin - 50) / $max_location);
 	$_orp = 0;
 	$location = $_signal_sub2;
 	include '../map_misc/section.txt';
@@ -79,10 +80,23 @@ $_signal_sub2;
 	$pretrain_time = $pretrain_time - ($_signal_sub1 - $_signal_sub2) / ($max_speed / 3.6 * 0.75);
 	PreTrain.Pass($pretrain_time);
 	// Signal['signal_' + $_aspects].Put(0, 0, -2.25, 3.8 - $has_cab_signal * 100);
-$_signal_sub2 - 3 + (1 - $has_cab_signal) * $max_location;
+$_signal_sub2 - 3 + $_fake * $max_location;
+	Structure['section_sign_' + $_sc].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
+
+// 最初の閉塞 (ATC のみ)
+	$_sc = ($section_count + $max_section_count - abs($section_count - $max_section_count)) / 2; // min($section_count, $max_section_count)
+	$_fake = 1 - $has_cab_signal * ceil(($_signal_sub3 - $_begin - 50) / $max_location);
+	$_orp = 0;
+	$location = $_signal_sub3;
+	include '../map_misc/section.txt';
+$_signal_sub3;
+	$pretrain_time = $pretrain_time - ($_signal_sub2 - $_signal_sub3) / ($max_speed / 3.6 * 0.75);
+	PreTrain.Pass($pretrain_time);
+	// Signal['signal_' + $_aspects].Put(0, 0, -2.25, 3.8 - $has_cab_signal * 100);
+$_signal_sub3 - 3 + $_fake * $max_location;
 	Structure['section_sign_' + $_sc].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
 
 $location = $_begin;
-$pretrain_time = $pretrain_time - ($_signal_sub2 - $_begin) / ($max_speed / 3.6 * 0.75);
+$pretrain_time = $pretrain_time - ($_signal_sub3 - $_begin) / ($max_speed / 3.6 * 0.75);
 
 //FOLLOWS: ../map_parts/grassland_s_mid.txt
