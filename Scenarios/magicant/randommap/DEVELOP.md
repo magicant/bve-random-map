@@ -80,8 +80,8 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$pretrain_departure_time` = 一つ後の駅を先行列車が出発する時刻 (0 時からの秒数)。すなわち自車が一つ後の駅に入れるようになる時刻。
  - `$preceding_station_number` = 次に駅のパートファイルが `include` された時に生成される駅の番号。駅の番号は始発駅が 0 で、終着駅に向かって 1, 2, 3, ... と上がってゆく。
  - `$following_station_location` = 一つ後の駅の停止位置。
- - `$following_section_location_1`, ..., `$following_section_location_7` = 一つ後から七つ後までの各閉塞の開始位置。
- - `$following_section_signal_1`, ..., `$following_section_signal_7` = 先行列車が 1, ..., 7 閉塞先にいる時における、一つ後の閉塞の信号インデックス。
+ - `$following_section_location_1`, ..., `$following_section_location_8` = 一つ後から八つ後までの各閉塞の開始位置。
+ - `$following_section_signal_1`, ..., `$following_section_signal_8` = 先行列車が 1, ..., 8 閉塞先にいる時における、一つ後の閉塞の信号インデックス。
  - `$section_count` = `$location` の位置における閉塞の番号。
 
 以下は全てのパートファイルで使われる変数ではあるが、最初のパートファイルが `include` される前に初期化され、各パートファイルの中では変更されない。

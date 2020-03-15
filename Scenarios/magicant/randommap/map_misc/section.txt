@@ -17,13 +17,13 @@ BveTs Map 2.02
 //  $is_csatc = CS-ATC 路線なら 1、それ以外なら 0。
 //  $following_section_location_1 = 一つ後の閉塞の開始位置
 //  $following_section_location_2 = 二つ後の閉塞の開始位置
-//  $following_section_location_3, ..., $following_section_location_7 =
-//    同様に、七つ後までの閉塞の開始位置
+//  $following_section_location_3, ..., $following_section_location_8 =
+//    同様に、八つ後までの閉塞の開始位置
 //  $following_section_signal_1 = 一つ後の閉塞のさらに一つ先の閉塞に
 //    先行列車がいる時の、一つ後の閉塞の信号インデックス
 //  $following_section_signal_2 = 一つ後の閉塞のさらに二つ先の閉塞に
 //    先行列車がいる時の、一つ後の閉塞の信号インデックス
-//  $following_section_signal_3, ..., $following_section_signal_7 =
+//  $following_section_signal_3, ..., $following_section_signal_8 =
 //    同様に、先の閉塞に先行列車がいる時の、一つ後の閉塞の信号インデックス
 //  $signal_speed_1, ..., $signal_speed_4 =
 //    信号インデックス 1, ..., 4 の制限速度 (km/h)
@@ -47,13 +47,13 @@ BveTs Map 2.02
 //  $following_section_location_1 = この閉塞の開始位置 (= $location)
 //  $following_section_location_2 = 一つ後の閉塞の開始位置
 //  $following_section_location_3 = 二つ後の閉塞の開始位置
-//  $following_section_location_4, ..., $following_section_location_7 =
-//    同様に、七つ後までの閉塞の開始位置
+//  $following_section_location_4, ..., $following_section_location_8 =
+//    同様に、八つ後までの閉塞の開始位置
 //  $following_section_signal_1 = この閉塞のさらに一つ先の閉塞に
 //    先行列車がいる時の、この閉塞の信号インデックス
 //  $following_section_signal_2 = この閉塞のさらに二つ先の閉塞に
 //    先行列車がいる時の、この閉塞の信号インデックス
-//  $following_section_signal_3, ..., $following_section_signal_7 =
+//  $following_section_signal_3, ..., $following_section_signal_8 =
 //    同様に、先の閉塞に先行列車がいる時の、この閉塞の信号インデックス
 //  $section_count = この一つ手前の閉塞の番号
 // ただし、$_fake が 1 に設定されていた場合は閉塞や地上子は設置されず
@@ -78,6 +78,7 @@ $__v4 = sqrt(18 * ($following_section_location_4 - 30 - $location));
 $__v5 = sqrt(18 * ($following_section_location_5 - 30 - $location));
 $__v6 = sqrt(18 * ($following_section_location_6 - 30 - $location));
 $__v7 = sqrt(18 * ($following_section_location_7 - 30 - $location));
+$__v8 = sqrt(18 * ($following_section_location_8 - 30 - $location));
 $__c1 = ceil(floor($__v1 / $signal_speed_1) / 65536)
       + ceil(floor($__v1 / $signal_speed_2) / 65536)
       + ceil(floor($__v1 / $signal_speed_3) / 65536)
@@ -106,6 +107,10 @@ $__c7 = ceil(floor($__v7 / $signal_speed_1) / 65536)
       + ceil(floor($__v7 / $signal_speed_2) / 65536)
       + ceil(floor($__v7 / $signal_speed_3) / 65536)
       + ceil(floor($__v7 / $signal_speed_4) / 65536);
+$__c8 = ceil(floor($__v8 / $signal_speed_1) / 65536)
+      + ceil(floor($__v8 / $signal_speed_2) / 65536)
+      + ceil(floor($__v8 / $signal_speed_3) / 65536)
+      + ceil(floor($__v8 / $signal_speed_4) / 65536);
 $__h1 = $__c1;
 $__h2 = $__c2 + floor($following_section_signal_1 / 4);
 $__h3 = $__c3 + floor($following_section_signal_2 / 4);
@@ -113,6 +118,7 @@ $__h4 = $__c4 + floor($following_section_signal_3 / 4);
 $__h5 = $__c5 + floor($following_section_signal_4 / 4);
 $__h6 = $__c6 + floor($following_section_signal_5 / 4);
 $__h7 = $__c7 + floor($following_section_signal_6 / 4);
+$__h8 = $__c8 + floor($following_section_signal_7 / 4);
 // $__j1 = min($__h1, 2)
 $__j1 = ($__h1 + 2 - abs($__h1 - 2)) / 2;
 // $__j[n] = min($__h[n], $following_section_signal_[n-1] + 2)
@@ -122,6 +128,7 @@ $__j4 = ($__h4 + $following_section_signal_3 + 2 - abs($__h4 - $following_sectio
 $__j5 = ($__h5 + $following_section_signal_4 + 2 - abs($__h5 - $following_section_signal_4 - 2)) / 2;
 $__j6 = ($__h6 + $following_section_signal_5 + 2 - abs($__h6 - $following_section_signal_5 - 2)) / 2;
 $__j7 = ($__h7 + $following_section_signal_6 + 2 - abs($__h7 - $following_section_signal_6 - 2)) / 2;
+$__j8 = ($__h8 + $following_section_signal_7 + 2 - abs($__h8 - $following_section_signal_7 - 2)) / 2;
 $__indexes = $__j1 * 10
            + $__j2 * 100
            + $__j3 * 1000
@@ -129,23 +136,21 @@ $__indexes = $__j1 * 10
            + $__j5 * 100000;
            // 桁数を増やし過ぎると誤差が出るので 6 桁までにしておく
            // + $__j6 * 1000000
-           // + $__j7 * 10000000;
+           // + $__j7 * 10000000
+           // + $__j8 * 100000000;
 
 // 信号機が出しうる現示を求める
 $__1 = ($__j1 - 1) * ($__j2 - 1) * ($__j3 - 1) * ($__j4 - 1)
-     * ($__j5 - 1) * ($__j6 - 1) * ($__j7 - 1);
+     * ($__j5 - 1) * ($__j6 - 1) * ($__j7 - 1) * ($__j8 - 1);
 $__2 = ($__j1 - 2) * ($__j2 - 2) * ($__j3 - 2) * ($__j4 - 2)
-     * ($__j5 - 2) * ($__j6 - 2) * ($__j7 - 2);
+     * ($__j5 - 2) * ($__j6 - 2) * ($__j7 - 2) * ($__j8 - 2);
 $__3 = ($__j1 - 3) * ($__j2 - 3) * ($__j3 - 3) * ($__j4 - 3)
-     * ($__j5 - 3) * ($__j6 - 3) * ($__j7 - 3);
-$__4 = ($__j1 - 4) * ($__j2 - 4) * ($__j3 - 4) * ($__j4 - 4)
-     * ($__j5 - 4) * ($__j6 - 4) * ($__j7 - 4)
-     * ($__j1 - 5) * ($__j2 - 5) * ($__j3 - 5) * ($__j4 - 5)
-     * ($__j5 - 5) * ($__j6 - 5) * ($__j7 - 5);
+     * ($__j5 - 3) * ($__j6 - 3) * ($__j7 - 3) * ($__j8 - 3);
+$__4 = ($__j8 - 4) * ($__j8 - 5);
 $_aspects = (1 - ceil(abs($__1 / 1073741824)))
           + (1 - ceil(abs($__2 / 1073741824))) * 20
           + (1 - ceil(abs($__3 / 1073741824))) * 300
-          + (1 - ceil(abs($__4 / 1073741824 / 1073741824))) * 4000;
+          + (1 - ceil(abs($__4 / 1073741824))) * 4000;
 
 // 信号機の灯数を求める
 $__2 = $_aspects * ($_aspects - 20); // * ($_aspects - 4000);
@@ -168,7 +173,8 @@ distance + $_fake * $max_location;
 		$is_std_signal * $__j4 + $is_csatc * $following_section_signal_3,
 		$is_std_signal * $__j5 + $is_csatc * $following_section_signal_4,
 		$is_std_signal * $__j6 + $is_csatc * $following_section_signal_5,
-		$is_std_signal * $__j7 + $is_csatc * $following_section_signal_6);
+		$is_std_signal * $__j7 + $is_csatc * $following_section_signal_6,
+		$is_std_signal * $__j8 + $is_csatc * $following_section_signal_7);
 
 // $__v[n] = min($__v[n], $max_speed)
 $__v1 = ($__v1 + $max_speed - abs($__v1 - $max_speed)) / 2;
@@ -178,6 +184,7 @@ $__v4 = ($__v4 + $max_speed - abs($__v4 - $max_speed)) / 2;
 $__v5 = ($__v5 + $max_speed - abs($__v5 - $max_speed)) / 2;
 $__v6 = ($__v6 + $max_speed - abs($__v6 - $max_speed)) / 2;
 $__v7 = ($__v7 + $max_speed - abs($__v7 - $max_speed)) / 2;
+$__v8 = ($__v8 + $max_speed - abs($__v8 - $max_speed)) / 2;
 
 // CS-ATC 用に $__j[n] を計算する
 $__c1 = floor($__v1 / 5) + 10;
@@ -187,6 +194,7 @@ $__c4 = floor($__v4 / 5) + 10;
 $__c5 = floor($__v5 / 5) + 10;
 $__c6 = floor($__v6 / 5) + 10;
 $__c7 = floor($__v7 / 5) + 10;
+$__c8 = floor($__v8 / 5) + 10;
 // $__h[n] = min($__c[n], 33)
 $__h1 = ($__c1 + 33 - abs($__c1 - 33)) / 2;
 $__h2 = ($__c2 + 33 - abs($__c2 - 33)) / 2;
@@ -195,6 +203,7 @@ $__h4 = ($__c4 + 33 - abs($__c4 - 33)) / 2;
 $__h5 = ($__c5 + 33 - abs($__c5 - 33)) / 2;
 $__h6 = ($__c6 + 33 - abs($__c6 - 33)) / 2;
 $__h7 = ($__c7 + 33 - abs($__c7 - 33)) / 2;
+$__h8 = ($__c8 + 33 - abs($__c8 - 33)) / 2;
 $__j1 = $is_std_signal * $__j1 + $is_csatc * $__h1;
 $__j2 = $is_std_signal * $__j2 + $is_csatc * $__h2;
 $__j3 = $is_std_signal * $__j3 + $is_csatc * $__h3;
@@ -202,6 +211,7 @@ $__j4 = $is_std_signal * $__j4 + $is_csatc * $__h4;
 $__j5 = $is_std_signal * $__j5 + $is_csatc * $__h5;
 $__j6 = $is_std_signal * $__j6 + $is_csatc * $__h6;
 $__j7 = $is_std_signal * $__j7 + $is_csatc * $__h7;
+$__j8 = $is_std_signal * $__j8 + $is_csatc * $__h8;
 
 // 現示更新地上子
 $location + 0.01;
@@ -279,6 +289,7 @@ distance - 3;
 distance + ceil(($location - distance) / $max_location) * $max_location; // $location より手前には置かない
 	Structure[$ats_update_transponder].Put0(0, 3, 0);
 
+$following_section_location_8 = $_fake * $following_section_location_8 + (1 - $_fake) * $following_section_location_7;
 $following_section_location_7 = $_fake * $following_section_location_7 + (1 - $_fake) * $following_section_location_6;
 $following_section_location_6 = $_fake * $following_section_location_6 + (1 - $_fake) * $following_section_location_5;
 $following_section_location_5 = $_fake * $following_section_location_5 + (1 - $_fake) * $following_section_location_4;
@@ -293,4 +304,5 @@ $following_section_signal_4 = $_fake * $following_section_signal_4 + (1 - $_fake
 $following_section_signal_5 = $_fake * $following_section_signal_5 + (1 - $_fake) * $__j5;
 $following_section_signal_6 = $_fake * $following_section_signal_6 + (1 - $_fake) * $__j6;
 $following_section_signal_7 = $_fake * $following_section_signal_7 + (1 - $_fake) * $__j7;
+$following_section_signal_8 = $_fake * $following_section_signal_8 + (1 - $_fake) * $__j8;
 $section_count = $section_count + 1 - $_fake;
