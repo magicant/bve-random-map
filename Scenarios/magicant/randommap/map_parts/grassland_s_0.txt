@@ -27,7 +27,7 @@ $_end - 0.01;
 	$location = $_gradient_middle;
 	include '../map_misc/gradient_random.txt';
 $location;
-	Structure['gradient_l_' + $_gradient_sign].Put(0, -1.8, 0, 0, 0, 0, 0, 0, 0);
+	Structure['gradient_l_' + $_gradient_sign].Put(0, -1.8, -rand(0.4), 0, 0, 0, 0, 0, 0);
 
 // 最後の閉塞
 	$_sc = ($section_count + $max_section_count - abs($section_count - $max_section_count)) / 2; // min($section_count, $max_section_count)
