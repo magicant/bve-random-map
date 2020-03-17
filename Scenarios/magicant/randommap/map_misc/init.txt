@@ -10,7 +10,19 @@ $gradient_base = 0;
 $global_gradient_variance = 30 * (rand() - rand());
 $local_gradient_variance = 2 + rand(8);
 $preceding_station_number = 12;
-$following_station_location = $max_location;
+$following_station_location_1 = $max_location;
+$following_station_location_2 = $max_location + 1000;
+$following_station_location_3 = $max_location + 1001;
+$following_station_location_4 = $max_location + 1002;
+$following_station_location_5 = $max_location + 1003;
+$following_station_location_6 = $max_location + 1004;
+$following_station_location_7 = $max_location + 1005;
+$following_station_location_8 = $max_location + 1006;
+$following_station_location_9 = $max_location + 1007;
+$following_station_location_10 = $max_location + 1008;
+$following_station_location_11 = $max_location + 1009;
+$following_station_location_12 = $max_location + 1010;
+$following_station_location_13 = $max_location + 1011;
 $following_section_location_1 = $max_location + 31;
 $following_section_location_2 = $max_location + 32;
 $following_section_location_3 = $max_location + 33;
@@ -48,7 +60,3 @@ $average_pretrain_stoppage_time = 10 +
 // 1 - max(rand() - 0.25, 0)
 $__v = rand() - 0.25;
 $pretrain_stoppage_rate = 1 - ($__v + abs($__v)) / 2;
-
-// 終着駅を TASC に設定する
-$preceding_station_number + 1;
-	Beacon.Put($station_abs_beacon_type, 0, -1);
