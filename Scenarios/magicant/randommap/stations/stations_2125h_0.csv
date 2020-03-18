@@ -1,15 +1,15 @@
 BveTs Station List 2.00,,,,,,,,,,,,
 #,駅名,到着時刻,出発時刻,停車時間,開始時刻,出発信号,降車時間,乗車率,到着音声,発車前音声,再開扉確率,駆け込み乗車遅延時間
 station_0,岩垣,,21:28:15,15,21:27:45,1,3,0.2,,departure_bell_0,0.05,0.1
-station_1,十国,,,15,,0,3,0.22,,departure_bell_0,0.05,0.1
+station_1,十国,p,,15,,0,3,0.22,,departure_bell_0,0.05,0.1
 station_2,谷池,,,15,,0,2,0.29,,departure_bell_0,0.05,0.1
 station_3,多古良,,,15,,0,3,0.34,,departure_bell_0,0.06,0.1
 station_4,伝田,,,15,,0,2,0.4,,departure_bell_0,0.05,0.1
-station_5,上倉,,,15,,0,3,0.45,,departure_bell_0,0.05,0.1
-station_6,本河,,,15,,0,4,0.46,,departure_bell_0,0.05,0.1
-station_7,松目,,,15,,0,3,0.41,,departure_bell_0,0.05,0.1
-station_8,香沼,,,15,,0,3,0.37,,departure_bell_0,0.05,0.1
-station_9,稲村,,,15,,0,2,0.32,,departure_bell_0,0.05,0.1
-station_10,舟方,,,15,,0,3,0.29,,departure_bell_0,0.05,0.1
+station_5,上倉,p,,15,,0,3,0.45,,departure_bell_0,0.05,0.1
+station_6,本河,p,,15,,0,4,0.46,,departure_bell_0,0.05,0.1
+station_7,松目,p,,15,,0,3,0.41,,departure_bell_0,0.05,0.1
+station_8,香沼,p,,15,,0,3,0.37,,departure_bell_0,0.05,0.1
+station_9,稲村,p,,15,,0,2,0.32,,departure_bell_0,0.05,0.1
+station_10,舟方,p,,15,,0,3,0.29,,departure_bell_0,0.05,0.1
 station_11,塚前,,,15,,0,4,0.25,,departure_bell_0,0.05,0.1
 station_12,魚瀬,,t,15,,0,4,0.21,,departure_bell_0,0.05,0.1

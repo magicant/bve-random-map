@@ -7,6 +7,8 @@ BveTs Map 2.02
 //  - この駅用の発車合図タイミング設定地上子
 //
 // このファイルを include する前に以下の変数を設定しておく必要がある。
+//  $is_express = 駅を通過してよいなら 1、必ず停車するなら 0。
+//  $max_location = 距離程の最大値
 //  $preceding_stop_location = 一つ手前の停車駅の停止位置
 //  $following_station_location_1, ..., $following_station_location_13 =
 //    一つ後～ 13 個後の駅の停止位置
@@ -14,34 +16,38 @@ BveTs Map 2.02
 //  $station_500m_beacon_type = 停止位置 500 メートル手前に置く地上子の番号
 //  $station_11m_beacon_type = 停止位置 11 メートル手前に置く地上子の番号
 //  $conductor_timing_beacon_type = 発車合図タイミングを設定する地上子の番号
+//  $random = 駅を通過するかどうか決める乱数
 //
 // このファイルの中で以下の変数が変更される。
 //  $preceding_stop_location = この停車駅の停止位置 (この駅が停車駅の場合)
 //  $following_station_location_1, ..., $following_station_location_12 =
 //    一つ後～ 12 個後の駅の停止位置
+//  $random = 次の乱数
 
-// TODO 通過駅には地上子を設置しない
+// 通過するなら $__pass = 1
+$__pass = $is_express * ceil(floor(($random / 256) % 4) / 4);
 
 // 0 メートル地点に TASC 地上子を置く。
-0;
+$__pass * $max_location;
 	Beacon.Put($station_abs_beacon_type, 0, $following_station_location_1);
 
 // 500 メートル手前に駅停車予告地上子を置く。
 // 駅が近いときは 500 メートルよりも近い位置に設置することになる。
 	$__l = $preceding_stop_location + 10;
-$following_station_location_1 - 500;
+$following_station_location_1 - 500 + $__pass * $max_location;
 (distance + $__l + abs(distance - $__l)) / 2; // max(distance, $__l)
 	Beacon.Put($station_500m_beacon_type, -1, 0);
 
 // 11 メートル手前に位置合わせ地上子を置く
-$following_station_location_1 - 11;
+$following_station_location_1 - 11 + $__pass * $max_location;
 	Beacon.Put($station_11m_beacon_type, -1, 11000);
 
 // 発車合図タイミング設定地上子も置く
-$following_station_location_1 - 11;
+$following_station_location_1 - 11 + $__pass * $max_location;
 	Beacon.Put($conductor_timing_beacon_type, -1, floor(abs(rand(8) - 3) + 0.5));
 
-$preceding_stop_location = $following_station_location_1;
+$preceding_stop_location = $__pass * $preceding_stop_location +
+	(1 - $__pass) * $following_station_location_1;
 $following_station_location_1 = $following_station_location_2;
 $following_station_location_2 = $following_station_location_3;
 $following_station_location_3 = $following_station_location_4;
@@ -54,3 +60,4 @@ $following_station_location_9 = $following_station_location_10;
 $following_station_location_10 = $following_station_location_11;
 $following_station_location_11 = $following_station_location_12;
 $following_station_location_12 = $following_station_location_13;
+$random = floor(($random + 0.5) % 255 + 1) * 31;

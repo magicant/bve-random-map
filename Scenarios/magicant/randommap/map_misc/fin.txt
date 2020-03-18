@@ -24,6 +24,10 @@ Station.Load('../stations/stations_' + $__timestr + 'h_' + floor(rand()) + '.csv
 
 // 停車駅に関する地上子を設置する
 	$preceding_stop_location = 0;
+	$random = floor($__time * 6.2 + 0.5);
+	$is_express = 0;
+	include '../map_misc/fin_station.txt';
+	$is_express = floor($__time / 7) % 2;
 	include '../map_misc/fin_station.txt';
 	include '../map_misc/fin_station.txt';
 	include '../map_misc/fin_station.txt';
@@ -35,7 +39,7 @@ Station.Load('../stations/stations_' + $__timestr + 'h_' + floor(rand()) + '.csv
 	include '../map_misc/fin_station.txt';
 	include '../map_misc/fin_station.txt';
 	include '../map_misc/fin_station.txt';
-	include '../map_misc/fin_station.txt';
+	$is_express = 0;
 	include '../map_misc/fin_station.txt';
 0;
 	Beacon.Put($station_abs_beacon_type, 0, -1);

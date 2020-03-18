@@ -1,15 +1,15 @@
 BveTs Station List 2.00,,,,,,,,,,,,
 #,駅名,到着時刻,出発時刻,停車時間,開始時刻,出発信号,降車時間,乗車率,到着音声,発車前音声,再開扉確率,駆け込み乗車遅延時間
 station_0,島前,,14:59:00,15,14:58:30,1,1,0.06,,departure_bell_0,0.05,0.1
-station_1,十八里,,,15,,0,1,0.05,,departure_bell_0,0.05,0.1
-station_2,但岡,,,15,,0,0,0.05,,departure_bell_0,0.05,0.1
-station_3,丁里,,,15,,0,2,0.06,,departure_bell_0,0.05,0.1
-station_4,新佐,,,15,,0,1,0.02,,departure_bell_0,0.05,0.1
-station_5,町堂,,,15,,0,2,0.03,,departure_bell_0,0.05,0.1
-station_6,関上,,,15,,0,1,0.03,,departure_bell_0,0.05,0.1
+station_1,十八里,p,,15,,0,1,0.05,,departure_bell_0,0.05,0.1
+station_2,但岡,p,,15,,0,0,0.05,,departure_bell_0,0.05,0.1
+station_3,丁里,p,,15,,0,2,0.06,,departure_bell_0,0.05,0.1
+station_4,新佐,p,,15,,0,1,0.02,,departure_bell_0,0.05,0.1
+station_5,町堂,p,,15,,0,2,0.03,,departure_bell_0,0.05,0.1
+station_6,関上,p,,15,,0,1,0.03,,departure_bell_0,0.05,0.1
 station_7,冠和田,,,15,,0,1,0.04,,departure_bell_0,0.05,0.1
 station_8,部新,,,15,,0,2,0.05,,departure_bell_0,0.05,0.1
 station_9,石吹,,,15,,0,1,0.05,,departure_bell_0,0.05,0.1
-station_10,谷賀浜,,,15,,0,2,0.05,,departure_bell_0,0.05,0.1
-station_11,宮井,,,15,,0,1,0.04,,departure_bell_0,0.05,0.1
+station_10,谷賀浜,p,,15,,0,2,0.05,,departure_bell_0,0.05,0.1
+station_11,宮井,p,,15,,0,1,0.04,,departure_bell_0,0.05,0.1
 station_12,鳥下,,t,15,,0,1,0.04,,departure_bell_0,0.05,0.1
