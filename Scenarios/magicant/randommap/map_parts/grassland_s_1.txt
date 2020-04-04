@@ -64,8 +64,6 @@ $_signal_main - 3 + (1 - $has_cab_signal) * $max_location;
 	$location = $_signal_sub1;
 	include '../map_misc/section.txt';
 $_signal_sub1;
-	$pretrain_time = $pretrain_time - ($_signal_main - $_signal_sub1) / ($max_speed / 3.6 * 0.75);
-	PreTrain.Pass($pretrain_time);
 	// Signal['signal_' + $_aspects].Put(0, 0, -2.25, 3.8 - $has_cab_signal * 100);
 $_signal_sub1 - 3 + $_fake * $max_location;
 	Structure['section_sign_' + $_sc].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
@@ -77,8 +75,6 @@ $_signal_sub1 - 3 + $_fake * $max_location;
 	$location = $_signal_sub2;
 	include '../map_misc/section.txt';
 $_signal_sub2;
-	$pretrain_time = $pretrain_time - ($_signal_sub1 - $_signal_sub2) / ($max_speed / 3.6 * 0.75);
-	PreTrain.Pass($pretrain_time);
 	// Signal['signal_' + $_aspects].Put(0, 0, -2.25, 3.8 - $has_cab_signal * 100);
 $_signal_sub2 - 3 + $_fake * $max_location;
 	Structure['section_sign_' + $_sc].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
@@ -90,13 +86,11 @@ $_signal_sub2 - 3 + $_fake * $max_location;
 	$location = $_signal_sub3;
 	include '../map_misc/section.txt';
 $_signal_sub3;
-	$pretrain_time = $pretrain_time - ($_signal_sub2 - $_signal_sub3) / ($max_speed / 3.6 * 0.75);
-	PreTrain.Pass($pretrain_time);
 	// Signal['signal_' + $_aspects].Put(0, 0, -2.25, 3.8 - $has_cab_signal * 100);
 $_signal_sub3 - 3 + $_fake * $max_location;
 	Structure['section_sign_' + $_sc].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
 
 $location = $_begin;
-$pretrain_time = $pretrain_time - ($_signal_sub3 - $_begin) / ($max_speed / 3.6 * 0.75);
+$pretrain_time = $pretrain_time - ($_signal_main - $_begin) / ($max_speed / 3.6 * 0.75);
 
 //FOLLOWS: ../map_parts/grassland_s_mid.txt
