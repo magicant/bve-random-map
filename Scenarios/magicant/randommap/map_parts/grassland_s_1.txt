@@ -90,7 +90,7 @@ $_signal_sub3 - 3 + $_fake * $max_location;
 
 	$location = $_begin;
 $location;
-	$pretrain_time = $pretrain_time - ($_end - $_begin) / ($max_speed / 3.6 * 0.75);
+	$pretrain_time = $pretrain_time - ($_end - $_begin) / $pretrain_speed;
 	PreTrain.Pass($pretrain_time);
 
 //FOLLOWS: ../map_parts/grassland_s_mid.txt

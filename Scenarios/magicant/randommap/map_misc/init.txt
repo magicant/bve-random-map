@@ -51,6 +51,9 @@ Sound.Load('../sounds/sounds_' + floor(rand()) + '.csv');
 $pretrain_time = (6 + rand(24 - 6)) * 3600;
 $pretrain_departure_time = $pretrain_time;
 
+// 先行列車の標準速度を決める
+$pretrain_speed = $max_speed * (0.7 + rand(0.2)) / 3.6;
+
 // 先行列車の平均停車時間を決める (混雑時は長めに)
 $average_pretrain_stoppage_time = 10 +
 	108000 / (3600 + abs($pretrain_time - 8 * 3600)) +
