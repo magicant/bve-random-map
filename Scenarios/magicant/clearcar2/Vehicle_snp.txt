@@ -1,6 +1,6 @@
 BveTs Vehicle 1.00
 
-Parameters = parameters\1car.ini
+Parameters = parameters\10cars.ini
 PerformanceCurve = performance\performance.ini
 Panel = panel\panel_sp.ini
 Sound = sound\sound_snp.ini

@@ -1,13 +1,13 @@
-BveTs Vehicle Performance Table 2.01
+BveTs Vehicle Performance Table 2.01,,,,
 BreakerDelay_On,0,0,0,0
-BreakerDelay_Off,0.5,0.5,0.5,0.5
-ResetTime,1,1,1,1
+BreakerDelay_Off,2,2,2,2
+ResetTime,0.5,0.5,0.5,0.5
 CurrentReducingTime,0,0,0,0
-JerkRegulation_Up,300,300,300,300
-JerkRegulation_Down,300,300,300,300
+JerkRegulation_Up,250,250,250,250
+JerkRegulation_Down,250,250,250,250
 RequiredNotch_Up,2,3,4,5
 RequiredNotch_Down,0,1,2,3
 StepDelay_Up,0,0,0,0
 StepDelay_Down,0,0,0,0
-CurrentLimitingValue_Empty,0,0,0,0
-CurrentLimitingValue_Full,0,0,0,0
+CurrentLimitingValue_Empty,1000,1000,1000,0
+CurrentLimitingValue_Full,1000,1000,1000,0
