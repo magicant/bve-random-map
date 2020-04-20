@@ -19,7 +19,7 @@ Section.SetSpeedLimit(0);
 	Beacon.Put(1001, -1, 2); // メトロ総合プラグイン互換モードに切り替える
 
 $station_abs_beacon_type = 255;
-$station_500m_beacon_type = 32;
+$station_500m_beacon_type = 9;
 $station_11m_beacon_type = 17;
 
 $ats_stop_beacon_type = 31;
