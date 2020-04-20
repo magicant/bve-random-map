@@ -17,6 +17,7 @@ Section.SetSpeedLimit(0);
 
 0;
 	Beacon.Put(1001, -1, 2); // メトロ総合プラグイン互換モードに切り替える
+	Beacon.Put(34, -1, floor(rand(10000)) * 100 + floor(rand(27))); // 列車番号
 
 $station_abs_beacon_type = 255;
 $station_500m_beacon_type = 9;
