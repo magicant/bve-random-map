@@ -24,7 +24,7 @@ $is_csatc = 0;
 
 $station_abs_beacon_type = 255;
 $station_500m_beacon_type = 9999999;
-$station_11m_beacon_type = 9999999;
+$station_10m5_beacon_type = 9999999;
 
 $ats_stop_beacon_type = 4;
 $ats_stop_beacon_section = -1;
