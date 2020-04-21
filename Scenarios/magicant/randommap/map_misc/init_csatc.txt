@@ -22,6 +22,8 @@ Section.SetSpeedLimit(0);
 $station_abs_beacon_type = 255;
 $station_500m_beacon_type = 9;
 $station_10m5_beacon_type = 17;
+$station_door_beacon_type = 11;
+$platform_door_beacon_type = 14;
 
 $ats_stop_beacon_type = 31;
 $ats_stop_beacon_section = 1;

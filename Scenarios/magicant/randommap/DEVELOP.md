@@ -99,6 +99,8 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$station_abs_beacon_type` = 0 メートル地点に設置する、停車駅の位置を指示する地上子の種別番号。
  - `$station_500m_beacon_type` = 停車駅の停止位置の 500 メートル手前に設置する地上子の種別番号。
  - `$station_10m5_beacon_type` = 停車駅の停止位置の 10.5 メートル手前に設置する地上子の種別番号。
+ - `$station_door_beacon_type` = 停車駅のドアの開く側を指示する地上子の種別番号。
+ - `$platform_door_beacon_type` = 停車駅のホームドアの有無を指示する地上子の種別番号。
  - `$ats_stop_beacon_type` = ATS-P 即時停止地上子の種別番号。
  - `$ats_stop_beacon_section` = ATS-P 即時停止地上子に対応させる閉塞。
  - `$ats_update_1_beacon_type` = 一つ先の閉塞の信号現示を送るための地上子の種別番号。閉塞の 25, 50, 85, 130, 180, 280, 600 メートル手前に設置される。

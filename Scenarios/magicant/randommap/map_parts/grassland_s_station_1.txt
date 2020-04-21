@@ -20,6 +20,9 @@ $_stop;
 	$_underrun_limit = 2;
 	$_overrun_limit = 5;
 	include '../map_misc/station.txt';
+$_begin;
+	Beacon.Put($station_door_beacon_type, -1, 2);
+	Beacon.Put($platform_door_beacon_type, -1, 0);
 
 // ストラクチャー
 $_begin;
