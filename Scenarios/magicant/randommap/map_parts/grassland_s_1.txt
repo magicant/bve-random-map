@@ -17,7 +17,7 @@ $_signal_sub3 = $_signal_main - 450;
 
 // ストラクチャー
 $_begin;
-	Repeater['ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 3, 10, 10, 'ground_grass_10m');
+	Repeater['ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 1, 10, 10, 'ground_grass_10m');
 	Repeater['rails'].Begin0(0, 3, 5, 5, 'ballast_5m_' + floor(rand($ballast_5m_count)));
 	Repeater['wirepoles'].Begin0(0, 0, 0, 50, 'wirepole_outer', 'wirepole_inner');
 	// TODO 架線柱が下線を引く向きを曲線の向きに揃える
