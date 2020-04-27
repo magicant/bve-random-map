@@ -47,6 +47,11 @@ $ballast_5m_count = 2;
 
 Sound.Load('../sounds/sounds_' + floor(rand()) + '.csv');
 
+0;
+	Curve.SetGauge(1);
+	Curve.SetCenter(rand(1) - 0.5);
+	Curve.SetFunction(floor(rand(1.5)));
+
 // 先行列車の終着駅到着時刻を決める (6 時から 24 時の間)
 $pretrain_time = (6 + rand(24 - 6)) * 3600;
 $pretrain_departure_time = $pretrain_time;

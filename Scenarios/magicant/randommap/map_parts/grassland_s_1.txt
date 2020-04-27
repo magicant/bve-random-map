@@ -1,14 +1,14 @@
 BveTs Map 2.02
 
-// 草原、単線、曲線
+// 草原、単線、制限速度のない曲線
 
 $_end = $location;
-$_curve_end = $_end;
-$_curve_exit = $_curve_end - 100; // TODO 緩和曲線長のランダム化
+$_curve_end = $_end - 1;
+$_curve_exit = $_end - 100; // TODO 緩和曲線長のランダム化
 $_count = floor(0.5 + rand(4));
 $_curve_enter = $_curve_exit - 100 * $_count;
-$_curve_begin = $_curve_enter - 100; // TODO 緩和曲線長のランダム化
-$_begin = $_curve_begin;
+$_begin = $_curve_enter - 100;
+$_curve_begin = $_begin + 1; // TODO 緩和曲線長のランダム化
 $_gradient_middle = $_begin + 100 + rand($_end - $_begin - 200);
 $_signal_main = $_curve_end - 50.25;
 $_signal_sub1 = $_signal_main - 150;
@@ -30,12 +30,14 @@ $_end - 0.01;
 	Repeater['trolleywire'].End();
 
 // 線形
+	$_ha = 0.01 + rand(0.96); // 遠心加速度
+	$_radius = $max_speed * $max_speed / 12.96 / $_ha;
+	$_radius = ceil($_radius / 10) * 10 * (floor(rand(2)) * 2 - 1);
+	$_cant = 0.007868 * $max_speed * $max_speed / $_radius;
 $_curve_begin;
 	Curve.BeginTransition();
 $_curve_enter;
-	Curve.Begin(10000);
-	// TODO カント
-	// TODO 制限速度 (と制限速度地上子)
+	Curve.Begin($_radius, $_cant);
 $_curve_exit;
 	Curve.BeginTransition();
 $_curve_end;
