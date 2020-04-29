@@ -39,14 +39,22 @@ $_end - 0.01;
 	include '../map_misc/speeddown.txt';
 $_curve_begin;
 	Curve.BeginTransition();
-	// TODO 制限速度標識
+	$_x = rand(0.5) + 1.9;
+	$_y = rand(0.5) - 0.25;
+	Structure[$_speedlimitsign0].Put(0, $_x, $_y, 0, 0, 0, 0, 0, 0);
+	Structure[$_speedlimitsign1].Put(0, $_x, $_y, 0, 0, 0, 0, 0, 0);
+	Structure['speedlimit_pole'].Put(0, $_x, $_y, 0, 0, 0, 0, 0, 0);
 $_curve_enter;
 	Curve.Begin($_radius, $_cant);
 $_curve_exit;
 	Curve.BeginTransition();
 	$location = ($_curve_exit + $_curve_end) / 2;
 	include '../map_misc/speedunlimited.txt';
-	// TODO 制限速度標識
+$location;
+	$_x = rand(0.5) + 1.9;
+	$_y = rand(0.5) - 0.25;
+	Structure['speedlimit_end'].Put(0, $_x, $_y, 0, 0, 0, 0, 0, 0);
+	Structure['speedlimit_pole'].Put(0, $_x, $_y, 0, 0, 0, 0, 0, 0);
 $_curve_end;
 	Curve.End();
 

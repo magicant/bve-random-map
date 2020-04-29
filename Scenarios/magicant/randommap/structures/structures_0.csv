@@ -47,6 +47,27 @@ gradient_l_20, ../../../Nagoya_Common/Railway_Obj/Sign/Gradient/UL.x
 gradient_l_21, ../../../Nagoya_Common/Railway_Obj/Sign/Gradient/DU.x
 gradient_l_22, ../../../Nagoya_Common/Railway_Obj/Sign/Gradient/U.x
 
+# 制限速度標識
+speedlimit_0, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/0.x
+speedlimit_5, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/5.x
+speedlimit_10, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/10.x
+speedlimit_20, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/20.x
+speedlimit_30, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/30.x
+speedlimit_40, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/40.x
+speedlimit_50, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/50.x
+speedlimit_60, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/60.x
+speedlimit_70, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/70.x
+speedlimit_80, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/80.x
+speedlimit_90, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/90.x
+speedlimit_100, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/100.x
+speedlimit_105, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/105.x
+speedlimit_110, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/110.x
+speedlimit_115, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/115.x
+speedlimit_end, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/End.x
+speedlimit_l, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/L.x
+speedlimit_r, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/R.x
+speedlimit_pole, ../../../Nagoya_Common/Railway_Obj/Sign/Limit/Pole.x
+
 # 信号柱
 signal_pole_5m_l_0, ../../../Nagoya_Common/Railway_Obj/SigPole/5Lw.x
 signal_pole_5m_c_0, ../../../Nagoya_Common/Railway_Obj/SigPole/5Cw.x
