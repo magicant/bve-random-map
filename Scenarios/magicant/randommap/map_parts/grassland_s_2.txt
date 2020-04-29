@@ -35,19 +35,20 @@ $_end - 0.01;
 	$_speed = floor($_speed / 5) * 5;
 	$_radius = ceil($_radius / 10) * 10 * (floor(rand(2)) * 2 - 1);
 	$_cant = 0.007868 * $_speed * $_speed / $_radius;
+	$location = $_curve_begin;
+	include '../map_misc/speeddown.txt';
 $_curve_begin;
 	Curve.BeginTransition();
-	SpeedLimit.Begin($_speed);
+	// TODO 制限速度標識
 $_curve_enter;
 	Curve.Begin($_radius, $_cant);
 $_curve_exit;
 	Curve.BeginTransition();
-($_curve_exit + $_curve_end) / 2;
-	SpeedLimit.End();
+	$location = ($_curve_exit + $_curve_end) / 2;
+	include '../map_misc/speedunlimited.txt';
+	// TODO 制限速度標識
 $_curve_end;
 	Curve.End();
-// TODO 制限速度地上子
-// TODO 制限速度標識
 
 // 勾配の変化点
 	$location = $_gradient_middle;

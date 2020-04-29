@@ -1,0 +1,15 @@
+BveTs Map 2.02
+
+// 制限速度を上げ、対応する制限速度地上子を設置する。
+//
+// このファイルを include する前に以下の変数を設定しておく必要がある。
+//  $location = 制限速度が変化する地点
+//  $_speed = 新しい制限速度 (km/h)
+// このファイルの中で以下の変数が設定される。
+//  TODO
+
+$location;
+	SpeedLimit.Begin($_speed);
+	Beacon.Put(1006, -1, $_speed);
+
+// TODO 制限速度標識
