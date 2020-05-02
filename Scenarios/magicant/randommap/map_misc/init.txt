@@ -10,6 +10,7 @@ $max_location = 65536;
 $location = $max_location;
 $gradient = 0;
 $gradient_base = 0;
+$speed_limit = $max_speed;
 $following_speed_limit = $max_speed;
 $following_speed_limit_location = $max_location;
 $global_gradient_variance = 30 * (rand() - rand());

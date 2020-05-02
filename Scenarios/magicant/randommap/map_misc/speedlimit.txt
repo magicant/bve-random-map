@@ -5,7 +5,7 @@ BveTs Map 2.02
 // このファイルを include する前に以下の変数を設定しておく必要がある。
 //  $location = 制限速度区間の始点 (< $following_speed_limit_location - 1)
 //  $_speed_limit_end = 制限速度区間の終点 (< $following_speed_limit_location)
-//  $_speed = 制限速度 (km/h)
+//  $speed_limit = 制限速度 (km/h)。$max_speed 以下の正の値。
 //  $following_speed_limit = 一つ後の制限速度区間の制限速度 (km/h)
 //  $following_speed_limit_location = 一つ後の制限速度区間の始点
 //  $following_station_location_1 = 一つ後の駅の停止位置
@@ -15,14 +15,14 @@ BveTs Map 2.02
 //  $speed_limit_begin_beacon_margin = その地上子で設定する速度に加算する値 (km/h)。
 //  $speed_limit_end_beacon_type = 制限速度区間の終点に置く地上子の種別番号。
 // このファイルの中で以下の変数が設定される。
-//  $following_speed_limit = 設定した制限速度 (= $_speed)
+//  $following_speed_limit = 設定した制限速度 (= $speed_limit)
 //  $following_speed_limit_location = 設定した制限速度区間の始点 (= $location)
 //  $_speedlimitsign0, $_speedlimitsign1 =
 //    制限速度標識として設置すべきストラクチャーの名称
 
 // 制限速度区間を設定
 $location;
-	SpeedLimit.Begin($_speed);
+	SpeedLimit.Begin($speed_limit);
 $_speed_limit_end;
 	SpeedLimit.End();
 
@@ -30,19 +30,19 @@ $_speed_limit_end;
 // ($location の手前に何個も設置するのは、$location のすぐ手前に「停車場へ移動」
 // した場合にプラグインがデータを取りこぼさないようにするため)
 $location -   16;
-	Beacon.Put($speed_limit_beacon_type, -1,   16000 + $_speed);
+	Beacon.Put($speed_limit_beacon_type, -1,   16000 + $speed_limit);
 $location -   32;
-	Beacon.Put($speed_limit_beacon_type, -1,   32000 + $_speed);
+	Beacon.Put($speed_limit_beacon_type, -1,   32000 + $speed_limit);
 $location -   64;
-	Beacon.Put($speed_limit_beacon_type, -1,   64000 + $_speed);
+	Beacon.Put($speed_limit_beacon_type, -1,   64000 + $speed_limit);
 $location -  128;
-	Beacon.Put($speed_limit_beacon_type, -1,  128000 + $_speed);
+	Beacon.Put($speed_limit_beacon_type, -1,  128000 + $speed_limit);
 $location -  256;
-	Beacon.Put($speed_limit_beacon_type, -1,  256000 + $_speed);
+	Beacon.Put($speed_limit_beacon_type, -1,  256000 + $speed_limit);
 $location -  512;
-	Beacon.Put($speed_limit_beacon_type, -1,  512000 + $_speed);
+	Beacon.Put($speed_limit_beacon_type, -1,  512000 + $speed_limit);
 $location - 1024;
-	Beacon.Put($speed_limit_beacon_type, -1, 1024000 + $_speed);
+	Beacon.Put($speed_limit_beacon_type, -1, 1024000 + $speed_limit);
 $_speed_limit_end;
 	Beacon.Put($speed_limit_beacon_type, -1, 0);
 
@@ -80,14 +80,14 @@ $__l2 + $__beacon_is_beyond_speed_limit * $max_location;
 
 // 制限速度が 100 km/h 未満なら十の位と一の位を別々に、
 // 100 km/h 以上なら直接、ストラクチャーを指定
-$__lessthan100 = -floor(($_speed - 100) / 1000); // 100 km/h 未満なら 1、さもなくば 0
-$__10 = floor($_speed / 10) * 10; // 十の位
-$__1 = $_speed - $__10; // 一の位
-$_speedlimitsign0 = $__lessthan100 * $__10 + (1 - $__lessthan100) * $_speed;
-$_speedlimitsign1 = $__lessthan100 * $__1  + (1 - $__lessthan100) * $_speed;
+$__lessthan100 = -floor(($speed_limit - 100) / 1000); // 100 km/h 未満なら 1、さもなくば 0
+$__10 = floor($speed_limit / 10) * 10; // 十の位
+$__1 = $speed_limit - $__10; // 一の位
+$_speedlimitsign0 = $__lessthan100 * $__10 + (1 - $__lessthan100) * $speed_limit;
+$_speedlimitsign1 = $__lessthan100 * $__1  + (1 - $__lessthan100) * $speed_limit;
 $_speedlimitsign0 = 'speedlimit_' + $_speedlimitsign0;
 $_speedlimitsign1 = 'speedlimit_' + $_speedlimitsign1;
 
 // 変数を更新
-$following_speed_limit = $_speed;
+$following_speed_limit = $speed_limit;
 $following_speed_limit_location = $location;

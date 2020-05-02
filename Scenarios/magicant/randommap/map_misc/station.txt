@@ -10,8 +10,7 @@ BveTs Map 2.02
 //  $_door_direction = ドアが開く方向
 //  $_underrun_limit = 許容されるアンダーラン距離
 //  $_overrun_limit = 許容されるオーバーラン距離
-//  $_speed_limit = 停止位置における制限速度 (km/h)。$max_speed 以下の正の値。
-//    制限速度がない場合は 0。
+//  $speed_limit = 停止位置における制限速度 (km/h)。$max_speed 以下の正の値。
 //  $speed_limit_beacon_type = 設置する制限速度設定地上子の種別番号
 // このファイルの中で以下の変数が変更される。
 //  $preceding_station_number = 次に設置する (一つ手前の) 駅の番号
@@ -21,7 +20,7 @@ BveTs Map 2.02
 
 $location;
 	Station['station_' + $preceding_station_number].Put($_door_direction, -$_underrun_limit, $_overrun_limit);
-	Beacon.Put($speed_limit_beacon_type, -1, $_speed_limit);
+	Beacon.Put($speed_limit_beacon_type, -1, $speed_limit);
 
 $preceding_station_number = $preceding_station_number - 1;
 $following_station_location_13 = $following_station_location_12;

@@ -32,11 +32,11 @@ $_end - 0.01;
 	Repeater['trolleywire'].End();
 
 // 線形
-	$_speed = $max_speed - (floor(abs(rand(25) - rand(25))) + 1);
-	$_radius = $_speed * $_speed * 0.079567;
-	$_speed = floor($_speed / 5) * 5;
+	$speed_limit = $max_speed - (floor(abs(rand(25) - rand(25))) + 1);
+	$_radius = $speed_limit * $speed_limit * 0.079567;
+	$speed_limit = floor($speed_limit / 5) * 5;
 	$_radius = ceil($_radius / 10) * 10 * (floor(rand(2)) * 2 - 1);
-	$_cant = 0.007868 * $_speed * $_speed / $_radius;
+	$_cant = 0.007868 * $speed_limit * $speed_limit / $_radius;
 	$_speed_limit_end = $_limit_end;
 	$location = $_curve_begin;
 	include '../map_misc/speedlimit.txt';
@@ -111,5 +111,6 @@ $_signal_sub3 - 3 + $_fake * $max_location;
 $location;
 	$pretrain_time = $pretrain_time - ($_end - $_begin) / $pretrain_speed;
 	PreTrain.Pass($pretrain_time);
+	$speed_limit = $max_speed;
 
 //FOLLOWS: ../map_parts/grassland_s_mid.txt

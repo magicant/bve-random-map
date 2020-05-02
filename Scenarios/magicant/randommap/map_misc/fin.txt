@@ -10,7 +10,7 @@ include '../map_misc/section_default.txt';
 
 // 最初の制限速度区間に対する地上子を設置する
 $_speed_limit_end = $location + 1;
-$_speed = $max_speed;
+$speed_limit = $max_speed;
 include '../map_misc/speedlimit.txt';
 
 // 開始位置に対する勾配を設定する

@@ -78,6 +78,7 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$location` = パートファイルが切り替わる地点の位置。
  - `$gradient` = `$location` の位置の勾配 (‰)。
  - `$gradient_base` = `$location` の位置の付近の勾配の平均 (‰)。
+ - `$speed_limit` = `$location` の位置の制限速度 (km/h)。
  - `$following_speed_limit` = 一つ後の制限速度区間の制限速度 (km/h)。
  - `$following_speed_limit_location` = 一つ後の制限速度区間の始点。
  - `$pretrain_time` = `$location` の位置を先行列車が通過する時刻 (0 時からの秒数)。

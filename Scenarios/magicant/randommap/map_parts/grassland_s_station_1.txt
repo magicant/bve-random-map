@@ -19,7 +19,6 @@ $_stop;
 	$_door_direction = -1;
 	$_underrun_limit = 2;
 	$_overrun_limit = 5;
-	$_speed_limit = 0;
 	include '../map_misc/station.txt';
 $_begin;
 	Beacon.Put($station_door_beacon_type, -1, 2);
