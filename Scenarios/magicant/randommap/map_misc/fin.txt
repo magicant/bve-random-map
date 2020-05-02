@@ -3,16 +3,23 @@ BveTs Map 2.02
 // このファイルは、他の fin_*.txt ファイルから一度だけ include される。
 // 全てのマップに共通の仕上げを行う。
 
+$location = $location - 512;
+
 // 開始位置の直後の閉塞に対する地上子を設置する。
 include '../map_misc/section_default.txt';
 
+// 最初の制限速度区間に対する地上子を設置する
+$_speed_limit_end = $location + 1;
+$_speed = $max_speed;
+include '../map_misc/speedlimit.txt';
+
 // 開始位置に対する勾配を設定する
-$location - 500;
+$location;
 	Gradient.Begin($gradient);
-$location - 501;
+$location - 1;
 	Gradient.BeginTransition();
 // 開始位置に対する勾配地上子を設置する
-$location - 500;
+$location;
 	Beacon.Put(1008, -1, $gradient);
 
 // 先行列車の始発駅出発時刻に応じて停車場リストファイルを選択する

@@ -5,10 +5,12 @@ BveTs Map 2.02
 $_end = $location;
 $_curve_end = $_end - 1;
 $_curve_exit = $_end - 100; // TODO 緩和曲線長のランダム化
+$_limit_end = ($_curve_exit + $_curve_end) / 2;
 $_count = floor(0.5 + rand(3));
 $_curve_enter = $_curve_exit - 100 * $_count;
 $_begin = $_curve_enter - 100;
 $_curve_begin = $_begin + 1; // TODO 緩和曲線長のランダム化
+$_limit_begin = $_curve_begin;
 $_gradient_middle = $_begin + 100 + rand($_end - $_begin - 200);
 $_signal_main = $_curve_end - 50.25;
 $_signal_sub1 = $_signal_main - 150;
@@ -35,8 +37,9 @@ $_end - 0.01;
 	$_speed = floor($_speed / 5) * 5;
 	$_radius = ceil($_radius / 10) * 10 * (floor(rand(2)) * 2 - 1);
 	$_cant = 0.007868 * $_speed * $_speed / $_radius;
+	$_speed_limit_end = $_limit_end;
 	$location = $_curve_begin;
-	include '../map_misc/speeddown.txt';
+	include '../map_misc/speedlimit.txt';
 $_curve_begin;
 	Curve.BeginTransition();
 	$_x = rand(0.5) + 1.9;
@@ -48,9 +51,7 @@ $_curve_enter;
 	Curve.Begin($_radius, $_cant);
 $_curve_exit;
 	Curve.BeginTransition();
-	$location = ($_curve_exit + $_curve_end) / 2;
-	include '../map_misc/speedunlimited.txt';
-$location;
+$_limit_end;
 	$_x = rand(0.5) + 1.9;
 	$_y = rand(0.5) - 0.25;
 	Structure['speedlimit_end'].Put(0, $_x, $_y, 0, 0, 0, 0, 0, 0);

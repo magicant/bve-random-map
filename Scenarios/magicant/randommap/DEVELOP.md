@@ -78,6 +78,8 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$location` = パートファイルが切り替わる地点の位置。
  - `$gradient` = `$location` の位置の勾配 (‰)。
  - `$gradient_base` = `$location` の位置の付近の勾配の平均 (‰)。
+ - `$following_speed_limit` = 一つ後の制限速度区間の制限速度 (km/h)。
+ - `$following_speed_limit_location` = 一つ後の制限速度区間の始点。
  - `$pretrain_time` = `$location` の位置を先行列車が通過する時刻 (0 時からの秒数)。
  - `$pretrain_departure_time` = 一つ後の駅を先行列車が出発する時刻 (0 時からの秒数)。すなわち自車が一つ後の駅に入れるようになる時刻。
  - `$preceding_station_number` = 次に駅のパートファイルが `include` された時に生成される駅の番号。駅の番号は始発駅が 0 で、終着駅に向かって 1, 2, 3, ... と上がってゆく。
@@ -108,6 +110,10 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$ats_update_m1_beacon_type` = この先の停止信号の位置を送るための地上子の種別番号。閉塞の 25, 50, 85, 130, 180, 280, 600 メートル手前に設置される。
  - `$ats_update_1_beacon_value`, `$ats_update_2_beacon_value`, `$ats_update_m1_beacon_value` = 上記それぞれの地上子に送る値。
  - `$ats_update_transponder` = 上記地上子のストラクチャーキー。
+ - `$speed_limit_beacon_type` = 制限速度区間を設定する地上子の種別番号。(基本的に bve-autopilot の 1006 番地上子用)
+ - `$speed_limit_begin_beacon_type` = 制限速度区間の始点を設定する地上子の種別番号。(ATS-P の速度照査機能等に使う)
+ - `$speed_limit_begin_beacon_margin` = その地上子で設定する速度に加算する値 (km/h)。
+ - `$speed_limit_end_beacon_type` = 制限速度区間の終点に置く地上子の種別番号。(基本的に `$speed_limit_begin_beacon_type` とペアで使う)
  - `$conductor_timing_beacon_type` = 戸閉後に車掌が合図ブザーを鳴らすまでの時間を設定する地上子の種別番号。
  - `$max_section_count` = (標識ストラクチャーが存在する) 閉塞の番号の最大値。
  - `$pretrain_speed` = 先行列車の標準速度 (m/s)。

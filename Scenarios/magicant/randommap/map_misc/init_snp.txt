@@ -22,6 +22,10 @@ $is_csatc = 0;
 	Beacon.Put(1011, -1, 4000 + $signal_speed_4);
 	Beacon.Put(1011, -1, 5000 + $signal_speed_4);
 
+$speed_limit_beacon_type = 1006;
+$speed_limit_begin_beacon_type = 6;
+$speed_limit_begin_beacon_margin = 10;
+$speed_limit_end_beacon_type = 16;
 $station_abs_beacon_type = 255;
 $station_500m_beacon_type = 9999999;
 $station_10m5_beacon_type = 9999999;
