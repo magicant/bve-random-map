@@ -17,53 +17,11 @@ $_signal_sub1 = $_signal_main - 150;
 $_signal_sub2 = $_signal_main - 300;
 $_signal_sub3 = $_signal_main - 450;
 
-// ストラクチャー
-$_begin;
-	Repeater['ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 1, 10, 10, 'ground_grass_10m');
-	Repeater['rails'].Begin0(0, 3, 5, 5, 'ballast_5m_' + floor(rand($ballast_5m_count)));
-	Repeater['wirepoles'].Begin0(0, 0, 0, 50, 'wirepole_outer', 'wirepole_inner');
-	// TODO 架線柱が下線を引く向きを曲線の向きに揃える
-	Repeater['trolleywire'].Begin0(0, 1, 50, 50, 'trolleywire_50m_a', 'trolleywire_50m_b');
-	// TODO 木や草を植える
-$_end - 0.01;
-	Repeater['ground'].End();
-	Repeater['rails'].End();
-	Repeater['wirepoles'].End();
-	Repeater['trolleywire'].End();
-
-// 線形
-	$speed_limit = $max_speed - (floor(abs(rand(25) - rand(25))) + 1);
-	$_radius = $speed_limit * $speed_limit * 0.079567;
-	$speed_limit = floor($speed_limit / 5) * 5;
-	$_radius = ceil($_radius / 10) * 10 * (floor(rand(2)) * 2 - 1);
-	$_cant = 0.007868 * $speed_limit * $speed_limit / $_radius;
-	$_speed_limit_end = $_limit_end;
-	$location = $_curve_begin;
-	include '../map_misc/speedlimit.txt';
-$_curve_begin;
-	Curve.BeginTransition();
-	$_x = rand(0.5) + 1.9;
-	$_y = rand(0.5) - 0.25;
-	Structure[$_speedlimitsign0].Put(0, $_x, $_y, 0, 0, 0, 0, 0, 0);
-	Structure[$_speedlimitsign1].Put(0, $_x, $_y, 0, 0, 0, 0, 0, 0);
-	Structure['speedlimit_pole'].Put(0, $_x, $_y, 0, 0, 0, 0, 0, 0);
-$_curve_enter;
-	Curve.Begin($_radius, $_cant);
-$_curve_exit;
-	Curve.BeginTransition();
-$_limit_end;
-	$_x = rand(0.5) + 1.9;
-	$_y = rand(0.5) - 0.25;
-	Structure['speedlimit_end'].Put(0, $_x, $_y, 0, 0, 0, 0, 0, 0);
-	Structure['speedlimit_pole'].Put(0, $_x, $_y, 0, 0, 0, 0, 0, 0);
-$_curve_end;
-	Curve.End();
-
-// 勾配の変化点
-	$location = $_gradient_middle;
-	include '../map_misc/gradient_random.txt';
-$location;
-	Structure['gradient_l_' + $_gradient_sign].Put(0, -1.8, -rand(0.4), 0, 0, 0, 0, 0, 0);
+$speed_limit = $max_speed - (floor(abs(rand(25) - rand(25))) + 1);
+$_radius = $speed_limit * $speed_limit * 0.079567;
+$speed_limit = floor($speed_limit / 5) * 5;
+$_radius = ceil($_radius / 10) * 10 * (floor(rand(2)) * 2 - 1);
+$_cant = 0.007868 * $speed_limit * $speed_limit / $_radius;
 
 // 最後の閉塞
 	$_sc = ($section_count + $max_section_count - abs($section_count - $max_section_count)) / 2; // min($section_count, $max_section_count)
@@ -106,6 +64,49 @@ $_signal_sub3;
 	// Signal['signal_' + $_aspects].Put(0, 0, -2.25, 3.8 - $has_cab_signal * 100);
 $_signal_sub3 - 3 + $_fake * $max_location;
 	Structure['section_sign_' + $_sc].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
+
+// 線形
+	$_speed_limit_end = $_limit_end;
+	$location = $_curve_begin;
+	include '../map_misc/speedlimit.txt';
+$_curve_begin;
+	Curve.BeginTransition();
+	$_x = rand(0.5) + 1.9;
+	$_y = rand(0.5) - 0.25;
+	Structure[$_speedlimitsign0].Put(0, $_x, $_y, 0, 0, 0, 0, 0, 0);
+	Structure[$_speedlimitsign1].Put(0, $_x, $_y, 0, 0, 0, 0, 0, 0);
+	Structure['speedlimit_pole'].Put(0, $_x, $_y, 0, 0, 0, 0, 0, 0);
+$_curve_enter;
+	Curve.Begin($_radius, $_cant);
+$_curve_exit;
+	Curve.BeginTransition();
+$_limit_end;
+	$_x = rand(0.5) + 1.9;
+	$_y = rand(0.5) - 0.25;
+	Structure['speedlimit_end'].Put(0, $_x, $_y, 0, 0, 0, 0, 0, 0);
+	Structure['speedlimit_pole'].Put(0, $_x, $_y, 0, 0, 0, 0, 0, 0);
+$_curve_end;
+	Curve.End();
+
+// 勾配の変化点
+	$location = $_gradient_middle;
+	include '../map_misc/gradient_random.txt';
+$location;
+	Structure['gradient_l_' + $_gradient_sign].Put(0, -1.8, -rand(0.4), 0, 0, 0, 0, 0, 0);
+
+// ストラクチャー
+$_begin;
+	Repeater['ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 1, 10, 10, 'ground_grass_10m');
+	Repeater['rails'].Begin0(0, 3, 5, 5, 'ballast_5m_' + floor(rand($ballast_5m_count)));
+	Repeater['wirepoles'].Begin0(0, 0, 0, 50, 'wirepole_outer', 'wirepole_inner');
+	// TODO 架線柱が下線を引く向きを曲線の向きに揃える
+	Repeater['trolleywire'].Begin0(0, 1, 50, 50, 'trolleywire_50m_a', 'trolleywire_50m_b');
+	// TODO 木や草を植える
+$_end - 0.01;
+	Repeater['ground'].End();
+	Repeater['rails'].End();
+	Repeater['wirepoles'].End();
+	Repeater['trolleywire'].End();
 
 	$location = $_begin;
 $location;

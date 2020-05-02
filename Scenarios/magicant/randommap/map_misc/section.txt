@@ -37,6 +37,9 @@ BveTs Map 2.02
 //  $ats_update_m1_beacon_type = ATS-P パターン更新地上子の種別番号
 //  $ats_update_m1_beacon_value = ATS-P パターン更新地上子に送る値
 //  $ats_update_transponder = ATS-P パターン更新地上子ストラクチャーキー
+//  $speed_limit = 閉塞の最大現示速度 (km/h) (ATC 用)
+//  $following_speed_limit = 一つ後の制限速度区間の制限速度 (km/h) (ATC 用)
+//  $following_speed_limit_location = 一つ後の制限速度区間の始点 (ATC 用)
 //
 // なお閉塞区間の長さは原則として 100 メートル以上とすること。
 // このスクリプトでは 8 閉塞先までに 2.5 km/h/s で減速して止まれるような信号を
@@ -166,29 +169,46 @@ $__4 = ceil(abs($__4 / 1073741824));
 $__5 = 1 - $__2 * $__3 * $__4;
 $_bulbs = (1 - $__2) * 2 + (1 - $__3) * 3 + (1 - $__4) * 4 + (1 - $__5) * 5;
 
+// $speed_limit による CS-ATC 現示の上限を反映する
+$__m = floor($speed_limit / 5) + 10;
+// $__atc[n] = min($following_section_signal_[n], $__m)
+$__atc1 = ($following_section_signal_1 + $__m - abs($following_section_signal_1 - $__m)) / 2;
+$__atc2 = ($following_section_signal_2 + $__m - abs($following_section_signal_2 - $__m)) / 2;
+$__atc3 = ($following_section_signal_3 + $__m - abs($following_section_signal_3 - $__m)) / 2;
+$__atc4 = ($following_section_signal_4 + $__m - abs($following_section_signal_4 - $__m)) / 2;
+$__atc5 = ($following_section_signal_5 + $__m - abs($following_section_signal_5 - $__m)) / 2;
+$__atc6 = ($following_section_signal_6 + $__m - abs($following_section_signal_6 - $__m)) / 2;
+$__atc7 = ($following_section_signal_7 + $__m - abs($following_section_signal_7 - $__m)) / 2;
+
 // BVE には if 文がなく、閉塞を置かないということはできないので、
 // $_fake のときは埒外の場所に閉塞を置く。
 $location;
 distance + $_fake * $max_location;
 	Section.Begin(0,
 		$is_std_signal * $__j1 + $is_csatc * (10 + $_orp * 25),
-		$is_std_signal * $__j2 + $is_csatc * $following_section_signal_1,
-		$is_std_signal * $__j3 + $is_csatc * $following_section_signal_2,
-		$is_std_signal * $__j4 + $is_csatc * $following_section_signal_3,
-		$is_std_signal * $__j5 + $is_csatc * $following_section_signal_4,
-		$is_std_signal * $__j6 + $is_csatc * $following_section_signal_5,
-		$is_std_signal * $__j7 + $is_csatc * $following_section_signal_6,
-		$is_std_signal * $__j8 + $is_csatc * $following_section_signal_7);
+		$is_std_signal * $__j2 + $is_csatc * $__atc1,
+		$is_std_signal * $__j3 + $is_csatc * $__atc2,
+		$is_std_signal * $__j4 + $is_csatc * $__atc3,
+		$is_std_signal * $__j5 + $is_csatc * $__atc4,
+		$is_std_signal * $__j6 + $is_csatc * $__atc5,
+		$is_std_signal * $__j7 + $is_csatc * $__atc6,
+		$is_std_signal * $__j8 + $is_csatc * $__atc7);
 
-// $__v[n] = min($__v[n], $max_speed)
-$__v1 = ($__v1 + $max_speed - abs($__v1 - $max_speed)) / 2;
-$__v2 = ($__v2 + $max_speed - abs($__v2 - $max_speed)) / 2;
-$__v3 = ($__v3 + $max_speed - abs($__v3 - $max_speed)) / 2;
-$__v4 = ($__v4 + $max_speed - abs($__v4 - $max_speed)) / 2;
-$__v5 = ($__v5 + $max_speed - abs($__v5 - $max_speed)) / 2;
-$__v6 = ($__v6 + $max_speed - abs($__v6 - $max_speed)) / 2;
-$__v7 = ($__v7 + $max_speed - abs($__v7 - $max_speed)) / 2;
-$__v8 = ($__v8 + $max_speed - abs($__v8 - $max_speed)) / 2;
+// CS-ATC 用にこの(一つ手前の)閉塞の最高速度を求める
+$__d = $following_speed_limit_location - $location;
+$__m = $following_speed_limit * $following_speed_limit;
+$__m = sqrt($__m + 18 * $__d); // 一つ後の制限速度区間までに減速できる速度
+$__m = ($__m + $speed_limit - abs($__m - $speed_limit)) / 2; // min($__m, $speed_limit)
+
+// $__v[n] = min($__v[n], $__m)
+$__v1 = ($__v1 + $__m - abs($__v1 - $__m)) / 2;
+$__v2 = ($__v2 + $__m - abs($__v2 - $__m)) / 2;
+$__v3 = ($__v3 + $__m - abs($__v3 - $__m)) / 2;
+$__v4 = ($__v4 + $__m - abs($__v4 - $__m)) / 2;
+$__v5 = ($__v5 + $__m - abs($__v5 - $__m)) / 2;
+$__v6 = ($__v6 + $__m - abs($__v6 - $__m)) / 2;
+$__v7 = ($__v7 + $__m - abs($__v7 - $__m)) / 2;
+$__v8 = ($__v8 + $__m - abs($__v8 - $__m)) / 2;
 
 // CS-ATC 用に $__j[n] を計算する
 $__c1 = floor($__v1 / 5) + 10;
