@@ -9,11 +9,14 @@ $_count = floor(0.5 + rand(4));
 $_curve_enter = $_curve_exit - 100 * $_count;
 $_begin = $_curve_enter - 100;
 $_curve_begin = $_begin + 1; // TODO 緩和曲線長のランダム化
-$_gradient_middle = $_begin + 100 + rand($_end - $_begin - 200);
+$_length = $_end - $_begin;
+$_gradient_middle = $_begin + 100 + rand($_length - 200);
+
+$_signals = floor($_length / 125);
 $_signal_main = $_curve_end - 50.25;
-$_signal_sub1 = $_signal_main - 150;
-$_signal_sub2 = $_signal_main - 300;
-$_signal_sub3 = $_signal_main - 450;
+$_signal_sub1 = $_signal_main - $_length / $_signals;
+$_signal_sub2 = $_signal_main - $_length / $_signals * 2;
+$_signal_sub3 = $_signal_main - $_length / $_signals * 3;
 
 // 最後の閉塞
 	$_sc = ($section_count + $max_section_count - abs($section_count - $max_section_count)) / 2; // min($section_count, $max_section_count)
@@ -93,7 +96,7 @@ $_end - 0.01;
 
 	$location = $_begin;
 $location;
-	$pretrain_time = $pretrain_time - ($_end - $_begin) / $pretrain_speed;
+	$pretrain_time = $pretrain_time - $_length / $pretrain_speed;
 	PreTrain.Pass($pretrain_time);
 
 //FOLLOWS: ../map_parts/grassland_s_mid.txt

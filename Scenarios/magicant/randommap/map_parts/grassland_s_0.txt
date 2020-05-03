@@ -4,11 +4,14 @@ BveTs Map 2.02
 
 $_end = $location;
 $_count = floor(2.5 + rand(3));
-$_begin = $_end - 100 * $_count;
-$_gradient_middle = $_begin + 100 + rand($_end - $_begin - 200);
+$_length = 100 * $_count;
+$_begin = $_end - $_length;
+$_gradient_middle = $_begin + 100 + rand($_length - 200);
+
+$_signals = floor($_length / 140);
 $_signal_main = $_end - 50.25;
-$_signal_sub1 = $_signal_main - 150;
-$_signal_sub2 = $_signal_main - 300;
+$_signal_sub1 = $_signal_main - $_length / $_signals;
+$_signal_sub2 = $_signal_main - $_length / $_signals * 2;
 
 // 最後の閉塞
 	$_sc = ($section_count + $max_section_count - abs($section_count - $max_section_count)) / 2; // min($section_count, $max_section_count)
@@ -62,7 +65,7 @@ $_end - 0.01;
 
 	$location = $_begin;
 $location;
-	$pretrain_time = $pretrain_time - ($_end - $_begin) / $pretrain_speed;
+	$pretrain_time = $pretrain_time - $_length / $pretrain_speed;
 	PreTrain.Pass($pretrain_time);
 
 //FOLLOWS: ../map_parts/grassland_s_mid.txt
