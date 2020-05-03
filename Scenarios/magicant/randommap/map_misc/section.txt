@@ -196,6 +196,8 @@ distance + $_fake * $max_location;
 
 // CS-ATC 用にこの(一つ手前の)閉塞の最高速度を求める
 $__d = $following_speed_limit_location - $location;
+$__d = $__d - $following_speed_limit; // 速度に比例するマージンを足す
+$__d = ($__d + abs($__d)) / 2; // max($__d, 0)
 $__m = $following_speed_limit * $following_speed_limit;
 $__m = sqrt($__m + 18 * $__d); // 一つ後の制限速度区間までに減速できる速度
 $__m = ($__m + $speed_limit - abs($__m - $speed_limit)) / 2; // min($__m, $speed_limit)
