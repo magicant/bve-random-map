@@ -15,6 +15,14 @@ $_platform_end = $_begin + 210;
 $_signal_term = $_platform_end + 25;
 $_signal_mid = $_stop - $_orp_distance + 1;
 
+// 停止位置より先のダミー閉塞
+	$location = $_signal_term;
+	include '../map_misc/section_default.txt';
+$_signal_term;
+	$pretrain_time = $pretrain_time - ($_end - $_signal_term) / $pretrain_speed;
+	$pretrain_departure_time = $pretrain_time;
+	PreTrain.Pass($pretrain_time);
+
 // 停止位置
 $_stop;
 	Structure['stopsign'].Put(0, -1.8, 0, 0, 0, 0, 0, 0, 0);
@@ -26,6 +34,25 @@ $_stop;
 $_begin;
 	Beacon.Put($station_door_beacon_type, -1, 1);
 	Beacon.Put($platform_door_beacon_type, -1, 0);
+
+// 中間の閉塞 (ATC のみ)
+	$_fake = 1 - $has_cab_signal;
+	$_orp = 1;
+	$location = $_signal_mid;
+	include '../map_misc/section.txt';
+$_signal_mid;
+	$pretrain_time = $pretrain_time - ($_signal_term - $_signal_mid) / $pretrain_speed;
+	PreTrain.Pass($pretrain_time);
+	// Signal['signal_' + $_aspects].Put(0, 0, -2, 3.8 - $has_cab_signal * 100);
+	// Structure['signal_pole_5m_r_0'].Put(0, -2, 3.3 - $has_cab_signal * 100, 0, 0, 0, 0, 0, 0);
+	// Structure['signal_clamp_r_a' + $_bulbs].Put(0, -2, 3.8 - $has_cab_signal * 100, 0, 0, 0, 0, 0, 0);
+$_signal_mid - 3 + (1 - $has_cab_signal) * $max_location;
+	Structure['section_sign_0'].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
+	$section_count = 1;
+$_signal_mid - 3 + (1 - $is_csatc) * $max_location;
+	Structure['orp_sign'].Put(0, 0, -0.2, 0, 0, 0, 0, 0, 0);
+$_signal_mid + 1 + (1 - $is_csatc) * $max_location;
+	Beacon.Put(12, 0, $_orp_distance);
 
 // ストラクチャー
 $_begin;
@@ -56,33 +83,6 @@ $_end + 0.01;
 	Repeater['wirepoles'].End();
 $_end + 4000;
 	Repeater['ground'].End();
-
-// 停止位置より先のダミー閉塞
-	$location = $_signal_term;
-	include '../map_misc/section_default.txt';
-$_signal_term;
-	$pretrain_time = $pretrain_time - ($_end - $_signal_term) / $pretrain_speed;
-	$pretrain_departure_time = $pretrain_time;
-	PreTrain.Pass($pretrain_time);
-
-// 中間の閉塞 (ATC のみ)
-	$_fake = 1 - $has_cab_signal;
-	$_orp = 1;
-	$location = $_signal_mid;
-	include '../map_misc/section.txt';
-$_signal_mid;
-	$pretrain_time = $pretrain_time - ($_signal_term - $_signal_mid) / $pretrain_speed;
-	PreTrain.Pass($pretrain_time);
-	// Signal['signal_' + $_aspects].Put(0, 0, -2, 3.8 - $has_cab_signal * 100);
-	// Structure['signal_pole_5m_r_0'].Put(0, -2, 3.3 - $has_cab_signal * 100, 0, 0, 0, 0, 0, 0);
-	// Structure['signal_clamp_r_a' + $_bulbs].Put(0, -2, 3.8 - $has_cab_signal * 100, 0, 0, 0, 0, 0, 0);
-$_signal_mid - 3 + (1 - $has_cab_signal) * $max_location;
-	Structure['section_sign_0'].Put(0, -2, 0.5 + rand(1), 0, 0, 0, 0, 0, 0);
-	$section_count = 1;
-$_signal_mid - 3 + (1 - $is_csatc) * $max_location;
-	Structure['orp_sign'].Put(0, 0, -0.2, 0, 0, 0, 0, 0, 0);
-$_signal_mid + 1 + (1 - $is_csatc) * $max_location;
-	Beacon.Put(12, 0, $_orp_distance);
 
 $location = $_begin;
 $pretrain_time = $pretrain_time - ($_signal_mid - $_begin) / $pretrain_speed;
