@@ -5,7 +5,7 @@ Title = Random (CS-ATC)
 Image =
 Comment = メトロ総合プラグイン CS-ATC 用ランダム路線
 
-Route = magicant\randommap\map\csatc_0.txt | magicant\randommap\map\csatc_1.txt | magicant\randommap\map\csatc_2.txt | magicant\randommap\map\csatc_3.txt | magicant\randommap\map\csatc_4.txt
+Route = magicant\randommap\map\csatc_0.txt | magicant\randommap\map\csatc_1.txt | magicant\randommap\map\csatc_2.txt | magicant\randommap\map\csatc_3.txt | magicant\randommap\map\csatc_4.txt | magicant\randommap\map\csatc_5.txt | magicant\randommap\map\csatc_6.txt | magicant\randommap\map\csatc_7.txt | magicant\randommap\map\csatc_8.txt | magicant\randommap\map\csatc_9.txt
 
 VehicleTitle = クリアカー (CS-ATC)
 Vehicle = magicant\clearcar2\Vehicle_csatc.txt

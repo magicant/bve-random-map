@@ -5,7 +5,7 @@ Title = Random (swp2)
 Image =
 Comment = swp2.dll 用ランダム路線
 
-Route = magicant\randommap\map\swp2_0.txt | magicant\randommap\map\swp2_1.txt | magicant\randommap\map\swp2_2.txt | magicant\randommap\map\swp2_3.txt | magicant\randommap\map\swp2_4.txt
+Route = magicant\randommap\map\swp2_0.txt | magicant\randommap\map\swp2_1.txt | magicant\randommap\map\swp2_2.txt | magicant\randommap\map\swp2_3.txt | magicant\randommap\map\swp2_4.txt | magicant\randommap\map\swp2_5.txt | magicant\randommap\map\swp2_6.txt | magicant\randommap\map\swp2_7.txt | magicant\randommap\map\swp2_8.txt | magicant\randommap\map\swp2_9.txt
 
 VehicleTitle = クリアカー (swp2)
 Vehicle = magicant\clearcar2\Vehicle_swp2.txt

@@ -1,9 +1,10 @@
 #!/bin/bash
 
 security_types=(csatc snp swp2)
-files_per_security=5
+files_per_security=10
 stations_per_file=13 # including the first and last stations
-station_rate=29490 # < 32768
+min_station_rate=27853 # < max_station_rate
+max_station_rate=31130 # < 32768
 terminal_rate=16384 # <= 32768
 
 set -eu
@@ -104,6 +105,7 @@ build_file() {
 
     current_part_file="../map_parts/last.txt"
     station_count=0
+    station_rate=$((min_station_rate + RANDOM % (max_station_rate - min_station_rate)))
 
     if [ "$RANDOM" -ge "$terminal_rate" ]
     then
