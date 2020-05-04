@@ -19,7 +19,7 @@ Section.SetSpeedLimit(0);
 	Beacon.Put(1001, -1, 2); // メトロ総合プラグイン互換モードに切り替える
 	Beacon.Put(34, -1, floor(rand(10000)) * 100 + floor(rand(27))); // 列車番号
 
-$speed_limit_beacon_type = 9999999;
+$speed_limit_beacon_type = 1006;
 $speed_limit_begin_beacon_type = 9999999;
 $speed_limit_begin_beacon_margin = 9999999;
 $speed_limit_end_beacon_type = 9999999;
