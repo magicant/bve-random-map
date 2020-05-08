@@ -17,6 +17,7 @@ Section.SetSpeedLimit(0);
 
 0;
 	Beacon.Put(1001, -1, 2); // メトロ総合プラグイン互換モードに切り替える
+	Beacon.Put(100, 0, 2); // 小田急線向け ATS プラグインを CS-ATC に切り替える
 	Beacon.Put(34, -1, floor(rand(10000)) * 100 + floor(rand(27))); // 列車番号
 
 $speed_limit_beacon_type = 1006;
