@@ -103,6 +103,7 @@ map フォルダーにある build.sh というシェルスクリプトファイ
  - `$station_500m_beacon_type` = 停車駅の停止位置の 500 メートル手前に設置する地上子の種別番号。
  - `$station_10m5_beacon_type` = 停車駅の停止位置の 10.5 メートル手前に設置する地上子の種別番号。
  - `$station_door_beacon_type` = 停車駅のドアの開く側を指示する地上子の種別番号。
+ - `$station_and_platform_door_beacon_type` = 一つ先の停車駅の停止位置とホームドアの有無を指示する地上子の番号。(小田急線向け ATS プラグイン用)
  - `$platform_door_beacon_type` = 停車駅のホームドアの有無を指示する地上子の種別番号。
  - `$ats_stop_beacon_type` = ATS-P 即時停止地上子の種別番号。
  - `$ats_stop_beacon_section` = ATS-P 即時停止地上子に対応させる閉塞。

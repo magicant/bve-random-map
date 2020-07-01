@@ -15,6 +15,8 @@ BveTs Map 2.02
 //  $station_abs_beacon_type = TASC 停止位置設定地上子の番号
 //  $station_500m_beacon_type = 停止位置 500 メートル手前に置く地上子の番号
 //  $station_10m5_beacon_type = 停止位置 10.5 メートル手前に置く地上子の番号
+//  $station_and_platform_door_beacon_type =
+//    一つ先の停車駅の停止位置とホームドアの有無を指示する地上子の番号
 //  $conductor_timing_beacon_type = 発車合図タイミングを設定する地上子の番号
 //  $random = 駅を通過するかどうか決める乱数
 //
@@ -30,6 +32,11 @@ $__pass = $is_express * ceil(floor(($random / 256) % 4) / 4);
 // 0 メートル地点に TASC 地上子を置く。
 $__pass * $max_location;
 	Beacon.Put($station_abs_beacon_type, 0, $following_station_location_1);
+
+// 前の停車駅に TASC 地上子を置く。
+$preceding_stop_location - 5 + $__pass * $max_location;
+	Beacon.Put($station_and_platform_door_beacon_type, 0,
+		floor($following_station_location_1) * 10 + 0);
 
 // 500 メートル手前に駅停車予告地上子を置く。
 // 駅が近いときは 500 メートルよりも近い位置に設置することになる。

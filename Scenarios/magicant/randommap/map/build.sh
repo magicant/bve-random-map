@@ -1,6 +1,6 @@
 #!/bin/bash
 
-security_types=(csatc snp swp2)
+security_types=(csatc oerato snp swp2)
 files_per_security=10
 stations_per_file=13 # including the first and last stations
 min_station_rate=27853 # < max_station_rate
