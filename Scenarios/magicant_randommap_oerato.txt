@@ -7,7 +7,7 @@ Comment = 小田急線向け ATS プラグイン ATO/CS-ATC 用ランダム路�
 
 Route = magicant\randommap\map\oerato_0.txt | magicant\randommap\map\oerato_1.txt | magicant\randommap\map\oerato_2.txt | magicant\randommap\map\oerato_3.txt | magicant\randommap\map\oerato_4.txt | magicant\randommap\map\oerato_5.txt | magicant\randommap\map\oerato_6.txt | magicant\randommap\map\oerato_7.txt | magicant\randommap\map\oerato_8.txt | magicant\randommap\map\oerato_9.txt
 
-VehicleTitle = 小田急 4000 形
-Vehicle = oer-meel\odakyu4000\Vehicle1_2thGen.txt | oer-meel\odakyu4000\vehicle2_2thGen.txt
+VehicleTitle = クリアカー (小田急線向け ATS プラグイン)
+Vehicle = magicant\clearcar2\Vehicle_oer.txt
 
 Author = magicant, oer-meel
