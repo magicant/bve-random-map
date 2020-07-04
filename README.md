@@ -122,7 +122,9 @@ ATO をオンにした場合は、以下をすべて満たした状態で `0` �
    - このファイルのライセンスは [LGPL 2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html) です。ソースコードは [GitHub のレポジトリー](https://github.com/magicant/bve-autopilot)に公開されています。
  - DetailManager.dll プラグイン
    - このファイルは Rock_On さんが公開されたソースコードを magicant がコンパイルしたもので、著作権フリーです。
- - 小田急線向け ATS プラグイン
+ - メトロ総合プラグイン (Ats.dll)
+   - このファイルは原作者の定めた条件に従ってのみ再配布可能です。
+ - 小田急線向け ATS プラグイン (OdakyuAts.dll)
    - このファイルは原作者の定めた条件に従ってのみ再配布可能です。
 
 ## 謝辞
@@ -132,6 +134,7 @@ ATO をオンにした場合は、以下をすべて満たした状態で `0` �
  - mackoy さんは [Bve trainsim](http://bvets.net/) を開発なさいました。
  - Rock_On さんは [DetailManager プラグイン](https://bitbucket.org/mikangogo/detailmanager)を開発なさいました。
  - Rock_On さんと Unicorn さんは [GeneralAtsPlugin](https://github.com/uifnm/GeneralAtsPlugin) を開発なさいました。
+ - 高橋うさおさんは[メトロ総合プラグイン](http://www.nozomi.vc/71_ats/)を開発なさいました。
  - oer-meel さんは[小田急線向け ATS プラグイン](https://souko.weebly.com/oer-pi-distribution.html)を開発なさいました。
  - 樽ﾓﾄさんは [Nagoya_Common 共通ストラクチャパック](https://kumoha12.web.fc2.com/Common.html)を制作なさいました。
 
