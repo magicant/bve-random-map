@@ -12,7 +12,7 @@
 
 このシナリオデータでは以下のデータを参照しています。これらもダウンロードして同じ Scenarios フォルダーに入れてから起動してください。
 
-* [Nagoya_Common 共通ストラクチャパック](https://kumoha12.web.fc2.com/Common.html)
+* [Nagoya_Common 共通ストラクチャパック](https://moffbarrel.stars.ne.jp/Nagoya_Common.html)
 * [GeneralAtsPlugin](https://github.com/uifnm/GeneralAtsPlugin) (※ GeneralAtsPlugin だけダウンロードするよりも [JR 線車両パック](https://github.com/mikangogo/JRTrainPack)ごとダウンロードする方が簡単です)
 
 大概の Windows パソコンには Visual C++ 再頒布可能パッケージがインストールされていると思いますが、もしインストールされていない場合は[マイクロソフトのサイト](https://support.microsoft.com/ja-jp/help/2977003/the-latest-supported-visual-c-downloads)から vc_redist.x86.exe をダウンロードしてインストールしてください。これがインストールされていないと、同梱のサンプル車両のプラグインが動作しません。
